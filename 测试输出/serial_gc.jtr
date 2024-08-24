@@ -1,0 +1,808 @@
+#Test Results (version 2)
+#Sat Aug 24 14:35:01 CST 2024
+#-----testdescription-----
+$file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java
+$root=/home/webliu/TencentKona-17/test/hotspot/jtreg
+keywords=bug1234567 othervm driver
+library=/test/lib
+modules=java.base/jdk.internal.misc java.management
+run=USER_SPECIFIED build jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:. -XX\:+UnlockDiagnosticVMOptions -XX\:+WhiteBoxAPI -XX\:+UseSerialGC -Xlog\:gc* -Xlog\:gc\:serial_gc.log  LRUCacheTest\n
+source=LRUCacheTest.java
+title=Test LRU Cache with Whitebox API using different GC methods and collect GC logs
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java
+elapsed=21808 0\:00\:21.808
+end=Sat Aug 24 14\:35\:01 CST 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=qaq.
+javatestOS=Linux 5.15.153.1-microsoft-standard-WSL2 (amd64)
+javatestVersion=6.0-ea+b24-2024-08-23-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.5 dev 0
+modules=java.base/jdk.internal.misc java.management
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build build driver build compile main
+start=Sat Aug 24 14\:34\:39 CST 2024
+test=gc/LRUCacheTest.java
+testJDK=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk
+testJDK_OS=[name\:Linux,arch\:amd64,version\:5.15.153.1-microsoft-standard-WSL2,family\:linux,simple_arch\:x64,simple_version\:5.15,processors\:16,maxMemory\:8198123520,maxSwap\:2147483648]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=5.15.153.1-microsoft-standard-WSL2
+totalTime=21811
+user.name=webliu
+work=/home/webliu/TencentKona-17/JTwork/gc
+
+#section:script_messages
+----------messages:(7/467)----------
+JDK under test: /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk
+openjdk version "17.0.11-internal" 2024-04-16
+OpenJDK Runtime Environment (build 17.0.11-internal+0-adhoc.webliu.TencentKona-17)
+OpenJDK 64-Bit Server VM (build 17.0.11-internal+0-adhoc.webliu.TencentKona-17, mixed mode)
+Library /test/lib; kind: packages
+   source directory: /home/webliu/TencentKona-17/test/lib
+   class directory: /home/webliu/TencentKona-17/JTwork/classes/test/lib
+
+#section:build
+----------messages:(5/218)----------
+command: build jdk.test.whitebox.WhiteBox
+reason: User specified action: run build jdk.test.whitebox.WhiteBox 
+started: Sat Aug 24 14:34:40 CST 2024
+finished: Sat Aug 24 14:34:40 CST 2024
+elapsed time (seconds): 0.002
+result: Passed. All files up to date
+
+#section:build
+----------messages:(5/199)----------
+command: build jdk.test.lib.helpers.ClassFileInstaller
+reason: Named class compiled on demand
+started: Sat Aug 24 14:34:40 CST 2024
+finished: Sat Aug 24 14:34:40 CST 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/442)----------
+command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
+started: Sat Aug 24 14:34:40 CST 2024
+Mode: othervm
+Additional options from @modules: --add-modules java.base,java.management --add-exports java.base/jdk.internal.misc=ALL-UNNAMED
+finished: Sat Aug 24 14:34:40 CST 2024
+elapsed time (seconds): 0.257
+----------configuration:(4/111)----------
+Boot Layer
+  add modules: java.base java.management   
+  add exports: java.base/jdk.internal.misc ALL-UNNAMED
+
+----------System.out:(0/0)----------
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(28/1948)*----------
+cd /home/webliu/TencentKona-17/JTwork/scratch && \\
+DISPLAY=:0 \\
+HOME=/home/webliu \\
+JTREG_HOME=/home/webliu/jtreg/build/images/jtreg \\
+LANG=C.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+WAYLAND_DISPLAY=wayland-0 \\
+XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \\
+CLASSPATH=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/JTwork/classes/test/lib:/home/webliu/TencentKona-17/test/lib:/home/webliu/jtreg/build/images/jtreg/lib/javatest.jar:/home/webliu/jtreg/build/images/jtreg/lib/jtreg.jar \\
+    /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk/bin/java \\
+        -Dtest.vm.opts= \\
+        -Dtest.tool.vm.opts= \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts= \\
+        -Dtest.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dcompile.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dtest.timeout.factor=1.0 \\
+        -Dtest.root=/home/webliu/TencentKona-17/test/hotspot/jtreg \\
+        -Dtest.name=gc/LRUCacheTest.java \\
+        -Dtest.file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java \\
+        -Dtest.src=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc \\
+        -Dtest.src.path=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/test/lib \\
+        -Dtest.classes=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d \\
+        -Dtest.class.path=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/JTwork/classes/test/lib \\
+        -Dtest.modules='java.base/jdk.internal.misc java.management' \\
+        --add-modules java.base,java.management \\
+        --add-exports java.base/jdk.internal.misc=ALL-UNNAMED \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/webliu/TencentKona-17/JTwork/gc/LRUCacheTest.d/driver.0.jta jdk.test.whitebox.WhiteBox
+result: Passed. Execution successful
+
+#section:build
+----------messages:(7/214)----------
+command: build LRUCacheTest
+reason: Named class compiled on demand
+started: Sat Aug 24 14:34:40 CST 2024
+Test directory:
+  compile: LRUCacheTest
+finished: Sat Aug 24 14:34:41 CST 2024
+elapsed time (seconds): 1.522
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/384)----------
+command: compile /home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java
+reason: .class file out of date or does not exist
+started: Sat Aug 24 14:34:40 CST 2024
+Additional options from @modules: --add-modules java.base,java.management --add-exports java.base/jdk.internal.misc=ALL-UNNAMED
+Mode: othervm
+finished: Sat Aug 24 14:34:41 CST 2024
+elapsed time (seconds): 1.521
+----------configuration:(9/460)----------
+javac compilation environment
+  add modules: java.base java.management   
+  add exports: java.base/jdk.internal.misc ALL-UNNAMED
+  source path: /home/webliu/TencentKona-17/test/hotspot/jtreg/gc 
+               /home/webliu/TencentKona-17/test/lib 
+  class path:  /home/webliu/TencentKona-17/test/hotspot/jtreg/gc 
+               /home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d 
+               /home/webliu/TencentKona-17/JTwork/classes/test/lib 
+
+----------rerun:(25/1475)*----------
+cd /home/webliu/TencentKona-17/JTwork/scratch && \\
+DISPLAY=:0 \\
+HOME=/home/webliu \\
+JTREG_HOME=/home/webliu/jtreg/build/images/jtreg \\
+LANG=C.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+WAYLAND_DISPLAY=wayland-0 \\
+XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \\
+    /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk/bin/javac \\
+        -J-Dtest.vm.opts= \\
+        -J-Dtest.tool.vm.opts= \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts= \\
+        -J-Dtest.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -J-Dcompile.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -J-Dtest.timeout.factor=1.0 \\
+        -J-Dtest.root=/home/webliu/TencentKona-17/test/hotspot/jtreg \\
+        -J-Dtest.name=gc/LRUCacheTest.java \\
+        -J-Dtest.file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java \\
+        -J-Dtest.src=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc \\
+        -J-Dtest.src.path=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/test/lib \\
+        -J-Dtest.classes=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d \\
+        -J-Dtest.class.path=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/JTwork/classes/test/lib \\
+        -J-Dtest.modules='java.base/jdk.internal.misc java.management' \\
+        @/home/webliu/TencentKona-17/JTwork/gc/LRUCacheTest.d/compile.1.jta
+----------System.out:(0/0)----------
+----------System.err:(0/0)----------
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/596)----------
+command: main -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -XX:+UseSerialGC -Xlog:gc* -Xlog:gc:serial_gc.log LRUCacheTest
+reason: User specified action: run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -XX:+UseSerialGC -Xlog:gc* -Xlog:gc:serial_gc.log LRUCacheTest 
+started: Sat Aug 24 14:34:41 CST 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.management --add-exports java.base/jdk.internal.misc=ALL-UNNAMED
+finished: Sat Aug 24 14:35:01 CST 2024
+elapsed time (seconds): 19.688
+----------configuration:(4/111)----------
+Boot Layer
+  add modules: java.base java.management   
+  add exports: java.base/jdk.internal.misc ALL-UNNAMED
+
+----------System.out:(576/24374)----------
+[0.003s][info][gc] Using Serial
+[0.004s][info][gc,init] Version: 17.0.11-internal+0-adhoc.webliu.TencentKona-17 (release)
+[0.004s][info][gc,init] CPUs: 16 total, 16 available
+[0.004s][info][gc,init] Memory: 7818M
+[0.004s][info][gc,init] Large Page Support: Disabled
+[0.004s][info][gc,init] NUMA Support: Disabled
+[0.004s][info][gc,init] Compressed Oops: Enabled (32-bit)
+[0.004s][info][gc,init] Heap Min Capacity: 8M
+[0.004s][info][gc,init] Heap Initial Capacity: 124M
+[0.004s][info][gc,init] Heap Max Capacity: 1956M
+[0.004s][info][gc,init] Pre-touch: Disabled
+[0.004s][info][gc,metaspace] CDS archive(s) not mapped
+[0.004s][info][gc,metaspace] Compressed class space mapped at: 0x0000000100000000-0x0000000140000000, reserved size: 1073741824
+[0.004s][info][gc,metaspace] Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x140000000
+Max heap size: 1890.81 MB
+Cache size: 1
+Total operations: 2129811
+Operations: 0
+Live objects in old region: 0
+Operations: 10000
+Live objects in old region: 0
+Operations: 20000
+Live objects in old region: 0
+[0.328s][info][gc,start    ] GC(0) Pause Young (Allocation Failure)
+[0.350s][info][gc,heap     ] GC(0) DefNew: 33856K(38080K)->4224K(38080K) Eden: 33856K(33856K)->0K(33856K) From: 0K(4224K)->4224K(4224K)
+[0.350s][info][gc,heap     ] GC(0) Tenured: 0K(84672K)->21134K(84672K)
+[0.350s][info][gc,metaspace] GC(0) Metaspace: 8269K(8448K)->8269K(8448K) NonClass: 7505K(7616K)->7505K(7616K) Class: 763K(832K)->763K(832K)
+[0.350s][info][gc          ] GC(0) Pause Young (Allocation Failure) 33M->24M(119M) 21.542ms
+[0.350s][info][gc,cpu      ] GC(0) User=0.01s Sys=0.01s Real=0.03s
+Operations: 30000
+Live objects in old region: 19502
+Operations: 40000
+Live objects in old region: 19405
+Operations: 50000
+Live objects in old region: 19306
+[0.382s][info][gc,start    ] GC(1) Pause Young (Allocation Failure)
+[0.411s][info][gc,heap     ] GC(1) DefNew: 38080K(38080K)->4224K(38080K) Eden: 33856K(33856K)->0K(33856K) From: 4224K(4224K)->4224K(4224K)
+[0.411s][info][gc,heap     ] GC(1) Tenured: 21134K(84672K)->52354K(84672K)
+[0.411s][info][gc,metaspace] GC(1) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[0.411s][info][gc          ] GC(1) Pause Young (Allocation Failure) 57M->55M(119M) 29.263ms
+[0.411s][info][gc,cpu      ] GC(1) User=0.03s Sys=0.01s Real=0.03s
+Operations: 60000
+Live objects in old region: 48010
+Operations: 70000
+Live objects in old region: 47780
+Operations: 80000
+Live objects in old region: 47566
+[0.441s][info][gc,start    ] GC(2) Pause Young (Allocation Failure)
+[0.472s][info][gc,heap     ] GC(2) DefNew: 38080K(38080K)->4223K(38080K) Eden: 33856K(33856K)->0K(33856K) From: 4224K(4224K)->4223K(4224K)
+[0.472s][info][gc,heap     ] GC(2) Tenured: 52354K(84672K)->84214K(84672K)
+[0.472s][info][gc,metaspace] GC(2) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[0.472s][info][gc          ] GC(2) Pause Young (Allocation Failure) 88M->86M(119M) 31.015ms
+[0.472s][info][gc,cpu      ] GC(2) User=0.00s Sys=0.03s Real=0.03s
+Operations: 90000
+Live objects in old region: 76166
+Operations: 100000
+Live objects in old region: 75783
+Operations: 110000
+Live objects in old region: 75439
+[0.508s][info][gc,start    ] GC(3) Pause Young (Allocation Failure)
+[0.544s][info][gc          ] GC(3) Pause Young (Allocation Failure) 119M->117M(150M) 35.442ms
+[0.544s][info][gc,cpu      ] GC(3) User=0.01s Sys=0.02s Real=0.04s
+[0.544s][info][gc,start    ] GC(4) Pause Full (Allocation Failure)
+[0.544s][info][gc,phases,start] GC(4) Phase 1: Mark live objects
+[0.560s][info][gc,phases      ] GC(4) Phase 1: Mark live objects 16.209ms
+[0.560s][info][gc,phases,start] GC(4) Phase 2: Compute new object addresses
+[0.579s][info][gc,phases      ] GC(4) Phase 2: Compute new object addresses 18.216ms
+[0.579s][info][gc,phases,start] GC(4) Phase 3: Adjust pointers
+[0.601s][info][gc,phases      ] GC(4) Phase 3: Adjust pointers 22.418ms
+[0.601s][info][gc,phases,start] GC(4) Phase 4: Move objects
+[0.602s][info][gc,phases      ] GC(4) Phase 4: Move objects 0.687ms
+[0.602s][info][gc,heap        ] GC(4) DefNew: 38079K(38080K)->4185K(87168K) Eden: 33856K(33856K)->4185K(77504K) From: 4223K(4224K)->0K(9664K)
+[0.602s][info][gc,heap        ] GC(4) Tenured: 84214K(84672K)->116159K(193600K)
+[0.602s][info][gc,metaspace   ] GC(4) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[0.602s][info][gc             ] GC(4) Pause Full (Allocation Failure) 117M->117M(274M) 58.327ms
+[0.602s][info][gc,cpu         ] GC(4) User=0.06s Sys=0.00s Real=0.06s
+Operations: 120000
+Live objects in old region: 105173
+Operations: 130000
+Live objects in old region: 104646
+Operations: 140000
+Live objects in old region: 104161
+Operations: 150000
+Live objects in old region: 103691
+Operations: 160000
+Live objects in old region: 103214
+Operations: 170000
+Live objects in old region: 102711
+[0.708s][info][gc,start       ] GC(5) Pause Young (Allocation Failure)
+[0.789s][info][gc,heap        ] GC(5) DefNew: 77504K(87168K)->9663K(87168K) Eden: 77504K(77504K)->0K(77504K) From: 0K(9664K)->9663K(9664K)
+[0.789s][info][gc,heap        ] GC(5) Tenured: 116159K(193600K)->179202K(193600K)
+[0.789s][info][gc,metaspace   ] GC(5) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[0.789s][info][gc             ] GC(5) Pause Young (Allocation Failure) 189M->184M(274M) 80.707ms
+[0.789s][info][gc,cpu         ] GC(5) User=0.08s Sys=0.00s Real=0.08s
+Operations: 180000
+Live objects in old region: 163066
+Operations: 190000
+Live objects in old region: 162338
+Operations: 200000
+Live objects in old region: 161557
+Operations: 210000
+Live objects in old region: 160793
+Operations: 220000
+Live objects in old region: 160049
+Operations: 230000
+Live objects in old region: 159295
+Operations: 240000
+Live objects in old region: 158534
+[1.004s][info][gc,start       ] GC(6) Pause Young (Allocation Failure)
+[1.093s][info][gc             ] GC(6) Pause Young (Allocation Failure) 260M->254M(329M) 89.074ms
+[1.093s][info][gc,cpu         ] GC(6) User=0.06s Sys=0.03s Real=0.09s
+[1.093s][info][gc,start       ] GC(7) Pause Full (Allocation Failure)
+[1.093s][info][gc,phases,start] GC(7) Phase 1: Mark live objects
+[1.124s][info][gc,phases      ] GC(7) Phase 1: Mark live objects 31.125ms
+[1.124s][info][gc,phases,start] GC(7) Phase 2: Compute new object addresses
+[1.163s][info][gc,phases      ] GC(7) Phase 2: Compute new object addresses 38.777ms
+[1.163s][info][gc,phases,start] GC(7) Phase 3: Adjust pointers
+[1.210s][info][gc,phases      ] GC(7) Phase 3: Adjust pointers 46.441ms
+[1.210s][info][gc,phases,start] GC(7) Phase 4: Move objects
+[1.211s][info][gc,phases      ] GC(7) Phase 4: Move objects 1.449ms
+[1.212s][info][gc,heap        ] GC(7) DefNew: 87167K(87168K)->9604K(188032K) Eden: 77504K(77504K)->9604K(167168K) From: 9663K(9664K)->0K(20864K)
+[1.212s][info][gc,heap        ] GC(7) Tenured: 179202K(193600K)->250623K(417708K)
+[1.212s][info][gc,metaspace   ] GC(7) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[1.212s][info][gc             ] GC(7) Pause Full (Allocation Failure) 254M->254M(591M) 118.928ms
+[1.212s][info][gc,cpu         ] GC(7) User=0.12s Sys=0.00s Real=0.12s
+Operations: 250000
+Live objects in old region: 223534
+Operations: 260000
+Live objects in old region: 222540
+Operations: 270000
+Live objects in old region: 221493
+Operations: 280000
+Live objects in old region: 220481
+Operations: 290000
+Live objects in old region: 219474
+Operations: 300000
+Live objects in old region: 218458
+Operations: 310000
+Live objects in old region: 217423
+Operations: 320000
+Live objects in old region: 216407
+Operations: 330000
+Live objects in old region: 215426
+Operations: 340000
+Live objects in old region: 214376
+Operations: 350000
+Live objects in old region: 213399
+Operations: 360000
+Live objects in old region: 212397
+Operations: 370000
+Live objects in old region: 211396
+Operations: 380000
+Live objects in old region: 210415
+[1.662s][info][gc,start       ] GC(8) Pause Young (Allocation Failure)
+[1.834s][info][gc,heap        ] GC(8) DefNew: 167168K(188032K)->20863K(188032K) Eden: 167168K(167168K)->0K(167168K) From: 0K(20864K)->20863K(20864K)
+[1.834s][info][gc,heap        ] GC(8) Tenured: 250623K(417708K)->383740K(417708K)
+[1.834s][info][gc,metaspace   ] GC(8) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[1.834s][info][gc             ] GC(8) Pause Young (Allocation Failure) 407M->395M(591M) 172.122ms
+[1.834s][info][gc,cpu         ] GC(8) User=0.13s Sys=0.04s Real=0.17s
+Operations: 390000
+Live objects in old region: 335599
+Operations: 400000
+Live objects in old region: 333954
+Operations: 410000
+Live objects in old region: 332416
+Operations: 420000
+Live objects in old region: 330862
+Operations: 430000
+Live objects in old region: 329303
+Operations: 440000
+Live objects in old region: 327775
+Operations: 450000
+Live objects in old region: 326232
+Operations: 460000
+Live objects in old region: 324673
+Operations: 470000
+Live objects in old region: 323145
+Operations: 480000
+Live objects in old region: 321549
+Operations: 490000
+Live objects in old region: 320085
+Operations: 500000
+Live objects in old region: 318653
+Operations: 510000
+Live objects in old region: 317163
+Operations: 520000
+Live objects in old region: 315717
+Operations: 530000
+Live objects in old region: 314289
+[2.426s][info][gc,start       ] GC(9) Pause Young (Allocation Failure)
+[3.089s][info][gc             ] GC(9) Pause Young (Allocation Failure) 558M->542M(705M) 663.199ms
+[3.089s][info][gc,cpu         ] GC(9) User=0.15s Sys=0.51s Real=0.66s
+[3.089s][info][gc,start       ] GC(10) Pause Full (Allocation Failure)
+[3.089s][info][gc,phases,start] GC(10) Phase 1: Mark live objects
+[3.153s][info][gc,phases      ] GC(10) Phase 1: Mark live objects 64.034ms
+[3.153s][info][gc,phases,start] GC(10) Phase 2: Compute new object addresses
+[3.236s][info][gc,phases      ] GC(10) Phase 2: Compute new object addresses 82.546ms
+[3.236s][info][gc,phases,start] GC(10) Phase 3: Adjust pointers
+[3.344s][info][gc,phases      ] GC(10) Phase 3: Adjust pointers 107.747ms
+[3.344s][info][gc,phases,start] GC(10) Phase 4: Move objects
+[3.407s][info][gc,phases      ] GC(10) Phase 4: Move objects 63.258ms
+[3.410s][info][gc,heap        ] GC(10) DefNew: 188031K(188032K)->0K(400192K) Eden: 167168K(167168K)->0K(355776K) From: 20863K(20864K)->0K(44416K)
+[3.410s][info][gc,heap        ] GC(10) Tenured: 383740K(417708K)->533504K(889176K)
+[3.410s][info][gc,metaspace   ] GC(10) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[3.410s][info][gc             ] GC(10) Pause Full (Allocation Failure) 542M->521M(1259M) 320.411ms
+[3.410s][info][gc,cpu         ] GC(10) User=0.31s Sys=0.01s Real=0.33s
+Operations: 540000
+Live objects in old region: 470211
+Operations: 550000
+Live objects in old region: 467990
+Operations: 560000
+Live objects in old region: 465811
+Operations: 570000
+Live objects in old region: 463622
+Operations: 580000
+Live objects in old region: 461475
+Operations: 590000
+Live objects in old region: 459299
+Operations: 600000
+Live objects in old region: 457069
+Operations: 610000
+Live objects in old region: 454814
+Operations: 620000
+Live objects in old region: 452708
+Operations: 630000
+Live objects in old region: 450580
+Operations: 640000
+Live objects in old region: 448356
+Operations: 650000
+Live objects in old region: 446229
+Operations: 660000
+Live objects in old region: 444089
+Operations: 670000
+Live objects in old region: 442033
+Operations: 680000
+Live objects in old region: 439920
+Operations: 690000
+Live objects in old region: 437868
+Operations: 700000
+Live objects in old region: 435880
+Operations: 710000
+Live objects in old region: 433814
+Operations: 720000
+Live objects in old region: 431797
+Operations: 730000
+Live objects in old region: 429675
+Operations: 740000
+Live objects in old region: 427629
+Operations: 750000
+Live objects in old region: 425684
+Operations: 760000
+Live objects in old region: 423708
+Operations: 770000
+Live objects in old region: 421702
+Operations: 780000
+Live objects in old region: 419749
+Operations: 790000
+Live objects in old region: 417751
+Operations: 800000
+Live objects in old region: 415816
+Operations: 810000
+Live objects in old region: 413915
+Operations: 820000
+Live objects in old region: 411912
+Operations: 830000
+Live objects in old region: 410024
+Operations: 840000
+Live objects in old region: 408158
+Operations: 850000
+Live objects in old region: 406193
+[5.244s][info][gc,start       ] GC(11) Pause Young (Allocation Failure)
+[5.545s][info][gc,heap        ] GC(11) DefNew: 355776K(400192K)->44416K(400192K) Eden: 355776K(355776K)->0K(355776K) From: 0K(44416K)->44416K(44416K)
+[5.545s][info][gc,heap        ] GC(11) Tenured: 533504K(889176K)->800493K(889176K)
+[5.545s][info][gc,metaspace   ] GC(11) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[5.545s][info][gc             ] GC(11) Pause Young (Allocation Failure) 868M->825M(1259M) 300.307ms
+[5.545s][info][gc,cpu         ] GC(11) User=0.20s Sys=0.10s Real=0.30s
+Operations: 860000
+Live objects in old region: 661529
+Operations: 870000
+Live objects in old region: 658438
+Operations: 880000
+Live objects in old region: 655275
+Operations: 890000
+Live objects in old region: 652171
+Operations: 900000
+Live objects in old region: 649073
+Operations: 910000
+Live objects in old region: 646112
+Operations: 920000
+Live objects in old region: 643146
+Operations: 930000
+Live objects in old region: 640182
+Operations: 940000
+Live objects in old region: 637165
+Operations: 950000
+Live objects in old region: 634181
+Operations: 960000
+Live objects in old region: 631251
+Operations: 970000
+Live objects in old region: 628195
+Operations: 980000
+Live objects in old region: 625259
+Operations: 990000
+Live objects in old region: 622329
+Operations: 1000000
+Live objects in old region: 619429
+Operations: 1010000
+Live objects in old region: 616578
+Operations: 1020000
+Live objects in old region: 613665
+Operations: 1030000
+Live objects in old region: 610751
+Operations: 1040000
+Live objects in old region: 607888
+Operations: 1050000
+Live objects in old region: 605058
+Operations: 1060000
+Live objects in old region: 602306
+Operations: 1070000
+Live objects in old region: 599449
+Operations: 1080000
+Live objects in old region: 596670
+Operations: 1090000
+Live objects in old region: 593784
+Operations: 1100000
+Live objects in old region: 590944
+Operations: 1110000
+Live objects in old region: 588127
+Operations: 1120000
+Live objects in old region: 585396
+Operations: 1130000
+Live objects in old region: 582614
+Operations: 1140000
+Live objects in old region: 579923
+Operations: 1150000
+Live objects in old region: 577255
+Operations: 1160000
+Live objects in old region: 574564
+[7.901s][info][gc,start       ] GC(12) Pause Young (Allocation Failure)
+[8.577s][info][gc             ] GC(12) Pause Young (Allocation Failure) 1172M->1126M(1474M) 675.987ms
+[8.578s][info][gc,cpu         ] GC(12) User=0.26s Sys=0.42s Real=0.67s
+[8.578s][info][gc,start       ] GC(13) Pause Full (Allocation Failure)
+[8.578s][info][gc,phases,start] GC(13) Phase 1: Mark live objects
+[8.788s][info][gc,phases      ] GC(13) Phase 1: Mark live objects 210.542ms
+[8.788s][info][gc,phases,start] GC(13) Phase 2: Compute new object addresses
+[8.937s][info][gc,phases      ] GC(13) Phase 2: Compute new object addresses 148.835ms
+[8.937s][info][gc,phases,start] GC(13) Phase 3: Adjust pointers
+[9.128s][info][gc,phases      ] GC(13) Phase 3: Adjust pointers 190.791ms
+[9.128s][info][gc,phases,start] GC(13) Phase 4: Move objects
+[9.296s][info][gc,phases      ] GC(13) Phase 4: Move objects 168.244ms
+[9.298s][info][gc,heap        ] GC(13) DefNew: 400192K(400192K)->0K(600896K) Eden: 355776K(355776K)->0K(534144K) From: 44416K(44416K)->0K(66752K)
+[9.298s][info][gc,heap        ] GC(13) Tenured: 800493K(889176K)->963616K(1335296K)
+[9.298s][info][gc,metaspace   ] GC(13) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
+[9.298s][info][gc             ] GC(13) Pause Full (Allocation Failure) 1126M->941M(1890M) 720.255ms
+[9.298s][info][gc,cpu         ] GC(13) User=0.72s Sys=0.00s Real=0.72s
+Operations: 1170000
+Live objects in old region: 896159
+Operations: 1180000
+Live objects in old region: 892012
+Operations: 1190000
+Live objects in old region: 887878
+Operations: 1200000
+Live objects in old region: 883685
+Operations: 1210000
+Live objects in old region: 879487
+Operations: 1220000
+Live objects in old region: 875316
+Operations: 1230000
+Live objects in old region: 871148
+Operations: 1240000
+Live objects in old region: 866971
+Operations: 1250000
+Live objects in old region: 862966
+Operations: 1260000
+Live objects in old region: 858940
+Operations: 1270000
+Live objects in old region: 854938
+Operations: 1280000
+Live objects in old region: 850901
+Operations: 1290000
+Live objects in old region: 847005
+Operations: 1300000
+Live objects in old region: 842945
+Operations: 1310000
+Live objects in old region: 838999
+Operations: 1320000
+Live objects in old region: 835143
+Operations: 1330000
+Live objects in old region: 831257
+Operations: 1340000
+Live objects in old region: 827367
+Operations: 1350000
+Live objects in old region: 823478
+Operations: 1360000
+Live objects in old region: 819592
+Operations: 1370000
+Live objects in old region: 815694
+Operations: 1380000
+Live objects in old region: 812011
+Operations: 1390000
+Live objects in old region: 808107
+Operations: 1400000
+Live objects in old region: 804367
+Operations: 1410000
+Live objects in old region: 800650
+Operations: 1420000
+Live objects in old region: 796912
+Operations: 1430000
+Live objects in old region: 793160
+Operations: 1440000
+Live objects in old region: 789348
+Operations: 1450000
+Live objects in old region: 785642
+Operations: 1460000
+Live objects in old region: 781956
+Operations: 1470000
+Live objects in old region: 778285
+Operations: 1480000
+Live objects in old region: 774657
+Operations: 1490000
+Live objects in old region: 770890
+Operations: 1500000
+Live objects in old region: 767272
+Operations: 1510000
+Live objects in old region: 763656
+Operations: 1520000
+Live objects in old region: 760105
+Operations: 1530000
+Live objects in old region: 756572
+Operations: 1540000
+Live objects in old region: 752992
+Operations: 1550000
+Live objects in old region: 749542
+Operations: 1560000
+Live objects in old region: 746010
+Operations: 1570000
+Live objects in old region: 742412
+Operations: 1580000
+Live objects in old region: 738885
+Operations: 1590000
+Live objects in old region: 735462
+Operations: 1600000
+Live objects in old region: 732007
+Operations: 1610000
+Live objects in old region: 728605
+Operations: 1620000
+Live objects in old region: 725210
+Operations: 1630000
+Live objects in old region: 721810
+Operations: 1640000
+Live objects in old region: 718436
+[13.546s][info][gc,start       ] GC(14) Pause Young (Allocation Failure)
+[14.057s][info][gc,promotion   ] GC(14) Promotion failed
+[14.057s][info][gc             ] GC(14) Pause Young (Allocation Failure) 1462M->1890M(1890M) 511.688ms
+[14.057s][info][gc,cpu         ] GC(14) User=0.40s Sys=0.11s Real=0.51s
+[14.057s][info][gc,start       ] GC(15) Pause Full (Allocation Failure)
+[14.057s][info][gc,phases,start] GC(15) Phase 1: Mark live objects
+[14.212s][info][gc,phases      ] GC(15) Phase 1: Mark live objects 154.171ms
+[14.212s][info][gc,phases,start] GC(15) Phase 2: Compute new object addresses
+[14.466s][info][gc,phases      ] GC(15) Phase 2: Compute new object addresses 254.310ms
+[14.466s][info][gc,phases,start] GC(15) Phase 3: Adjust pointers
+[14.717s][info][gc,phases      ] GC(15) Phase 3: Adjust pointers 250.438ms
+[14.717s][info][gc,phases,start] GC(15) Phase 4: Move objects
+[14.881s][info][gc,phases      ] GC(15) Phase 4: Move objects 164.400ms
+[14.881s][info][gc,heap        ] GC(15) DefNew: 534144K(600896K)->0K(600896K) Eden: 534144K(534144K)->0K(534144K) From: 0K(66752K)->0K(66752K)
+[14.881s][info][gc,heap        ] GC(15) Tenured: 963616K(1335296K)->1295821K(1335296K)
+[14.881s][info][gc,metaspace   ] GC(15) Metaspace: 8315K(8512K)->8315K(8512K) NonClass: 7552K(7680K)->7552K(7680K) Class: 763K(832K)->763K(832K)
+[14.881s][info][gc             ] GC(15) Pause Full (Allocation Failure) 1890M->1265M(1890M) 824.055ms
+[14.881s][info][gc,cpu         ] GC(15) User=0.82s Sys=0.00s Real=0.83s
+Operations: 1650000
+Live objects in old region: 1146967
+Operations: 1660000
+Live objects in old region: 1141611
+Operations: 1670000
+Live objects in old region: 1136207
+Operations: 1680000
+Live objects in old region: 1130911
+Operations: 1690000
+Live objects in old region: 1125605
+Operations: 1700000
+Live objects in old region: 1120300
+Operations: 1710000
+Live objects in old region: 1115156
+Operations: 1720000
+Live objects in old region: 1109978
+Operations: 1730000
+Live objects in old region: 1104771
+Operations: 1740000
+Live objects in old region: 1099672
+Operations: 1750000
+Live objects in old region: 1094575
+Operations: 1760000
+Live objects in old region: 1089323
+Operations: 1770000
+Live objects in old region: 1084178
+Operations: 1780000
+Live objects in old region: 1079176
+Operations: 1790000
+Live objects in old region: 1074101
+Operations: 1800000
+Live objects in old region: 1069143
+Operations: 1810000
+Live objects in old region: 1064200
+Operations: 1820000
+Live objects in old region: 1059184
+Operations: 1830000
+Live objects in old region: 1054236
+Operations: 1840000
+Live objects in old region: 1049380
+Operations: 1850000
+Live objects in old region: 1044394
+Operations: 1860000
+Live objects in old region: 1039537
+Operations: 1870000
+Live objects in old region: 1034661
+Operations: 1880000
+Live objects in old region: 1029841
+Operations: 1890000
+Live objects in old region: 1024924
+Operations: 1900000
+Live objects in old region: 1020088
+Operations: 1910000
+Live objects in old region: 1015285
+Operations: 1920000
+Live objects in old region: 1010499
+Operations: 1930000
+Live objects in old region: 1005805
+Operations: 1940000
+Live objects in old region: 1001129
+Operations: 1950000
+Live objects in old region: 996377
+Operations: 1960000
+Live objects in old region: 991786
+Operations: 1970000
+Live objects in old region: 987118
+Operations: 1980000
+Live objects in old region: 982452
+Operations: 1990000
+Live objects in old region: 977808
+Operations: 2000000
+Live objects in old region: 973217
+Operations: 2010000
+Live objects in old region: 968689
+Operations: 2020000
+Live objects in old region: 964104
+Operations: 2030000
+Live objects in old region: 959587
+Operations: 2040000
+Live objects in old region: 955115
+Operations: 2050000
+Live objects in old region: 950676
+Operations: 2060000
+Live objects in old region: 946217
+Operations: 2070000
+Live objects in old region: 941836
+Operations: 2080000
+Live objects in old region: 937511
+Operations: 2090000
+Live objects in old region: 933159
+Operations: 2100000
+Live objects in old region: 928752
+Operations: 2110000
+Live objects in old region: 924387
+Operations: 2120000
+Live objects in old region: 920121
+Final check:
+Live objects in old region: 915866
+[19.655s][info][gc,heap,exit   ] Heap
+[19.656s][info][gc,heap,exit   ]  def new generation   total 600896K, used 534144K [0x0000000085c00000, 0x00000000ae800000, 0x00000000ae800000)
+[19.656s][info][gc,heap,exit   ]   eden space 534144K, 100% used [0x0000000085c00000, 0x00000000a65a0000, 0x00000000a65a0000)
+[19.656s][info][gc,heap,exit   ]   from space 66752K,   0% used [0x00000000aa6d0000, 0x00000000aa6d0000, 0x00000000ae800000)
+[19.656s][info][gc,heap,exit   ]   to   space 66752K,   0% used [0x00000000a65a0000, 0x00000000a65a0000, 0x00000000aa6d0000)
+[19.656s][info][gc,heap,exit   ]  tenured generation   total 1335296K, used 1295821K [0x00000000ae800000, 0x0000000100000000, 0x0000000100000000)
+[19.656s][info][gc,heap,exit   ]    the space 1335296K,  97% used [0x00000000ae800000, 0x00000000fd973628, 0x00000000fd973800, 0x0000000100000000)
+[19.656s][info][gc,heap,exit   ]  Metaspace       used 8341K, committed 8512K, reserved 1114112K
+[19.656s][info][gc,heap,exit   ]   class space    used 766K, committed 832K, reserved 1048576K
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(34/2103)*----------
+cd /home/webliu/TencentKona-17/JTwork/scratch && \\
+DISPLAY=:0 \\
+HOME=/home/webliu \\
+JTREG_HOME=/home/webliu/jtreg/build/images/jtreg \\
+LANG=C.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+WAYLAND_DISPLAY=wayland-0 \\
+XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \\
+CLASSPATH=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/JTwork/classes/test/lib:/home/webliu/TencentKona-17/test/lib:/home/webliu/jtreg/build/images/jtreg/lib/javatest.jar:/home/webliu/jtreg/build/images/jtreg/lib/jtreg.jar \\
+    /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk/bin/java \\
+        -Dtest.vm.opts= \\
+        -Dtest.tool.vm.opts= \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts= \\
+        -Dtest.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dcompile.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dtest.timeout.factor=1.0 \\
+        -Dtest.root=/home/webliu/TencentKona-17/test/hotspot/jtreg \\
+        -Dtest.name=gc/LRUCacheTest.java \\
+        -Dtest.file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java \\
+        -Dtest.src=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc \\
+        -Dtest.src.path=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/test/lib \\
+        -Dtest.classes=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d \\
+        -Dtest.class.path=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/JTwork/classes/test/lib \\
+        -Dtest.modules='java.base/jdk.internal.misc java.management' \\
+        --add-modules java.base,java.management \\
+        --add-exports java.base/jdk.internal.misc=ALL-UNNAMED \\
+        -Xbootclasspath/a:. \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+WhiteBoxAPI \\
+        -XX:+UseSerialGC \\
+        -Xlog:gc* \\
+        -Xlog:gc:serial_gc.log \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/webliu/TencentKona-17/JTwork/gc/LRUCacheTest.d/main.2.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful
