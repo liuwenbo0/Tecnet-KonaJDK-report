@@ -1,5 +1,5 @@
 #Test Results (version 2)
-#Sat Aug 24 14:35:01 CST 2024
+#Sat Aug 24 15:09:34 CST 2024
 #-----testdescription-----
 $file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java
 $root=/home/webliu/TencentKona-17/test/hotspot/jtreg
@@ -14,8 +14,8 @@ title=Test LRU Cache with Whitebox API using different GC methods and collect GC
 
 #-----testresult-----
 description=file\:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java
-elapsed=21808 0\:00\:21.808
-end=Sat Aug 24 14\:35\:01 CST 2024
+elapsed=14769 0\:00\:14.769
+end=Sat Aug 24 15\:09\:34 CST 2024
 environment=regtest
 execStatus=Passed. Execution successful
 harnessLoaderMode=Classpath Loader
@@ -27,14 +27,14 @@ jtregVersion=jtreg 7.5 dev 0
 modules=java.base/jdk.internal.misc java.management
 script=com.sun.javatest.regtest.exec.RegressionScript
 sections=script_messages build build driver build compile main
-start=Sat Aug 24 14\:34\:39 CST 2024
+start=Sat Aug 24 15\:09\:19 CST 2024
 test=gc/LRUCacheTest.java
 testJDK=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk
 testJDK_OS=[name\:Linux,arch\:amd64,version\:5.15.153.1-microsoft-standard-WSL2,family\:linux,simple_arch\:x64,simple_version\:5.15,processors\:16,maxMemory\:8198123520,maxSwap\:2147483648]
 testJDK_os.arch=amd64
 testJDK_os.name=Linux
 testJDK_os.version=5.15.153.1-microsoft-standard-WSL2
-totalTime=21811
+totalTime=14771
 user.name=webliu
 work=/home/webliu/TencentKona-17/JTwork/gc
 
@@ -52,8 +52,8 @@ Library /test/lib; kind: packages
 ----------messages:(5/218)----------
 command: build jdk.test.whitebox.WhiteBox
 reason: User specified action: run build jdk.test.whitebox.WhiteBox 
-started: Sat Aug 24 14:34:40 CST 2024
-finished: Sat Aug 24 14:34:40 CST 2024
+started: Sat Aug 24 15:09:20 CST 2024
+finished: Sat Aug 24 15:09:20 CST 2024
 elapsed time (seconds): 0.002
 result: Passed. All files up to date
 
@@ -61,8 +61,8 @@ result: Passed. All files up to date
 ----------messages:(5/199)----------
 command: build jdk.test.lib.helpers.ClassFileInstaller
 reason: Named class compiled on demand
-started: Sat Aug 24 14:34:40 CST 2024
-finished: Sat Aug 24 14:34:40 CST 2024
+started: Sat Aug 24 15:09:20 CST 2024
+finished: Sat Aug 24 15:09:20 CST 2024
 elapsed time (seconds): 0.0
 result: Passed. All files up to date
 
@@ -70,11 +70,11 @@ result: Passed. All files up to date
 ----------messages:(7/442)----------
 command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
 reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
-started: Sat Aug 24 14:34:40 CST 2024
+started: Sat Aug 24 15:09:20 CST 2024
 Mode: othervm
 Additional options from @modules: --add-modules java.base,java.management --add-exports java.base/jdk.internal.misc=ALL-UNNAMED
-finished: Sat Aug 24 14:34:40 CST 2024
-elapsed time (seconds): 0.257
+finished: Sat Aug 24 15:09:20 CST 2024
+elapsed time (seconds): 0.141
 ----------configuration:(4/111)----------
 Boot Layer
   add modules: java.base java.management   
@@ -118,22 +118,22 @@ result: Passed. Execution successful
 ----------messages:(7/214)----------
 command: build LRUCacheTest
 reason: Named class compiled on demand
-started: Sat Aug 24 14:34:40 CST 2024
+started: Sat Aug 24 15:09:20 CST 2024
 Test directory:
   compile: LRUCacheTest
-finished: Sat Aug 24 14:34:41 CST 2024
-elapsed time (seconds): 1.522
+finished: Sat Aug 24 15:09:21 CST 2024
+elapsed time (seconds): 0.909
 result: Passed. Build successful
 
 #section:compile
 ----------messages:(7/384)----------
 command: compile /home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java
 reason: .class file out of date or does not exist
-started: Sat Aug 24 14:34:40 CST 2024
+started: Sat Aug 24 15:09:20 CST 2024
 Additional options from @modules: --add-modules java.base,java.management --add-exports java.base/jdk.internal.misc=ALL-UNNAMED
 Mode: othervm
-finished: Sat Aug 24 14:34:41 CST 2024
-elapsed time (seconds): 1.521
+finished: Sat Aug 24 15:09:21 CST 2024
+elapsed time (seconds): 0.908
 ----------configuration:(9/460)----------
 javac compilation environment
   add modules: java.base java.management   
@@ -178,593 +178,592 @@ result: Passed. Compilation successful
 ----------messages:(7/596)----------
 command: main -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -XX:+UseSerialGC -Xlog:gc* -Xlog:gc:serial_gc.log LRUCacheTest
 reason: User specified action: run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -XX:+UseSerialGC -Xlog:gc* -Xlog:gc:serial_gc.log LRUCacheTest 
-started: Sat Aug 24 14:34:41 CST 2024
+started: Sat Aug 24 15:09:21 CST 2024
 Mode: othervm [/othervm specified]
 Additional options from @modules: --add-modules java.base,java.management --add-exports java.base/jdk.internal.misc=ALL-UNNAMED
-finished: Sat Aug 24 14:35:01 CST 2024
-elapsed time (seconds): 19.688
+finished: Sat Aug 24 15:09:34 CST 2024
+elapsed time (seconds): 13.568
 ----------configuration:(4/111)----------
 Boot Layer
   add modules: java.base java.management   
   add exports: java.base/jdk.internal.misc ALL-UNNAMED
 
-----------System.out:(576/24374)----------
-[0.003s][info][gc] Using Serial
-[0.004s][info][gc,init] Version: 17.0.11-internal+0-adhoc.webliu.TencentKona-17 (release)
-[0.004s][info][gc,init] CPUs: 16 total, 16 available
-[0.004s][info][gc,init] Memory: 7818M
-[0.004s][info][gc,init] Large Page Support: Disabled
-[0.004s][info][gc,init] NUMA Support: Disabled
-[0.004s][info][gc,init] Compressed Oops: Enabled (32-bit)
-[0.004s][info][gc,init] Heap Min Capacity: 8M
-[0.004s][info][gc,init] Heap Initial Capacity: 124M
-[0.004s][info][gc,init] Heap Max Capacity: 1956M
-[0.004s][info][gc,init] Pre-touch: Disabled
-[0.004s][info][gc,metaspace] CDS archive(s) not mapped
-[0.004s][info][gc,metaspace] Compressed class space mapped at: 0x0000000100000000-0x0000000140000000, reserved size: 1073741824
-[0.004s][info][gc,metaspace] Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x140000000
+----------System.out:(575/24358)----------
+[0.002s][info][gc] Using Serial
+[0.002s][info][gc,init] Version: 17.0.11-internal+0-adhoc.webliu.TencentKona-17 (release)
+[0.002s][info][gc,init] CPUs: 16 total, 16 available
+[0.002s][info][gc,init] Memory: 7818M
+[0.002s][info][gc,init] Large Page Support: Disabled
+[0.002s][info][gc,init] NUMA Support: Disabled
+[0.002s][info][gc,init] Compressed Oops: Enabled (32-bit)
+[0.002s][info][gc,init] Heap Min Capacity: 8M
+[0.002s][info][gc,init] Heap Initial Capacity: 124M
+[0.002s][info][gc,init] Heap Max Capacity: 1956M
+[0.002s][info][gc,init] Pre-touch: Disabled
+[0.002s][info][gc,metaspace] CDS archive(s) not mapped
+[0.002s][info][gc,metaspace] Compressed class space mapped at: 0x0000000100000000-0x0000000140000000, reserved size: 1073741824
+[0.002s][info][gc,metaspace] Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x140000000
 Max heap size: 1890.81 MB
-Cache size: 1
+Cache size: 1355334
 Total operations: 2129811
 Operations: 0
 Live objects in old region: 0
 Operations: 10000
 Live objects in old region: 0
+[0.180s][info][gc,start    ] GC(0) Pause Young (Allocation Failure)
+[0.198s][info][gc,heap     ] GC(0) DefNew: 33856K(38080K)->4224K(38080K) Eden: 33856K(33856K)->0K(33856K) From: 0K(4224K)->4224K(4224K)
+[0.198s][info][gc,heap     ] GC(0) Tenured: 0K(84672K)->22432K(84672K)
+[0.198s][info][gc,metaspace] GC(0) Metaspace: 8268K(8448K)->8268K(8448K) NonClass: 7504K(7616K)->7504K(7616K) Class: 763K(832K)->763K(832K)
+[0.198s][info][gc          ] GC(0) Pause Young (Allocation Failure) 33M->26M(119M) 17.871ms
+[0.198s][info][gc,cpu      ] GC(0) User=0.02s Sys=0.00s Real=0.02s
 Operations: 20000
-Live objects in old region: 0
-[0.328s][info][gc,start    ] GC(0) Pause Young (Allocation Failure)
-[0.350s][info][gc,heap     ] GC(0) DefNew: 33856K(38080K)->4224K(38080K) Eden: 33856K(33856K)->0K(33856K) From: 0K(4224K)->4224K(4224K)
-[0.350s][info][gc,heap     ] GC(0) Tenured: 0K(84672K)->21134K(84672K)
-[0.350s][info][gc,metaspace] GC(0) Metaspace: 8269K(8448K)->8269K(8448K) NonClass: 7505K(7616K)->7505K(7616K) Class: 763K(832K)->763K(832K)
-[0.350s][info][gc          ] GC(0) Pause Young (Allocation Failure) 33M->24M(119M) 21.542ms
-[0.350s][info][gc,cpu      ] GC(0) User=0.01s Sys=0.01s Real=0.03s
+Live objects in old region: 12145
 Operations: 30000
-Live objects in old region: 19502
+Live objects in old region: 12090
 Operations: 40000
-Live objects in old region: 19405
+Live objects in old region: 12036
+[0.223s][info][gc,start    ] GC(1) Pause Young (Allocation Failure)
+[0.267s][info][gc,heap     ] GC(1) DefNew: 38080K(38080K)->4224K(38080K) Eden: 33856K(33856K)->0K(33856K) From: 4224K(4224K)->4224K(4224K)
+[0.267s][info][gc,heap     ] GC(1) Tenured: 22432K(84672K)->55491K(84672K)
+[0.267s][info][gc,metaspace] GC(1) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7525K(7616K)->7525K(7616K) Class: 763K(832K)->763K(832K)
+[0.267s][info][gc          ] GC(1) Pause Young (Allocation Failure) 59M->58M(119M) 43.268ms
+[0.267s][info][gc,cpu      ] GC(1) User=0.03s Sys=0.02s Real=0.05s
 Operations: 50000
-Live objects in old region: 19306
-[0.382s][info][gc,start    ] GC(1) Pause Young (Allocation Failure)
-[0.411s][info][gc,heap     ] GC(1) DefNew: 38080K(38080K)->4224K(38080K) Eden: 33856K(33856K)->0K(33856K) From: 4224K(4224K)->4224K(4224K)
-[0.411s][info][gc,heap     ] GC(1) Tenured: 21134K(84672K)->52354K(84672K)
-[0.411s][info][gc,metaspace] GC(1) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[0.411s][info][gc          ] GC(1) Pause Young (Allocation Failure) 57M->55M(119M) 29.263ms
-[0.411s][info][gc,cpu      ] GC(1) User=0.03s Sys=0.01s Real=0.03s
+Live objects in old region: 41325
 Operations: 60000
-Live objects in old region: 48010
+Live objects in old region: 41112
 Operations: 70000
-Live objects in old region: 47780
+Live objects in old region: 40927
+[0.297s][info][gc,start    ] GC(2) Pause Young (Allocation Failure)
+[0.337s][info][gc          ] GC(2) Pause Young (Allocation Failure) 91M->91M(124M) 40.055ms
+[0.337s][info][gc,cpu      ] GC(2) User=0.04s Sys=0.00s Real=0.04s
+[0.337s][info][gc,start    ] GC(3) Pause Full (Allocation Failure)
+[0.337s][info][gc,phases,start] GC(3) Phase 1: Mark live objects
+[0.355s][info][gc,phases      ] GC(3) Phase 1: Mark live objects 18.292ms
+[0.355s][info][gc,phases,start] GC(3) Phase 2: Compute new object addresses
+[0.365s][info][gc,phases      ] GC(3) Phase 2: Compute new object addresses 10.202ms
+[0.365s][info][gc,phases,start] GC(3) Phase 3: Adjust pointers
+[0.384s][info][gc,phases      ] GC(3) Phase 3: Adjust pointers 18.793ms
+[0.384s][info][gc,phases,start] GC(3) Phase 4: Move objects
+[0.385s][info][gc,phases      ] GC(3) Phase 4: Move objects 0.636ms
+[0.385s][info][gc,heap        ] GC(3) DefNew: 38080K(38080K)->4222K(66816K) Eden: 33856K(33856K)->4222K(59456K) From: 4224K(4224K)->0K(7360K)
+[0.385s][info][gc,heap        ] GC(3) Tenured: 55491K(84672K)->88991K(148320K)
+[0.385s][info][gc,metaspace   ] GC(3) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7525K(7616K)->7525K(7616K) Class: 763K(832K)->763K(832K)
+[0.385s][info][gc             ] GC(3) Pause Full (Allocation Failure) 91M->91M(210M) 48.403ms
+[0.385s][info][gc,cpu         ] GC(3) User=0.05s Sys=0.00s Real=0.04s
 Operations: 80000
-Live objects in old region: 47566
-[0.441s][info][gc,start    ] GC(2) Pause Young (Allocation Failure)
-[0.472s][info][gc,heap     ] GC(2) DefNew: 38080K(38080K)->4223K(38080K) Eden: 33856K(33856K)->0K(33856K) From: 4224K(4224K)->4223K(4224K)
-[0.472s][info][gc,heap     ] GC(2) Tenured: 52354K(84672K)->84214K(84672K)
-[0.472s][info][gc,metaspace] GC(2) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[0.472s][info][gc          ] GC(2) Pause Young (Allocation Failure) 88M->86M(119M) 31.015ms
-[0.472s][info][gc,cpu      ] GC(2) User=0.00s Sys=0.03s Real=0.03s
+Live objects in old region: 71480
 Operations: 90000
-Live objects in old region: 76166
+Live objects in old region: 71171
 Operations: 100000
-Live objects in old region: 75783
+Live objects in old region: 70816
 Operations: 110000
-Live objects in old region: 75439
-[0.508s][info][gc,start    ] GC(3) Pause Young (Allocation Failure)
-[0.544s][info][gc          ] GC(3) Pause Young (Allocation Failure) 119M->117M(150M) 35.442ms
-[0.544s][info][gc,cpu      ] GC(3) User=0.01s Sys=0.02s Real=0.04s
-[0.544s][info][gc,start    ] GC(4) Pause Full (Allocation Failure)
-[0.544s][info][gc,phases,start] GC(4) Phase 1: Mark live objects
-[0.560s][info][gc,phases      ] GC(4) Phase 1: Mark live objects 16.209ms
-[0.560s][info][gc,phases,start] GC(4) Phase 2: Compute new object addresses
-[0.579s][info][gc,phases      ] GC(4) Phase 2: Compute new object addresses 18.216ms
-[0.579s][info][gc,phases,start] GC(4) Phase 3: Adjust pointers
-[0.601s][info][gc,phases      ] GC(4) Phase 3: Adjust pointers 22.418ms
-[0.601s][info][gc,phases,start] GC(4) Phase 4: Move objects
-[0.602s][info][gc,phases      ] GC(4) Phase 4: Move objects 0.687ms
-[0.602s][info][gc,heap        ] GC(4) DefNew: 38079K(38080K)->4185K(87168K) Eden: 33856K(33856K)->4185K(77504K) From: 4223K(4224K)->0K(9664K)
-[0.602s][info][gc,heap        ] GC(4) Tenured: 84214K(84672K)->116159K(193600K)
-[0.602s][info][gc,metaspace   ] GC(4) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[0.602s][info][gc             ] GC(4) Pause Full (Allocation Failure) 117M->117M(274M) 58.327ms
-[0.602s][info][gc,cpu         ] GC(4) User=0.06s Sys=0.00s Real=0.06s
+Live objects in old region: 70474
 Operations: 120000
-Live objects in old region: 105173
+Live objects in old region: 70167
+[0.433s][info][gc,start       ] GC(4) Pause Young (Allocation Failure)
+[0.495s][info][gc,heap        ] GC(4) DefNew: 59456K(66816K)->7359K(66816K) Eden: 59456K(59456K)->0K(59456K) From: 0K(7360K)->7359K(7360K)
+[0.495s][info][gc,heap        ] GC(4) Tenured: 88991K(148320K)->139841K(148320K)
+[0.495s][info][gc,metaspace   ] GC(4) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7525K(7616K)->7525K(7616K) Class: 763K(832K)->763K(832K)
+[0.495s][info][gc             ] GC(4) Pause Young (Allocation Failure) 144M->143M(210M) 61.821ms
+[0.495s][info][gc,cpu         ] GC(4) User=0.06s Sys=0.00s Real=0.06s
 Operations: 130000
-Live objects in old region: 104646
+Live objects in old region: 116379
 Operations: 140000
-Live objects in old region: 104161
+Live objects in old region: 115828
 Operations: 150000
-Live objects in old region: 103691
+Live objects in old region: 115302
 Operations: 160000
-Live objects in old region: 103214
+Live objects in old region: 114740
 Operations: 170000
-Live objects in old region: 102711
-[0.708s][info][gc,start       ] GC(5) Pause Young (Allocation Failure)
-[0.789s][info][gc,heap        ] GC(5) DefNew: 77504K(87168K)->9663K(87168K) Eden: 77504K(77504K)->0K(77504K) From: 0K(9664K)->9663K(9664K)
-[0.789s][info][gc,heap        ] GC(5) Tenured: 116159K(193600K)->179202K(193600K)
-[0.789s][info][gc,metaspace   ] GC(5) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[0.789s][info][gc             ] GC(5) Pause Young (Allocation Failure) 189M->184M(274M) 80.707ms
-[0.789s][info][gc,cpu         ] GC(5) User=0.08s Sys=0.00s Real=0.08s
+Live objects in old region: 114162
+[0.544s][info][gc,start       ] GC(5) Pause Young (Allocation Failure)
+[0.608s][info][gc             ] GC(5) Pause Young (Allocation Failure) 201M->200M(259M) 64.095ms
+[0.608s][info][gc,cpu         ] GC(5) User=0.04s Sys=0.02s Real=0.07s
+[0.608s][info][gc,start       ] GC(6) Pause Full (Allocation Failure)
+[0.608s][info][gc,phases,start] GC(6) Phase 1: Mark live objects
+[0.647s][info][gc,phases      ] GC(6) Phase 1: Mark live objects 39.754ms
+[0.648s][info][gc,phases,start] GC(6) Phase 2: Compute new object addresses
+[0.670s][info][gc,phases      ] GC(6) Phase 2: Compute new object addresses 22.019ms
+[0.670s][info][gc,phases,start] GC(6) Phase 3: Adjust pointers
+[0.706s][info][gc,phases      ] GC(6) Phase 3: Adjust pointers 36.519ms
+[0.706s][info][gc,phases,start] GC(6) Phase 4: Move objects
+[0.707s][info][gc,phases      ] GC(6) Phase 4: Move objects 1.023ms
+[0.707s][info][gc,heap        ] GC(6) DefNew: 66815K(66816K)->7336K(148864K) Eden: 59456K(59456K)->7336K(132352K) From: 7359K(7360K)->0K(16512K)
+[0.707s][info][gc,heap        ] GC(6) Tenured: 139841K(148320K)->198431K(330720K)
+[0.707s][info][gc,metaspace   ] GC(6) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7525K(7616K)->7525K(7616K) Class: 763K(832K)->763K(832K)
+[0.707s][info][gc             ] GC(6) Pause Full (Allocation Failure) 200M->200M(468M) 99.800ms
+[0.708s][info][gc,cpu         ] GC(6) User=0.10s Sys=0.00s Real=0.10s
 Operations: 180000
-Live objects in old region: 163066
+Live objects in old region: 164419
 Operations: 190000
-Live objects in old region: 162338
+Live objects in old region: 163626
 Operations: 200000
-Live objects in old region: 161557
+Live objects in old region: 162814
 Operations: 210000
-Live objects in old region: 160793
+Live objects in old region: 162072
 Operations: 220000
-Live objects in old region: 160049
+Live objects in old region: 161289
 Operations: 230000
-Live objects in old region: 159295
+Live objects in old region: 160507
 Operations: 240000
-Live objects in old region: 158534
-[1.004s][info][gc,start       ] GC(6) Pause Young (Allocation Failure)
-[1.093s][info][gc             ] GC(6) Pause Young (Allocation Failure) 260M->254M(329M) 89.074ms
-[1.093s][info][gc,cpu         ] GC(6) User=0.06s Sys=0.03s Real=0.09s
-[1.093s][info][gc,start       ] GC(7) Pause Full (Allocation Failure)
-[1.093s][info][gc,phases,start] GC(7) Phase 1: Mark live objects
-[1.124s][info][gc,phases      ] GC(7) Phase 1: Mark live objects 31.125ms
-[1.124s][info][gc,phases,start] GC(7) Phase 2: Compute new object addresses
-[1.163s][info][gc,phases      ] GC(7) Phase 2: Compute new object addresses 38.777ms
-[1.163s][info][gc,phases,start] GC(7) Phase 3: Adjust pointers
-[1.210s][info][gc,phases      ] GC(7) Phase 3: Adjust pointers 46.441ms
-[1.210s][info][gc,phases,start] GC(7) Phase 4: Move objects
-[1.211s][info][gc,phases      ] GC(7) Phase 4: Move objects 1.449ms
-[1.212s][info][gc,heap        ] GC(7) DefNew: 87167K(87168K)->9604K(188032K) Eden: 77504K(77504K)->9604K(167168K) From: 9663K(9664K)->0K(20864K)
-[1.212s][info][gc,heap        ] GC(7) Tenured: 179202K(193600K)->250623K(417708K)
-[1.212s][info][gc,metaspace   ] GC(7) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[1.212s][info][gc             ] GC(7) Pause Full (Allocation Failure) 254M->254M(591M) 118.928ms
-[1.212s][info][gc,cpu         ] GC(7) User=0.12s Sys=0.00s Real=0.12s
+Live objects in old region: 159745
 Operations: 250000
-Live objects in old region: 223534
+Live objects in old region: 159012
 Operations: 260000
-Live objects in old region: 222540
+Live objects in old region: 158303
 Operations: 270000
-Live objects in old region: 221493
+Live objects in old region: 157538
 Operations: 280000
-Live objects in old region: 220481
+Live objects in old region: 156809
+[0.887s][info][gc,start       ] GC(7) Pause Young (Allocation Failure)
+[1.028s][info][gc,heap        ] GC(7) DefNew: 132352K(148864K)->16511K(148864K) Eden: 132352K(132352K)->0K(132352K) From: 0K(16512K)->16511K(16512K)
+[1.028s][info][gc,heap        ] GC(7) Tenured: 198431K(330720K)->310745K(330720K)
+[1.028s][info][gc,metaspace   ] GC(7) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7525K(7616K)->7525K(7616K) Class: 763K(832K)->763K(832K)
+[1.028s][info][gc             ] GC(7) Pause Young (Allocation Failure) 323M->319M(468M) 140.316ms
+[1.028s][info][gc,cpu         ] GC(7) User=0.12s Sys=0.02s Real=0.14s
 Operations: 290000
-Live objects in old region: 219474
+Live objects in old region: 260537
 Operations: 300000
-Live objects in old region: 218458
+Live objects in old region: 259279
 Operations: 310000
-Live objects in old region: 217423
+Live objects in old region: 258083
 Operations: 320000
-Live objects in old region: 216407
+Live objects in old region: 256862
 Operations: 330000
-Live objects in old region: 215426
+Live objects in old region: 255627
 Operations: 340000
-Live objects in old region: 214376
+Live objects in old region: 254381
 Operations: 350000
-Live objects in old region: 213399
+Live objects in old region: 253187
 Operations: 360000
-Live objects in old region: 212397
+Live objects in old region: 252003
 Operations: 370000
-Live objects in old region: 211396
+Live objects in old region: 250767
 Operations: 380000
-Live objects in old region: 210415
-[1.662s][info][gc,start       ] GC(8) Pause Young (Allocation Failure)
-[1.834s][info][gc,heap        ] GC(8) DefNew: 167168K(188032K)->20863K(188032K) Eden: 167168K(167168K)->0K(167168K) From: 0K(20864K)->20863K(20864K)
-[1.834s][info][gc,heap        ] GC(8) Tenured: 250623K(417708K)->383740K(417708K)
-[1.834s][info][gc,metaspace   ] GC(8) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[1.834s][info][gc             ] GC(8) Pause Young (Allocation Failure) 407M->395M(591M) 172.122ms
-[1.834s][info][gc,cpu         ] GC(8) User=0.13s Sys=0.04s Real=0.17s
+Live objects in old region: 249524
 Operations: 390000
-Live objects in old region: 335599
+Live objects in old region: 248353
 Operations: 400000
-Live objects in old region: 333954
+Live objects in old region: 247183
+[1.276s][info][gc,start       ] GC(8) Pause Young (Allocation Failure)
+[1.428s][info][gc             ] GC(8) Pause Young (Allocation Failure) 448M->444M(573M) 151.315ms
+[1.428s][info][gc,cpu         ] GC(8) User=0.11s Sys=0.04s Real=0.16s
+[1.428s][info][gc,start       ] GC(9) Pause Full (Allocation Failure)
+[1.428s][info][gc,phases,start] GC(9) Phase 1: Mark live objects
+[1.542s][info][gc,phases      ] GC(9) Phase 1: Mark live objects 114.664ms
+[1.542s][info][gc,phases,start] GC(9) Phase 2: Compute new object addresses
+[1.597s][info][gc,phases      ] GC(9) Phase 2: Compute new object addresses 54.476ms
+[1.597s][info][gc,phases,start] GC(9) Phase 3: Adjust pointers
+[1.693s][info][gc,phases      ] GC(9) Phase 3: Adjust pointers 96.053ms
+[1.693s][info][gc,phases,start] GC(9) Phase 4: Move objects
+[1.730s][info][gc,phases      ] GC(9) Phase 4: Move objects 37.166ms
+[1.731s][info][gc,heap        ] GC(9) DefNew: 148863K(148864K)->8442K(329152K) Eden: 132352K(132352K)->8442K(292608K) From: 16511K(16512K)->0K(36544K)
+[1.731s][info][gc,heap        ] GC(9) Tenured: 310745K(330720K)->438815K(731360K)
+[1.731s][info][gc,metaspace   ] GC(9) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7525K(7616K)->7525K(7616K) Class: 763K(832K)->763K(832K)
+[1.731s][info][gc             ] GC(9) Pause Full (Allocation Failure) 444M->436M(1035M) 303.350ms
+[1.731s][info][gc,cpu         ] GC(9) User=0.30s Sys=0.00s Real=0.30s
 Operations: 410000
-Live objects in old region: 332416
+Live objects in old region: 363363
 Operations: 420000
-Live objects in old region: 330862
+Live objects in old region: 361615
 Operations: 430000
-Live objects in old region: 329303
+Live objects in old region: 359892
 Operations: 440000
-Live objects in old region: 327775
+Live objects in old region: 358246
 Operations: 450000
-Live objects in old region: 326232
+Live objects in old region: 356522
 Operations: 460000
-Live objects in old region: 324673
+Live objects in old region: 354849
 Operations: 470000
-Live objects in old region: 323145
+Live objects in old region: 353234
 Operations: 480000
-Live objects in old region: 321549
+Live objects in old region: 351553
 Operations: 490000
-Live objects in old region: 320085
+Live objects in old region: 349925
 Operations: 500000
-Live objects in old region: 318653
+Live objects in old region: 348276
 Operations: 510000
-Live objects in old region: 317163
+Live objects in old region: 346730
 Operations: 520000
-Live objects in old region: 315717
+Live objects in old region: 345145
 Operations: 530000
-Live objects in old region: 314289
-[2.426s][info][gc,start       ] GC(9) Pause Young (Allocation Failure)
-[3.089s][info][gc             ] GC(9) Pause Young (Allocation Failure) 558M->542M(705M) 663.199ms
-[3.089s][info][gc,cpu         ] GC(9) User=0.15s Sys=0.51s Real=0.66s
-[3.089s][info][gc,start       ] GC(10) Pause Full (Allocation Failure)
-[3.089s][info][gc,phases,start] GC(10) Phase 1: Mark live objects
-[3.153s][info][gc,phases      ] GC(10) Phase 1: Mark live objects 64.034ms
-[3.153s][info][gc,phases,start] GC(10) Phase 2: Compute new object addresses
-[3.236s][info][gc,phases      ] GC(10) Phase 2: Compute new object addresses 82.546ms
-[3.236s][info][gc,phases,start] GC(10) Phase 3: Adjust pointers
-[3.344s][info][gc,phases      ] GC(10) Phase 3: Adjust pointers 107.747ms
-[3.344s][info][gc,phases,start] GC(10) Phase 4: Move objects
-[3.407s][info][gc,phases      ] GC(10) Phase 4: Move objects 63.258ms
-[3.410s][info][gc,heap        ] GC(10) DefNew: 188031K(188032K)->0K(400192K) Eden: 167168K(167168K)->0K(355776K) From: 20863K(20864K)->0K(44416K)
-[3.410s][info][gc,heap        ] GC(10) Tenured: 383740K(417708K)->533504K(889176K)
-[3.410s][info][gc,metaspace   ] GC(10) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[3.410s][info][gc             ] GC(10) Pause Full (Allocation Failure) 542M->521M(1259M) 320.411ms
-[3.410s][info][gc,cpu         ] GC(10) User=0.31s Sys=0.01s Real=0.33s
+Live objects in old region: 343504
 Operations: 540000
-Live objects in old region: 470211
+Live objects in old region: 341825
 Operations: 550000
-Live objects in old region: 467990
+Live objects in old region: 340256
 Operations: 560000
-Live objects in old region: 465811
+Live objects in old region: 338653
 Operations: 570000
-Live objects in old region: 463622
+Live objects in old region: 337130
 Operations: 580000
-Live objects in old region: 461475
+Live objects in old region: 335579
 Operations: 590000
-Live objects in old region: 459299
+Live objects in old region: 334056
 Operations: 600000
-Live objects in old region: 457069
+Live objects in old region: 332512
 Operations: 610000
-Live objects in old region: 454814
+Live objects in old region: 330950
 Operations: 620000
-Live objects in old region: 452708
+Live objects in old region: 329315
 Operations: 630000
-Live objects in old region: 450580
+Live objects in old region: 327767
 Operations: 640000
-Live objects in old region: 448356
+Live objects in old region: 326246
 Operations: 650000
-Live objects in old region: 446229
+Live objects in old region: 324709
 Operations: 660000
-Live objects in old region: 444089
+Live objects in old region: 323184
+[2.649s][info][gc,start       ] GC(10) Pause Young (Allocation Failure)
+[2.930s][info][gc,heap        ] GC(10) DefNew: 292608K(329152K)->36543K(329152K) Eden: 292608K(292608K)->0K(292608K) From: 0K(36544K)->36543K(36544K)
+[2.931s][info][gc,heap        ] GC(10) Tenured: 438815K(731360K)->677686K(731360K)
+[2.931s][info][gc,metaspace   ] GC(10) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7525K(7616K)->7525K(7616K) Class: 763K(832K)->763K(832K)
+[2.931s][info][gc             ] GC(10) Pause Young (Allocation Failure) 714M->697M(1035M) 281.426ms
+[2.931s][info][gc,cpu         ] GC(10) User=0.24s Sys=0.05s Real=0.28s
 Operations: 670000
-Live objects in old region: 442033
+Live objects in old region: 543918
 Operations: 680000
-Live objects in old region: 439920
+Live objects in old region: 541360
 Operations: 690000
-Live objects in old region: 437868
+Live objects in old region: 538789
 Operations: 700000
-Live objects in old region: 435880
+Live objects in old region: 536194
 Operations: 710000
-Live objects in old region: 433814
+Live objects in old region: 533669
 Operations: 720000
-Live objects in old region: 431797
+Live objects in old region: 531169
 Operations: 730000
-Live objects in old region: 429675
+Live objects in old region: 528698
 Operations: 740000
-Live objects in old region: 427629
+Live objects in old region: 526256
 Operations: 750000
-Live objects in old region: 425684
+Live objects in old region: 523782
 Operations: 760000
-Live objects in old region: 423708
+Live objects in old region: 521391
 Operations: 770000
-Live objects in old region: 421702
+Live objects in old region: 518942
 Operations: 780000
-Live objects in old region: 419749
+Live objects in old region: 516499
 Operations: 790000
-Live objects in old region: 417751
+Live objects in old region: 514141
 Operations: 800000
-Live objects in old region: 415816
+Live objects in old region: 511740
 Operations: 810000
-Live objects in old region: 413915
+Live objects in old region: 509364
 Operations: 820000
-Live objects in old region: 411912
+Live objects in old region: 506937
 Operations: 830000
-Live objects in old region: 410024
+Live objects in old region: 504563
 Operations: 840000
-Live objects in old region: 408158
+Live objects in old region: 502198
 Operations: 850000
-Live objects in old region: 406193
-[5.244s][info][gc,start       ] GC(11) Pause Young (Allocation Failure)
-[5.545s][info][gc,heap        ] GC(11) DefNew: 355776K(400192K)->44416K(400192K) Eden: 355776K(355776K)->0K(355776K) From: 0K(44416K)->44416K(44416K)
-[5.545s][info][gc,heap        ] GC(11) Tenured: 533504K(889176K)->800493K(889176K)
-[5.545s][info][gc,metaspace   ] GC(11) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[5.545s][info][gc             ] GC(11) Pause Young (Allocation Failure) 868M->825M(1259M) 300.307ms
-[5.545s][info][gc,cpu         ] GC(11) User=0.20s Sys=0.10s Real=0.30s
+Live objects in old region: 499824
 Operations: 860000
-Live objects in old region: 661529
+Live objects in old region: 497472
 Operations: 870000
-Live objects in old region: 658438
+Live objects in old region: 495133
 Operations: 880000
-Live objects in old region: 655275
+Live objects in old region: 492773
 Operations: 890000
-Live objects in old region: 652171
+Live objects in old region: 490546
 Operations: 900000
-Live objects in old region: 649073
+Live objects in old region: 488288
 Operations: 910000
-Live objects in old region: 646112
+Live objects in old region: 485949
 Operations: 920000
-Live objects in old region: 643146
+Live objects in old region: 483718
+[3.817s][info][gc,start       ] GC(11) Pause Young (Allocation Failure)
+[4.157s][info][gc             ] GC(11) Pause Young (Allocation Failure) 983M->959M(1245M) 340.029ms
+[4.157s][info][gc,cpu         ] GC(11) User=0.24s Sys=0.10s Real=0.34s
+[4.157s][info][gc,start       ] GC(12) Pause Full (Allocation Failure)
+[4.157s][info][gc,phases,start] GC(12) Phase 1: Mark live objects
+[4.421s][info][gc,phases      ] GC(12) Phase 1: Mark live objects 263.132ms
+[4.421s][info][gc,phases,start] GC(12) Phase 2: Compute new object addresses
+[4.528s][info][gc,phases      ] GC(12) Phase 2: Compute new object addresses 107.529ms
+[4.528s][info][gc,phases,start] GC(12) Phase 3: Adjust pointers
+[4.717s][info][gc,phases      ] GC(12) Phase 3: Adjust pointers 188.778ms
+[4.717s][info][gc,phases,start] GC(12) Phase 4: Move objects
+[4.868s][info][gc,phases      ] GC(12) Phase 4: Move objects 150.743ms
+[4.869s][info][gc,heap        ] GC(12) DefNew: 329151K(329152K)->0K(600896K) Eden: 292608K(292608K)->0K(534144K) From: 36543K(36544K)->0K(66752K)
+[4.869s][info][gc,heap        ] GC(12) Tenured: 677686K(731360K)->852575K(1335296K)
+[4.869s][info][gc,metaspace   ] GC(12) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7525K(7616K)->7525K(7616K) Class: 763K(832K)->763K(832K)
+[4.869s][info][gc             ] GC(12) Pause Full (Allocation Failure) 959M->832M(1890M) 711.130ms
+[4.869s][info][gc,cpu         ] GC(12) User=0.72s Sys=0.00s Real=0.71s
 Operations: 930000
-Live objects in old region: 640182
+Live objects in old region: 749265
 Operations: 940000
-Live objects in old region: 637165
+Live objects in old region: 745813
 Operations: 950000
-Live objects in old region: 634181
+Live objects in old region: 742361
 Operations: 960000
-Live objects in old region: 631251
+Live objects in old region: 738880
 Operations: 970000
-Live objects in old region: 628195
+Live objects in old region: 735457
 Operations: 980000
-Live objects in old region: 625259
+Live objects in old region: 732028
 Operations: 990000
-Live objects in old region: 622329
+Live objects in old region: 728627
 Operations: 1000000
-Live objects in old region: 619429
+Live objects in old region: 725209
 Operations: 1010000
-Live objects in old region: 616578
+Live objects in old region: 721873
 Operations: 1020000
-Live objects in old region: 613665
+Live objects in old region: 718525
 Operations: 1030000
-Live objects in old region: 610751
+Live objects in old region: 715106
 Operations: 1040000
-Live objects in old region: 607888
+Live objects in old region: 711774
 Operations: 1050000
-Live objects in old region: 605058
+Live objects in old region: 708453
 Operations: 1060000
-Live objects in old region: 602306
+Live objects in old region: 705177
 Operations: 1070000
-Live objects in old region: 599449
+Live objects in old region: 701863
 Operations: 1080000
-Live objects in old region: 596670
+Live objects in old region: 698639
 Operations: 1090000
-Live objects in old region: 593784
+Live objects in old region: 695361
 Operations: 1100000
-Live objects in old region: 590944
+Live objects in old region: 692066
 Operations: 1110000
-Live objects in old region: 588127
+Live objects in old region: 688858
 Operations: 1120000
-Live objects in old region: 585396
+Live objects in old region: 685642
 Operations: 1130000
-Live objects in old region: 582614
+Live objects in old region: 682470
 Operations: 1140000
-Live objects in old region: 579923
+Live objects in old region: 679286
 Operations: 1150000
-Live objects in old region: 577255
+Live objects in old region: 676049
 Operations: 1160000
-Live objects in old region: 574564
-[7.901s][info][gc,start       ] GC(12) Pause Young (Allocation Failure)
-[8.577s][info][gc             ] GC(12) Pause Young (Allocation Failure) 1172M->1126M(1474M) 675.987ms
-[8.578s][info][gc,cpu         ] GC(12) User=0.26s Sys=0.42s Real=0.67s
-[8.578s][info][gc,start       ] GC(13) Pause Full (Allocation Failure)
-[8.578s][info][gc,phases,start] GC(13) Phase 1: Mark live objects
-[8.788s][info][gc,phases      ] GC(13) Phase 1: Mark live objects 210.542ms
-[8.788s][info][gc,phases,start] GC(13) Phase 2: Compute new object addresses
-[8.937s][info][gc,phases      ] GC(13) Phase 2: Compute new object addresses 148.835ms
-[8.937s][info][gc,phases,start] GC(13) Phase 3: Adjust pointers
-[9.128s][info][gc,phases      ] GC(13) Phase 3: Adjust pointers 190.791ms
-[9.128s][info][gc,phases,start] GC(13) Phase 4: Move objects
-[9.296s][info][gc,phases      ] GC(13) Phase 4: Move objects 168.244ms
-[9.298s][info][gc,heap        ] GC(13) DefNew: 400192K(400192K)->0K(600896K) Eden: 355776K(355776K)->0K(534144K) From: 44416K(44416K)->0K(66752K)
-[9.298s][info][gc,heap        ] GC(13) Tenured: 800493K(889176K)->963616K(1335296K)
-[9.298s][info][gc,metaspace   ] GC(13) Metaspace: 8288K(8448K)->8288K(8448K) NonClass: 7524K(7616K)->7524K(7616K) Class: 763K(832K)->763K(832K)
-[9.298s][info][gc             ] GC(13) Pause Full (Allocation Failure) 1126M->941M(1890M) 720.255ms
-[9.298s][info][gc,cpu         ] GC(13) User=0.72s Sys=0.00s Real=0.72s
+Live objects in old region: 672880
 Operations: 1170000
-Live objects in old region: 896159
+Live objects in old region: 669671
 Operations: 1180000
-Live objects in old region: 892012
+Live objects in old region: 666533
 Operations: 1190000
-Live objects in old region: 887878
+Live objects in old region: 663349
 Operations: 1200000
-Live objects in old region: 883685
+Live objects in old region: 660146
 Operations: 1210000
-Live objects in old region: 879487
+Live objects in old region: 657044
 Operations: 1220000
-Live objects in old region: 875316
+Live objects in old region: 653967
 Operations: 1230000
-Live objects in old region: 871148
+Live objects in old region: 650836
 Operations: 1240000
-Live objects in old region: 866971
+Live objects in old region: 647826
 Operations: 1250000
-Live objects in old region: 862966
+Live objects in old region: 644774
 Operations: 1260000
-Live objects in old region: 858940
+Live objects in old region: 641791
 Operations: 1270000
-Live objects in old region: 854938
+Live objects in old region: 638910
 Operations: 1280000
-Live objects in old region: 850901
+Live objects in old region: 635924
 Operations: 1290000
-Live objects in old region: 847005
+Live objects in old region: 632892
 Operations: 1300000
-Live objects in old region: 842945
+Live objects in old region: 629989
 Operations: 1310000
-Live objects in old region: 838999
+Live objects in old region: 627025
 Operations: 1320000
-Live objects in old region: 835143
+Live objects in old region: 624149
 Operations: 1330000
-Live objects in old region: 831257
+Live objects in old region: 621221
 Operations: 1340000
-Live objects in old region: 827367
+Live objects in old region: 618337
 Operations: 1350000
-Live objects in old region: 823478
+Live objects in old region: 615449
 Operations: 1360000
-Live objects in old region: 819592
+Live objects in old region: 612629
 Operations: 1370000
-Live objects in old region: 815694
+Live objects in old region: 609714
 Operations: 1380000
-Live objects in old region: 812011
+Live objects in old region: 606916
 Operations: 1390000
-Live objects in old region: 808107
+Live objects in old region: 604107
 Operations: 1400000
-Live objects in old region: 804367
+Live objects in old region: 601247
+[7.458s][info][gc,start       ] GC(13) Pause Young (Allocation Failure)
+[7.988s][info][gc,heap        ] GC(13) DefNew: 534144K(600896K)->66752K(600896K) Eden: 534144K(534144K)->0K(534144K) From: 0K(66752K)->66752K(66752K)
+[7.988s][info][gc,heap        ] GC(13) Tenured: 852575K(1335296K)->1259084K(1335296K)
+[7.988s][info][gc,metaspace   ] GC(13) Metaspace: 8316K(8512K)->8316K(8512K) NonClass: 7552K(7680K)->7552K(7680K) Class: 763K(832K)->763K(832K)
+[7.988s][info][gc             ] GC(13) Pause Young (Allocation Failure) 1354M->1294M(1890M) 529.409ms
+[7.988s][info][gc,cpu         ] GC(13) User=0.34s Sys=0.19s Real=0.53s
 Operations: 1410000
-Live objects in old region: 800650
+Live objects in old region: 964611
 Operations: 1420000
-Live objects in old region: 796912
+Live objects in old region: 960064
 Operations: 1430000
-Live objects in old region: 793160
+Live objects in old region: 955454
 Operations: 1440000
-Live objects in old region: 789348
+Live objects in old region: 951021
 Operations: 1450000
-Live objects in old region: 785642
+Live objects in old region: 946531
 Operations: 1460000
-Live objects in old region: 781956
+Live objects in old region: 942148
 Operations: 1470000
-Live objects in old region: 778285
+Live objects in old region: 937731
 Operations: 1480000
-Live objects in old region: 774657
+Live objects in old region: 933396
 Operations: 1490000
-Live objects in old region: 770890
+Live objects in old region: 929026
 Operations: 1500000
-Live objects in old region: 767272
+Live objects in old region: 924731
 Operations: 1510000
-Live objects in old region: 763656
+Live objects in old region: 920393
 Operations: 1520000
-Live objects in old region: 760105
+Live objects in old region: 916134
 Operations: 1530000
-Live objects in old region: 756572
+Live objects in old region: 911894
 Operations: 1540000
-Live objects in old region: 752992
+Live objects in old region: 907508
 Operations: 1550000
-Live objects in old region: 749542
+Live objects in old region: 903270
 Operations: 1560000
-Live objects in old region: 746010
+Live objects in old region: 899035
 Operations: 1570000
-Live objects in old region: 742412
+Live objects in old region: 894669
 Operations: 1580000
-Live objects in old region: 738885
+Live objects in old region: 890569
 Operations: 1590000
-Live objects in old region: 735462
+Live objects in old region: 886430
 Operations: 1600000
-Live objects in old region: 732007
+Live objects in old region: 882234
 Operations: 1610000
-Live objects in old region: 728605
+Live objects in old region: 878091
 Operations: 1620000
-Live objects in old region: 725210
+Live objects in old region: 874013
 Operations: 1630000
-Live objects in old region: 721810
+Live objects in old region: 869940
 Operations: 1640000
-Live objects in old region: 718436
-[13.546s][info][gc,start       ] GC(14) Pause Young (Allocation Failure)
-[14.057s][info][gc,promotion   ] GC(14) Promotion failed
-[14.057s][info][gc             ] GC(14) Pause Young (Allocation Failure) 1462M->1890M(1890M) 511.688ms
-[14.057s][info][gc,cpu         ] GC(14) User=0.40s Sys=0.11s Real=0.51s
-[14.057s][info][gc,start       ] GC(15) Pause Full (Allocation Failure)
-[14.057s][info][gc,phases,start] GC(15) Phase 1: Mark live objects
-[14.212s][info][gc,phases      ] GC(15) Phase 1: Mark live objects 154.171ms
-[14.212s][info][gc,phases,start] GC(15) Phase 2: Compute new object addresses
-[14.466s][info][gc,phases      ] GC(15) Phase 2: Compute new object addresses 254.310ms
-[14.466s][info][gc,phases,start] GC(15) Phase 3: Adjust pointers
-[14.717s][info][gc,phases      ] GC(15) Phase 3: Adjust pointers 250.438ms
-[14.717s][info][gc,phases,start] GC(15) Phase 4: Move objects
-[14.881s][info][gc,phases      ] GC(15) Phase 4: Move objects 164.400ms
-[14.881s][info][gc,heap        ] GC(15) DefNew: 534144K(600896K)->0K(600896K) Eden: 534144K(534144K)->0K(534144K) From: 0K(66752K)->0K(66752K)
-[14.881s][info][gc,heap        ] GC(15) Tenured: 963616K(1335296K)->1295821K(1335296K)
-[14.881s][info][gc,metaspace   ] GC(15) Metaspace: 8315K(8512K)->8315K(8512K) NonClass: 7552K(7680K)->7552K(7680K) Class: 763K(832K)->763K(832K)
-[14.881s][info][gc             ] GC(15) Pause Full (Allocation Failure) 1890M->1265M(1890M) 824.055ms
-[14.881s][info][gc,cpu         ] GC(15) User=0.82s Sys=0.00s Real=0.83s
+Live objects in old region: 865878
 Operations: 1650000
-Live objects in old region: 1146967
+Live objects in old region: 861829
 Operations: 1660000
-Live objects in old region: 1141611
+Live objects in old region: 857839
 Operations: 1670000
-Live objects in old region: 1136207
+Live objects in old region: 853742
 Operations: 1680000
-Live objects in old region: 1130911
+Live objects in old region: 849738
 Operations: 1690000
-Live objects in old region: 1125605
+Live objects in old region: 845689
 Operations: 1700000
-Live objects in old region: 1120300
+Live objects in old region: 841767
 Operations: 1710000
-Live objects in old region: 1115156
+Live objects in old region: 837823
 Operations: 1720000
-Live objects in old region: 1109978
+Live objects in old region: 833935
 Operations: 1730000
-Live objects in old region: 1104771
+Live objects in old region: 830061
 Operations: 1740000
-Live objects in old region: 1099672
+Live objects in old region: 826176
 Operations: 1750000
-Live objects in old region: 1094575
+Live objects in old region: 822218
 Operations: 1760000
-Live objects in old region: 1089323
+Live objects in old region: 818296
 Operations: 1770000
-Live objects in old region: 1084178
+Live objects in old region: 814502
 Operations: 1780000
-Live objects in old region: 1079176
+Live objects in old region: 810665
 Operations: 1790000
-Live objects in old region: 1074101
+Live objects in old region: 806961
 Operations: 1800000
-Live objects in old region: 1069143
+Live objects in old region: 803162
 Operations: 1810000
-Live objects in old region: 1064200
+Live objects in old region: 799393
 Operations: 1820000
-Live objects in old region: 1059184
+Live objects in old region: 795701
 Operations: 1830000
-Live objects in old region: 1054236
+Live objects in old region: 791968
 Operations: 1840000
-Live objects in old region: 1049380
+Live objects in old region: 788237
 Operations: 1850000
-Live objects in old region: 1044394
+Live objects in old region: 784544
 Operations: 1860000
-Live objects in old region: 1039537
+Live objects in old region: 780807
 Operations: 1870000
-Live objects in old region: 1034661
+Live objects in old region: 777166
 Operations: 1880000
-Live objects in old region: 1029841
+Live objects in old region: 773499
 Operations: 1890000
-Live objects in old region: 1024924
+Live objects in old region: 769908
 Operations: 1900000
-Live objects in old region: 1020088
+Live objects in old region: 766325
+[10.690s][info][gc,start       ] GC(14) Pause Young (Allocation Failure)
+[10.690s][info][gc             ] GC(14) Pause Young (Allocation Failure) 1816M->1816M(1890M) 0.054ms
+[10.690s][info][gc,cpu         ] GC(14) User=0.00s Sys=0.00s Real=0.00s
+[10.690s][info][gc,start       ] GC(15) Pause Full (Allocation Failure)
+[10.690s][info][gc,phases,start] GC(15) Phase 1: Mark live objects
+[11.025s][info][gc,phases      ] GC(15) Phase 1: Mark live objects 334.356ms
+[11.025s][info][gc,phases,start] GC(15) Phase 2: Compute new object addresses
+[11.208s][info][gc,phases      ] GC(15) Phase 2: Compute new object addresses 183.708ms
+[11.208s][info][gc,phases,start] GC(15) Phase 3: Adjust pointers
+[11.519s][info][gc,phases      ] GC(15) Phase 3: Adjust pointers 310.684ms
+[11.519s][info][gc,phases,start] GC(15) Phase 4: Move objects
+[11.744s][info][gc,phases      ] GC(15) Phase 4: Move objects 224.425ms
+[11.744s][info][gc,heap        ] GC(15) DefNew: 600896K(600896K)->154327K(600896K) Eden: 534144K(534144K)->154327K(534144K) From: 66752K(66752K)->0K(66752K)
+[11.744s][info][gc,heap        ] GC(15) Tenured: 1259084K(1335296K)->1335295K(1335296K)
+[11.744s][info][gc,metaspace   ] GC(15) Metaspace: 8323K(8512K)->8323K(8512K) NonClass: 7559K(7680K)->7559K(7680K) Class: 763K(832K)->763K(832K)
+[11.744s][info][gc             ] GC(15) Pause Full (Allocation Failure) 1816M->1454M(1890M) 1053.767ms
+[11.744s][info][gc,cpu         ] GC(15) User=1.00s Sys=0.05s Real=1.05s
 Operations: 1910000
-Live objects in old region: 1015285
+Live objects in old region: 1107494
 Operations: 1920000
-Live objects in old region: 1010499
+Live objects in old region: 1102245
 Operations: 1930000
-Live objects in old region: 1005805
+Live objects in old region: 1097120
 Operations: 1940000
-Live objects in old region: 1001129
+Live objects in old region: 1092004
 Operations: 1950000
-Live objects in old region: 996377
+Live objects in old region: 1086826
 Operations: 1960000
-Live objects in old region: 991786
+Live objects in old region: 1081689
 Operations: 1970000
-Live objects in old region: 987118
+Live objects in old region: 1076721
 Operations: 1980000
-Live objects in old region: 982452
+Live objects in old region: 1071717
 Operations: 1990000
-Live objects in old region: 977808
+Live objects in old region: 1066722
 Operations: 2000000
-Live objects in old region: 973217
+Live objects in old region: 1061769
 Operations: 2010000
-Live objects in old region: 968689
+Live objects in old region: 1056799
 Operations: 2020000
-Live objects in old region: 964104
+Live objects in old region: 1051863
 Operations: 2030000
-Live objects in old region: 959587
+Live objects in old region: 1046921
 Operations: 2040000
-Live objects in old region: 955115
+Live objects in old region: 1042023
 Operations: 2050000
-Live objects in old region: 950676
+Live objects in old region: 1037161
 Operations: 2060000
-Live objects in old region: 946217
+Live objects in old region: 1032316
 Operations: 2070000
-Live objects in old region: 941836
+Live objects in old region: 1027452
 Operations: 2080000
-Live objects in old region: 937511
+Live objects in old region: 1022667
 Operations: 2090000
-Live objects in old region: 933159
+Live objects in old region: 1017847
 Operations: 2100000
-Live objects in old region: 928752
+Live objects in old region: 1013040
 Operations: 2110000
-Live objects in old region: 924387
+Live objects in old region: 1008303
 Operations: 2120000
-Live objects in old region: 920121
+Live objects in old region: 1003561
 Final check:
-Live objects in old region: 915866
-[19.655s][info][gc,heap,exit   ] Heap
-[19.656s][info][gc,heap,exit   ]  def new generation   total 600896K, used 534144K [0x0000000085c00000, 0x00000000ae800000, 0x00000000ae800000)
-[19.656s][info][gc,heap,exit   ]   eden space 534144K, 100% used [0x0000000085c00000, 0x00000000a65a0000, 0x00000000a65a0000)
-[19.656s][info][gc,heap,exit   ]   from space 66752K,   0% used [0x00000000aa6d0000, 0x00000000aa6d0000, 0x00000000ae800000)
-[19.656s][info][gc,heap,exit   ]   to   space 66752K,   0% used [0x00000000a65a0000, 0x00000000a65a0000, 0x00000000aa6d0000)
-[19.656s][info][gc,heap,exit   ]  tenured generation   total 1335296K, used 1295821K [0x00000000ae800000, 0x0000000100000000, 0x0000000100000000)
-[19.656s][info][gc,heap,exit   ]    the space 1335296K,  97% used [0x00000000ae800000, 0x00000000fd973628, 0x00000000fd973800, 0x0000000100000000)
-[19.656s][info][gc,heap,exit   ]  Metaspace       used 8341K, committed 8512K, reserved 1114112K
-[19.656s][info][gc,heap,exit   ]   class space    used 766K, committed 832K, reserved 1048576K
+Live objects in old region: 999026
+[13.550s][info][gc,heap,exit   ] Heap
+[13.550s][info][gc,heap,exit   ]  def new generation   total 600896K, used 413946K [0x0000000085c00000, 0x00000000ae800000, 0x00000000ae800000)
+[13.550s][info][gc,heap,exit   ]   eden space 534144K,  77% used [0x0000000085c00000, 0x000000009f03e920, 0x00000000a65a0000)
+[13.550s][info][gc,heap,exit   ]   from space 66752K,   0% used [0x00000000aa6d0000, 0x00000000aa6d0000, 0x00000000ae800000)
+[13.550s][info][gc,heap,exit   ]   to   space 66752K,   0% used [0x00000000a65a0000, 0x00000000a65a0000, 0x00000000aa6d0000)
+[13.550s][info][gc,heap,exit   ]  tenured generation   total 1335296K, used 1335295K [0x00000000ae800000, 0x0000000100000000, 0x0000000100000000)
+[13.550s][info][gc,heap,exit   ]    the space 1335296K,  99% used [0x00000000ae800000, 0x00000000fffffc90, 0x00000000fffffe00, 0x0000000100000000)
+[13.550s][info][gc,heap,exit   ]  Metaspace       used 8341K, committed 8512K, reserved 1114112K
+[13.550s][info][gc,heap,exit   ]   class space    used 766K, committed 832K, reserved 1048576K
 ----------System.err:(1/15)----------
 STATUS:Passed.
 ----------rerun:(34/2103)*----------
