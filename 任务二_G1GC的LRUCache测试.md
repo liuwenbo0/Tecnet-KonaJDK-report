@@ -33,11 +33,11 @@ G1GC 对 Young Generation 的回收较为常见，分为四个阶段：
 在 G1GC 的日志中可以看到这些阶段：
 
 ```log
-[0.172s][info][gc,phases   ] GC(0)   Pre Evacuate Collection Set: 0.1ms
-[0.172s][info][gc,phases   ] GC(0)   Merge Heap Roots: 0.1ms
-[0.172s][info][gc,phases   ] GC(0)   Evacuate Collection Set: 5.7ms
-[0.172s][info][gc,phases   ] GC(0)   Post Evacuate Collection Set: 0.3ms
-[0.172s][info][gc,phases   ] GC(0)   Other: 0.7ms
+[0.191s][info][gc,phases   ] GC(0)   Pre Evacuate Collection Set: 0.1ms
+[0.191s][info][gc,phases   ] GC(0)   Merge Heap Roots: 0.2ms
+[0.191s][info][gc,phases   ] GC(0)   Evacuate Collection Set: 7.4ms
+[0.191s][info][gc,phases   ] GC(0)   Post Evacuate Collection Set: 0.4ms
+[0.191s][info][gc,phases   ] GC(0)   Other: 0.7ms
 ```
 
 G1GC 对 Young Generation 的回收，通常会增加老区的数量，也会增加老区中存活对象的数量，因为一部分 Young Generation 的对象会被复制到老区中。
@@ -48,12 +48,17 @@ Operations: 10000
 Live objects in old region: 0
 ```
 
-当 GC(1)完成之后，老区中存活对象的数量变为了 17718。
+当 GC(1)完成之后，老区中存活对象的数量变为了 11763。
 
 ```log
-[0.179s][info][gc,cpu      ] GC(1) User=0.02s Sys=0.00s Real=0.01s
+[0.191s][info][gc,cpu      ] GC(0) User=0.01s Sys=0.02s Real=0.01s
 Operations: 20000
-Live objects in old region: 17718
+Live objects in old region: 11763
+region 1    liveness: 100%   region 2    liveness: 100%   region 3    liveness: 100%
+region 4    liveness: 100%   region 5    liveness: 100%   region 6    liveness: 100%
+region 7    liveness: 100%   region 8    liveness: 100%   region 9    liveness: 100%
+region 10   liveness: 100%   region 11   liveness: 100%   region 12   liveness: 100%
+region 13   liveness: 100%   region 14   liveness: 100%   region 15   liveness: 38 %
 ```
 
 ### GC 不运行阶段
@@ -61,10 +66,10 @@ Live objects in old region: 17718
 当没有进行 GC 时，持续统计老区中存活对象的数量
 
 ```log
-Operations: 20000
-Live objects in old region: 17718
-Operations: 30000
-Live objects in old region: 17622
+Operations: 40000
+Live objects in old region: 35422
+Operations: 50000
+Live objects in old region: 35266
 ```
 
 因为运行的是 LRUCache 测试用例，晋升到老区的对象可能随着程序运行而不再存活。
@@ -80,48 +85,198 @@ Live objects in old region: 17622
 在日志中我们可以看到这些阶段：
 
 ```log
-[0.214s][info][gc          ] GC(4) Pause Young (Concurrent Start) (G1 Humongous Allocation) 68M->70M(372M) 4.671ms
-[0.214s][info][gc,cpu      ] GC(4) User=0.02s Sys=0.00s Real=0.00s
-[0.214s][info][gc          ] GC(5) Concurrent Undo Cycle
-[0.214s][info][gc,marking  ] GC(5) Concurrent Cleanup for Next Mark
-Operations: 50000
-[0.216s][info][gc,marking  ] GC(5) Concurrent Cleanup for Next Mark 2.117ms
-[0.216s][info][gc          ] GC(5) Concurrent Undo Cycle 2.170ms
+[0.255s][info][gc          ] GC(4) Pause Young (Concurrent Start) (G1 Evacuation Pause) 83M->84M(372M) 5.755ms
+[0.271s][info][gc,cpu      ] GC(5) User=0.00s Sys=0.00s Real=0.00s
+[0.271s][info][gc,marking  ] GC(5) Concurrent Cleanup for Next Mark
+[0.272s][info][gc,marking  ] GC(5) Concurrent Cleanup for Next Mark 1.744ms
 ```
 
-这一阶段只是对老区对象进行标记操作，收集收益高的若干老年代 Region。并不会实际进行 GC，所以对老区中存活对象的数量没有直接的影响。
+这一阶段只是对老区对象进行标记操作，收集收益高的若干老年代 Region。并不会实际进行 GC，但老区中一些对象这时候会被定义为 garbge_byte。使得老区的存活率下降。
+在 GC(5) 完成之前，老区的存活率大多是 100%。
+
+```log
+Operations: 60000
+Live objects in old region: 48650
+region 1    liveness: 100%   region 2    liveness: 100%   region 3    liveness: 100%
+region 4    liveness: 100%   region 5    liveness: 100%   region 6    liveness: 100%
+region 7    liveness: 100%   region 8    liveness: 100%   region 9    liveness: 100%
+region 10   liveness: 100%   region 11   liveness: 100%   region 12   liveness: 100%
+region 13   liveness: 100%   region 14   liveness: 100%   region 15   liveness: 100%
+region 16   liveness: 100%   region 17   liveness: 100%   region 18   liveness: 100%
+region 19   liveness: 100%   region 20   liveness: 100%   region 21   liveness: 100%
+region 22   liveness: 100%   region 23   liveness: 100%   region 24   liveness: 100%
+region 25   liveness: 100%   region 26   liveness: 100%   region 27   liveness: 100%
+region 28   liveness: 100%   region 29   liveness: 100%   region 30   liveness: 100%
+region 31   liveness: 100%   region 32   liveness: 100%   region 33   liveness: 100%
+region 34   liveness: 100%   region 35   liveness: 100%   region 36   liveness: 100%
+region 37   liveness: 100%   region 38   liveness: 100%   region 39   liveness: 100%
+region 40   liveness: 100%   region 41   liveness: 100%   region 42   liveness: 100%
+region 43   liveness: 100%   region 44   liveness: 100%   region 45   liveness: 100%
+region 46   liveness: 100%   region 47   liveness: 100%   region 48   liveness: 100%
+region 49   liveness: 100%   region 50   liveness: 100%   region 51   liveness: 100%
+region 52   liveness: 100%   region 53   liveness: 100%   region 54   liveness: 100%
+region 55   liveness: 100%   region 56   liveness: 100%   region 57   liveness: 100%
+region 58   liveness: 100%   region 59   liveness: 100%   region 60   liveness: 100%
+region 61   liveness: 50 %
+```
+
+而在 GC(5) 完成之后，老区的存活率则大多有所下降。且注意在 GC(5)这个 Concurrent Mark GC 之前的几次 GC，统计老区存活率时没有出现过存活率下降的情况。
+
+```log
+Operations: 70000
+Live objects in old region: 58439
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 0  %
+region 31   liveness: 99 %   region 32   liveness: 98 %   region 33   liveness: 98 %
+region 34   liveness: 99 %   region 35   liveness: 98 %   region 36   liveness: 98 %
+region 37   liveness: 98 %   region 38   liveness: 99 %   region 39   liveness: 98 %
+region 40   liveness: 99 %   region 41   liveness: 99 %   region 42   liveness: 66 %
+region 43   liveness: 99 %   region 44   liveness: 11 %   region 45   liveness: 50 %
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %
+region 55   liveness: 99 %   region 56   liveness: 99 %   region 57   liveness: 84 %
+region 58   liveness: 99 %   region 59   liveness: 62 %   region 60   liveness: 87 %
+region 61   liveness: 52 %   region 62   liveness: 100%   region 63   liveness: 100%
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 100%
+region 73   liveness: 50 %
+```
 
 ### Prepared Mixed & Mixed GC 阶段
 
 当老区中垃圾占比超过某一阈值时，进入 Prepare Mixed 阶段，这意味着除了年轻代之外，还会选择一部分老年代区域，在接下来的 Mixed 阶段进行清理。
-`[0.564s][info][gc,start    ] GC(11) Pause Young (Prepare Mixed) (G1 Evacuation Pause)`
+`[0.293s][info][gc,start    ] GC(6) Pause Young (Prepare Mixed) (G1 Evacuation Pause)`
 在 Prepare Mixed 阶段之后，会进行 Mixed GC ，此阶段会将 Prepare 阶段选择老年代的区域与年轻代一起进行清理。
-`[0.680s][info][gc,start    ] GC(12) Pause Young (Mixed) (G1 Evacuation Pause)`
+`[0.316s][info][gc,start    ] GC(7) Pause Young (Mixed) (G1 Evacuation Pause)`
 
-查看日志，可以看出在 GC(11)前后，老区数量增加了 68 个，老区中存活对象数增加了 57720 个。但在 GC(12) 之后，老区数量只增加了 37 个，老区中存活对象数只增加了 31822 个。其中 GC(11)是一次 Young GC，而 GC(12)是 Mixed GC。通常来说，因为堆中的对象会越来越多，越是晚进行的 GC 越会增加更多的老区存活对象数。但 GC(11)和 GC(12)不满足这样的规律。
-这是因为 GC(11)是一轮 Young GC，它只回收年轻代并将一些存活的对象晋升到老年代，因此老年代对象数量显著增加。而 GC(12)是一轮 Mixed GC，它在晋升年轻代对象的同时，还选择性地回收老年代中的部分区域，因此老年代区域的增加幅度较小。
+查看日志
+
+```log
+Operations: 90000
+Live objects in old region: 57899
+[0.308s][info][gc,heap     ] GC(6) Old regions: 73->108
+Operations: 100000
+Live objects in old region: 88325
+[0.323s][info][gc,heap     ] GC(7) Old regions: 108->122
+Operations: 110000
+Live objects in old region: 99834
+```
+
+可以看出在 GC(6)前后，老区数量增加了 108 - 73 = 35 个，老区中存活对象数增加了 88325 - 57899 = 30172 个。但在 GC(7) 之后，老区数量只增加了 122 - 108 = 14 个，老区中存活对象数只增加了 99834 - 88325 = 11509 个。其中区别在于 GC(6)是一次 Young GC, 而 GC(7)是 Mixed GC。
+通常来说，因为堆中的对象会越来越多，越是晚进行的 GC 越会增加更多的老区存活对象数。但 GC(6)和 GC(7)不满足这样的规律。
+这是因为 GC(6)是一轮 Young GC，它只回收年轻代并将一些存活的对象晋升到老年代，因此老年代对象数量显著增加。而 GC(7)是一轮 Mixed GC，它在晋升年轻代对象的同时，还选择性地回收老年代中的部分区域，因此老年代区域的增加幅度较小。
 至于为什么存活对象的增加幅度也减少了，猜测可能有两点原因：
 
 1. GC(12)并没有只对年轻代进行 GC，导致从年轻代晋升至老区的对象数量减少。
 2. GC(12)使得老区中部分不再存活的对象立即被清理，使得统计时老区中存活数量减少。
 
+查看日志中调用 whitebox api 得到的老区存活率的统计。
+
 ```log
-Operations: 260000
-Live objects in old region: 184057
-[0.610s][info][gc,heap     ] GC(11) Old regions: 227->295
-Operations: 270000
-Live objects in old region: 241777
-Operations: 290000
-Live objects in old region: 239645
-[0.692s][info][gc,heap     ] GC(12) Old regions: 295->332
-Operations: 300000
-Live objects in old region: 271467
+Operations: 100000
+Live objects in old region: 88325
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 0  %
+region 31   liveness: 99 %   region 32   liveness: 98 %   region 33   liveness: 98 %
+region 34   liveness: 99 %   region 35   liveness: 98 %   region 36   liveness: 98 %
+region 37   liveness: 98 %   region 38   liveness: 99 %   region 39   liveness: 98 %
+region 40   liveness: 99 %   region 41   liveness: 99 %   region 42   liveness: 66 %
+region 43   liveness: 99 %   region 44   liveness: 11 %   region 45   liveness: 50 %
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %
+region 55   liveness: 99 %   region 56   liveness: 99 %   region 57   liveness: 84 %
+region 58   liveness: 99 %   region 59   liveness: 62 %   region 60   liveness: 87 %
+region 61   liveness: 52 %   region 62   liveness: 100%   region 63   liveness: 100%
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 100%
+region 73   liveness: 50 %   region 74   liveness: 100%   region 75   liveness: 100%
+region 76   liveness: 100%   region 77   liveness: 100%   region 78   liveness: 100%
+region 79   liveness: 100%   region 80   liveness: 100%   region 81   liveness: 100%
+region 82   liveness: 100%   region 83   liveness: 100%   region 84   liveness: 100%
+region 85   liveness: 100%   region 86   liveness: 100%   region 87   liveness: 100%
+region 88   liveness: 100%   region 89   liveness: 100%   region 90   liveness: 100%
+region 91   liveness: 100%   region 92   liveness: 100%   region 93   liveness: 100%
+region 94   liveness: 100%   region 95   liveness: 100%   region 96   liveness: 100%
+region 97   liveness: 100%   region 98   liveness: 100%   region 99   liveness: 100%
+region 100  liveness: 100%   region 101  liveness: 100%   region 102  liveness: 100%
+region 103  liveness: 100%   region 104  liveness: 100%   region 105  liveness: 100%
+region 106  liveness: 100%   region 107  liveness: 100%   region 108  liveness: 67 %
+
+Operations: 110000
+Live objects in old region: 99834
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 99 %
+region 31   liveness: 98 %   region 32   liveness: 98 %   region 33   liveness: 99 %
+region 34   liveness: 98 %   region 35   liveness: 98 %   region 36   liveness: 98 %
+region 37   liveness: 99 %   region 38   liveness: 98 %   region 39   liveness: 99 %
+region 40   liveness: 99 %   region 41   liveness: 66 %   region 42   liveness: 99 %
+region 43   liveness: 11 %   region 44   liveness: 50 %   region 45   liveness: 99 %
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %
+region 55   liveness: 99 %   region 56   liveness: 84 %   region 57   liveness: 99 %
+region 58   liveness: 62 %   region 59   liveness: 87 %   region 60   liveness: 52 %
+region 61   liveness: 100%   region 62   liveness: 100%   region 63   liveness: 100%
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 50 %
+region 73   liveness: 100%   region 74   liveness: 100%   region 75   liveness: 100%
+region 76   liveness: 100%   region 77   liveness: 100%   region 78   liveness: 100%
+region 79   liveness: 100%   region 80   liveness: 100%   region 81   liveness: 100%
+region 82   liveness: 100%   region 83   liveness: 100%   region 84   liveness: 100%
+region 85   liveness: 100%   region 86   liveness: 100%   region 87   liveness: 100%
+region 88   liveness: 100%   region 89   liveness: 100%   region 90   liveness: 100%
+region 91   liveness: 100%   region 92   liveness: 100%   region 93   liveness: 100%
+region 94   liveness: 100%   region 95   liveness: 100%   region 96   liveness: 100%
+region 97   liveness: 100%   region 98   liveness: 100%   region 99   liveness: 100%
+region 100  liveness: 100%   region 101  liveness: 100%   region 102  liveness: 100%
+region 103  liveness: 100%   region 104  liveness: 100%   region 105  liveness: 100%
+region 106  liveness: 100%   region 107  liveness: 100%   region 108  liveness: 100%
+region 109  liveness: 100%   region 110  liveness: 100%   region 111  liveness: 100%
+region 112  liveness: 100%   region 113  liveness: 100%   region 114  liveness: 100%
+region 115  liveness: 100%   region 116  liveness: 100%   region 117  liveness: 100%
+region 118  liveness: 100%   region 119  liveness: 100%   region 120  liveness: 100%
+region 121  liveness: 100%   region 122  liveness: 50 %
 ```
+
+可以发现，MixedGC 之后，部分老区的存活率出现了显著变化。例如
+Region 30、42、45、57 等区域存活率出现显著提升，表明这些老区的剩余空间在 GC(7)的过程中被充分利用了。Region 58、60 等区域的存活率有明显下降，这说明 GC(7)过程中该区域的对象被回收或移动到了其他区域。
+这种变化使得老区空间得到释放。
 
 ### Pause Full GC 阶段
 
 当 Mixed GC 不足以解决老区空间不足的问题时，可能会进行 Pause Full GC 全堆 GC。
 Pause Full GC 分为标记活对象、准备压缩、调整指针以及压缩堆等四个阶段。
+
+下面的日志来自任务一\_g1gc.jtr
 
 ```log
 [12.010s][info][gc,start    ] GC(42) Pause Full (G1 Compaction Pause)
@@ -137,4 +292,4 @@ Pause Full GC 分为标记活对象、准备压缩、调整指针以及压缩堆
 ```
 
 `[12.578s][info][gc,heap        ] GC(42) Old regions: 1925->1458`
-可以发现，该 GC 完成之后老区反而减少了，这是因为这是一次全堆 GC，用于解决老区空间不足的问题。大量数据从老区中被回收，同时压缩过程会移动老区中的对象减少内存碎片，这就使得老区数量大幅度减少。
+可以发现，该 GC 完成之后老区反而减少了，这是因为这是一次全堆 GC，用于解决老区空间不足的问题。大量数据从老区中被回收，同时压缩过程会移动老区中的对象减少内存碎片，这就使得老区数量大幅度减少。这也是 G1GC 中的 GC 过程中老区数量第一次出现下降的情况，这说明全堆 GC 相较 Mixed GC 更能够极大地释放老区的空间。

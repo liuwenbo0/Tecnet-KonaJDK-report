@@ -1,0 +1,1315 @@
+#Test Results (version 2)
+#Mon Sep 02 21:38:29 CST 2024
+#-----testdescription-----
+$file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java
+$root=/home/webliu/TencentKona-17/test/hotspot/jtreg
+keywords=bug1234567 othervm driver
+library=/test/lib
+modules=java.base/jdk.internal.misc java.management
+run=USER_SPECIFIED build jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:. -XX\:+UnlockDiagnosticVMOptions -XX\:+WhiteBoxAPI -XX\:+UseG1GC -Xlog\:gc* -Xlog\:gc\:g1gc.log  LRUCacheTest\n
+source=LRUCacheTest.java
+title=Test LRU Cache with Whitebox API using different GC methods and collect GC logs
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java
+elapsed=14174 0\:00\:14.174
+end=Mon Sep 02 21\:38\:29 CST 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=qaq.
+javatestOS=Linux 5.15.153.1-microsoft-standard-WSL2 (amd64)
+javatestVersion=6.0-ea+b24-2024-08-23-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.5 dev 0
+modules=java.base/jdk.internal.misc java.management
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build build driver build main
+start=Mon Sep 02 21\:38\:15 CST 2024
+test=gc/LRUCacheTest.java
+testJDK=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk
+testJDK_OS=[name\:Linux,arch\:amd64,version\:5.15.153.1-microsoft-standard-WSL2,family\:linux,simple_arch\:x64,simple_version\:5.15,processors\:16,maxMemory\:8198123520,maxSwap\:2147483648]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=5.15.153.1-microsoft-standard-WSL2
+totalTime=14177
+user.name=webliu
+work=/home/webliu/TencentKona-17/JTwork/gc
+
+#section:script_messages
+----------messages:(7/467)----------
+JDK under test: /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk
+openjdk version "17.0.11-internal" 2024-04-16
+OpenJDK Runtime Environment (build 17.0.11-internal+0-adhoc.webliu.TencentKona-17)
+OpenJDK 64-Bit Server VM (build 17.0.11-internal+0-adhoc.webliu.TencentKona-17, mixed mode)
+Library /test/lib; kind: packages
+   source directory: /home/webliu/TencentKona-17/test/lib
+   class directory: /home/webliu/TencentKona-17/JTwork/classes/test/lib
+
+#section:build
+----------messages:(5/218)----------
+command: build jdk.test.whitebox.WhiteBox
+reason: User specified action: run build jdk.test.whitebox.WhiteBox 
+started: Mon Sep 02 21:38:15 CST 2024
+finished: Mon Sep 02 21:38:15 CST 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:build
+----------messages:(5/199)----------
+command: build jdk.test.lib.helpers.ClassFileInstaller
+reason: Named class compiled on demand
+started: Mon Sep 02 21:38:15 CST 2024
+finished: Mon Sep 02 21:38:15 CST 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/442)----------
+command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
+started: Mon Sep 02 21:38:15 CST 2024
+Mode: othervm
+Additional options from @modules: --add-modules java.base,java.management --add-exports java.base/jdk.internal.misc=ALL-UNNAMED
+finished: Mon Sep 02 21:38:15 CST 2024
+elapsed time (seconds): 0.141
+----------configuration:(4/111)----------
+Boot Layer
+  add modules: java.base java.management   
+  add exports: java.base/jdk.internal.misc ALL-UNNAMED
+
+----------System.out:(0/0)----------
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(29/2055)*----------
+cd /home/webliu/TencentKona-17/JTwork/scratch && \\
+DISPLAY=:0 \\
+HOME=/home/webliu \\
+JTREG_HOME=/home/webliu/jtreg/build/images/jtreg \\
+LANG=C.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+WAYLAND_DISPLAY=wayland-0 \\
+XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \\
+CLASSPATH=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/JTwork/classes/test/lib:/home/webliu/TencentKona-17/test/lib:/home/webliu/jtreg/build/images/jtreg/lib/javatest.jar:/home/webliu/jtreg/build/images/jtreg/lib/jtreg.jar \\
+    /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk/bin/java \\
+        -Dtest.vm.opts=-Djavatest.maxOutputSize=500000 \\
+        -Dtest.tool.vm.opts=-J-Djavatest.maxOutputSize=500000 \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts= \\
+        -Dtest.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dcompile.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dtest.timeout.factor=1.0 \\
+        -Dtest.root=/home/webliu/TencentKona-17/test/hotspot/jtreg \\
+        -Dtest.name=gc/LRUCacheTest.java \\
+        -Dtest.file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java \\
+        -Dtest.src=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc \\
+        -Dtest.src.path=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/test/lib \\
+        -Dtest.classes=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d \\
+        -Dtest.class.path=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/JTwork/classes/test/lib \\
+        -Dtest.modules='java.base/jdk.internal.misc java.management' \\
+        --add-modules java.base,java.management \\
+        --add-exports java.base/jdk.internal.misc=ALL-UNNAMED \\
+        -Djavatest.maxOutputSize=500000 \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/webliu/TencentKona-17/JTwork/gc/LRUCacheTest.d/driver.0.jta jdk.test.whitebox.WhiteBox
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/172)----------
+command: build LRUCacheTest
+reason: Named class compiled on demand
+started: Mon Sep 02 21:38:15 CST 2024
+finished: Mon Sep 02 21:38:15 CST 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/578)----------
+command: main -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -XX:+UseG1GC -Xlog:gc* -Xlog:gc:g1gc.log LRUCacheTest
+reason: User specified action: run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -XX:+UseG1GC -Xlog:gc* -Xlog:gc:g1gc.log LRUCacheTest 
+started: Mon Sep 02 21:38:15 CST 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.management --add-exports java.base/jdk.internal.misc=ALL-UNNAMED
+finished: Mon Sep 02 21:38:29 CST 2024
+elapsed time (seconds): 13.878
+----------configuration:(4/111)----------
+Boot Layer
+  add modules: java.base java.management   
+  add exports: java.base/jdk.internal.misc ALL-UNNAMED
+
+----------System.out:(1132/94032)----------
+[0.002s][info][gc] Using G1
+[0.003s][info][gc,init] Version: 17.0.11-internal+0-adhoc.webliu.TencentKona-17 (release)
+[0.003s][info][gc,init] CPUs: 16 total, 16 available
+[0.003s][info][gc,init] Memory: 7818M
+[0.003s][info][gc,init] Large Page Support: Disabled
+[0.003s][info][gc,init] NUMA Support: Disabled
+[0.003s][info][gc,init] Compressed Oops: Enabled (32-bit)
+[0.003s][info][gc,init] Heap Region Size: 1M
+[0.003s][info][gc,init] Heap Min Capacity: 8M
+[0.003s][info][gc,init] Heap Initial Capacity: 124M
+[0.003s][info][gc,init] Heap Max Capacity: 1956M
+[0.003s][info][gc,init] Pre-touch: Disabled
+[0.003s][info][gc,init] Parallel Workers: 13
+[0.003s][info][gc,init] Concurrent Workers: 3
+[0.003s][info][gc,init] Concurrent Refinement Workers: 13
+[0.003s][info][gc,init] Periodic GC: Disabled
+[0.003s][info][gc,metaspace] CDS archive(s) not mapped
+[0.003s][info][gc,metaspace] Compressed class space mapped at: 0x0000000100000000-0x0000000140000000, reserved size: 1073741824
+[0.003s][info][gc,metaspace] Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x140000000
+Max heap size: 1956.00 MB
+Cache size: 1402060
+Total operations: 2203238
+Operations: 0
+Live objects in old region: 0
+Operations: 10000
+Live objects in old region: 0
+[0.183s][info][gc,start    ] GC(0) Pause Young (Normal) (G1 Evacuation Pause)
+[0.183s][info][gc,task     ] GC(0) Using 4 workers of 13 for evacuation
+[0.191s][info][gc,phases   ] GC(0)   Pre Evacuate Collection Set: 0.1ms
+[0.191s][info][gc,phases   ] GC(0)   Merge Heap Roots: 0.2ms
+[0.191s][info][gc,phases   ] GC(0)   Evacuate Collection Set: 7.4ms
+[0.191s][info][gc,phases   ] GC(0)   Post Evacuate Collection Set: 0.4ms
+[0.191s][info][gc,phases   ] GC(0)   Other: 0.7ms
+[0.191s][info][gc,heap     ] GC(0) Eden regions: 23->0(14)
+[0.191s][info][gc,heap     ] GC(0) Survivor regions: 0->3(3)
+[0.191s][info][gc,heap     ] GC(0) Old regions: 0->15
+[0.191s][info][gc,heap     ] GC(0) Archive regions: 0->0
+[0.191s][info][gc,heap     ] GC(0) Humongous regions: 9->9
+[0.191s][info][gc,metaspace] GC(0) Metaspace: 8269K(8448K)->8269K(8448K) NonClass: 7505K(7616K)->7505K(7616K) Class: 763K(832K)->763K(832K)
+[0.191s][info][gc          ] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 32M->26M(124M) 8.831ms
+[0.191s][info][gc,cpu      ] GC(0) User=0.01s Sys=0.02s Real=0.01s
+Operations: 20000
+Live objects in old region: 11763
+region 1    liveness: 100%   region 2    liveness: 100%   region 3    liveness: 100%   
+region 4    liveness: 100%   region 5    liveness: 100%   region 6    liveness: 100%   
+region 7    liveness: 100%   region 8    liveness: 100%   region 9    liveness: 100%   
+region 10   liveness: 100%   region 11   liveness: 100%   region 12   liveness: 100%   
+region 13   liveness: 100%   region 14   liveness: 100%   region 15   liveness: 38 %   
+[0.202s][info][gc,start    ] GC(1) Pause Young (Normal) (G1 Evacuation Pause)
+[0.202s][info][gc,task     ] GC(1) Using 4 workers of 13 for evacuation
+[0.209s][info][gc,phases   ] GC(1)   Pre Evacuate Collection Set: 0.1ms
+[0.209s][info][gc,phases   ] GC(1)   Merge Heap Roots: 0.1ms
+[0.209s][info][gc,phases   ] GC(1)   Evacuate Collection Set: 6.4ms
+[0.209s][info][gc,phases   ] GC(1)   Post Evacuate Collection Set: 0.3ms
+[0.209s][info][gc,phases   ] GC(1)   Other: 0.1ms
+[0.209s][info][gc,heap     ] GC(1) Eden regions: 14->0(12)
+[0.209s][info][gc,heap     ] GC(1) Survivor regions: 3->3(3)
+[0.209s][info][gc,heap     ] GC(1) Old regions: 15->30
+[0.209s][info][gc,heap     ] GC(1) Archive regions: 0->0
+[0.209s][info][gc,heap     ] GC(1) Humongous regions: 9->9
+[0.209s][info][gc,metaspace] GC(1) Metaspace: 8270K(8448K)->8270K(8448K) NonClass: 7506K(7616K)->7506K(7616K) Class: 763K(832K)->763K(832K)
+[0.209s][info][gc          ] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 40M->42M(124M) 7.031ms
+[0.209s][info][gc,cpu      ] GC(1) User=0.04s Sys=0.00s Real=0.01s
+Operations: 30000
+Live objects in old region: 23761
+region 1    liveness: 100%   region 2    liveness: 100%   region 3    liveness: 100%   
+region 4    liveness: 100%   region 5    liveness: 100%   region 6    liveness: 100%   
+region 7    liveness: 100%   region 8    liveness: 100%   region 9    liveness: 100%   
+region 10   liveness: 100%   region 11   liveness: 100%   region 12   liveness: 100%   
+region 13   liveness: 100%   region 14   liveness: 100%   region 15   liveness: 100%   
+region 16   liveness: 100%   region 17   liveness: 100%   region 18   liveness: 100%   
+region 19   liveness: 100%   region 20   liveness: 100%   region 21   liveness: 100%   
+region 22   liveness: 100%   region 23   liveness: 100%   region 24   liveness: 100%   
+region 25   liveness: 100%   region 26   liveness: 100%   region 27   liveness: 100%   
+region 28   liveness: 100%   region 29   liveness: 100%   region 30   liveness: 100%   
+[0.216s][info][gc,start    ] GC(2) Pause Young (Normal) (G1 Evacuation Pause)
+[0.216s][info][gc,task     ] GC(2) Using 4 workers of 13 for evacuation
+[0.224s][info][gc,phases   ] GC(2)   Pre Evacuate Collection Set: 0.1ms
+[0.224s][info][gc,phases   ] GC(2)   Merge Heap Roots: 0.1ms
+[0.224s][info][gc,phases   ] GC(2)   Evacuate Collection Set: 6.6ms
+[0.224s][info][gc,phases   ] GC(2)   Post Evacuate Collection Set: 0.3ms
+[0.224s][info][gc,phases   ] GC(2)   Other: 0.1ms
+[0.224s][info][gc,heap     ] GC(2) Eden regions: 12->0(16)
+[0.224s][info][gc,heap     ] GC(2) Survivor regions: 3->2(2)
+[0.224s][info][gc,heap     ] GC(2) Old regions: 30->45
+[0.224s][info][gc,heap     ] GC(2) Archive regions: 0->0
+[0.224s][info][gc,heap     ] GC(2) Humongous regions: 9->9
+[0.224s][info][gc,metaspace] GC(2) Metaspace: 8290K(8512K)->8290K(8512K) NonClass: 7526K(7680K)->7526K(7680K) Class: 763K(832K)->763K(832K)
+[0.224s][info][gc          ] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 54M->55M(124M) 7.275ms
+[0.224s][info][gc,cpu      ] GC(2) User=0.01s Sys=0.02s Real=0.01s
+Operations: 40000
+Live objects in old region: 35422
+region 1    liveness: 100%   region 2    liveness: 100%   region 3    liveness: 100%   
+region 4    liveness: 100%   region 5    liveness: 100%   region 6    liveness: 100%   
+region 7    liveness: 100%   region 8    liveness: 100%   region 9    liveness: 100%   
+region 10   liveness: 100%   region 11   liveness: 100%   region 12   liveness: 100%   
+region 13   liveness: 100%   region 14   liveness: 100%   region 15   liveness: 100%   
+region 16   liveness: 100%   region 17   liveness: 100%   region 18   liveness: 100%   
+region 19   liveness: 100%   region 20   liveness: 100%   region 21   liveness: 100%   
+region 22   liveness: 100%   region 23   liveness: 100%   region 24   liveness: 100%   
+region 25   liveness: 100%   region 26   liveness: 100%   region 27   liveness: 100%   
+region 28   liveness: 100%   region 29   liveness: 100%   region 30   liveness: 100%   
+region 31   liveness: 100%   region 32   liveness: 100%   region 33   liveness: 100%   
+region 34   liveness: 100%   region 35   liveness: 100%   region 36   liveness: 100%   
+region 37   liveness: 100%   region 38   liveness: 100%   region 39   liveness: 100%   
+region 40   liveness: 100%   region 41   liveness: 100%   region 42   liveness: 100%   
+region 43   liveness: 100%   region 44   liveness: 100%   region 45   liveness: 50 %   
+Operations: 50000
+Live objects in old region: 35266
+region 1    liveness: 100%   region 2    liveness: 100%   region 3    liveness: 100%   
+region 4    liveness: 100%   region 5    liveness: 100%   region 6    liveness: 100%   
+region 7    liveness: 100%   region 8    liveness: 100%   region 9    liveness: 100%   
+region 10   liveness: 100%   region 11   liveness: 100%   region 12   liveness: 100%   
+region 13   liveness: 100%   region 14   liveness: 100%   region 15   liveness: 100%   
+region 16   liveness: 100%   region 17   liveness: 100%   region 18   liveness: 100%   
+region 19   liveness: 100%   region 20   liveness: 100%   region 21   liveness: 100%   
+region 22   liveness: 100%   region 23   liveness: 100%   region 24   liveness: 100%   
+region 25   liveness: 100%   region 26   liveness: 100%   region 27   liveness: 100%   
+region 28   liveness: 100%   region 29   liveness: 100%   region 30   liveness: 100%   
+region 31   liveness: 100%   region 32   liveness: 100%   region 33   liveness: 100%   
+region 34   liveness: 100%   region 35   liveness: 100%   region 36   liveness: 100%   
+region 37   liveness: 100%   region 38   liveness: 100%   region 39   liveness: 100%   
+region 40   liveness: 100%   region 41   liveness: 100%   region 42   liveness: 100%   
+region 43   liveness: 100%   region 44   liveness: 100%   region 45   liveness: 50 %   
+[0.235s][info][gc,start    ] GC(3) Pause Young (Normal) (G1 Evacuation Pause)
+[0.235s][info][gc,task     ] GC(3) Using 4 workers of 13 for evacuation
+[0.242s][info][gc,phases   ] GC(3)   Pre Evacuate Collection Set: 0.1ms
+[0.242s][info][gc,phases   ] GC(3)   Merge Heap Roots: 0.1ms
+[0.242s][info][gc,phases   ] GC(3)   Evacuate Collection Set: 6.8ms
+[0.242s][info][gc,phases   ] GC(3)   Post Evacuate Collection Set: 0.4ms
+[0.242s][info][gc,phases   ] GC(3)   Other: 0.1ms
+[0.242s][info][gc,heap     ] GC(3) Eden regions: 16->0(10)
+[0.242s][info][gc,heap     ] GC(3) Survivor regions: 2->3(3)
+[0.242s][info][gc,heap     ] GC(3) Old regions: 45->61
+[0.242s][info][gc,heap     ] GC(3) Archive regions: 0->0
+[0.242s][info][gc,heap     ] GC(3) Humongous regions: 10->10
+[0.242s][info][gc,metaspace] GC(3) Metaspace: 8290K(8512K)->8290K(8512K) NonClass: 7526K(7680K)->7526K(7680K) Class: 763K(832K)->763K(832K)
+[0.242s][info][gc          ] GC(3) Pause Young (Normal) (G1 Evacuation Pause) 72M->73M(124M) 7.512ms
+[0.242s][info][gc,cpu      ] GC(3) User=0.02s Sys=0.01s Real=0.01s
+Operations: 60000
+Live objects in old region: 48650
+region 1    liveness: 100%   region 2    liveness: 100%   region 3    liveness: 100%   
+region 4    liveness: 100%   region 5    liveness: 100%   region 6    liveness: 100%   
+region 7    liveness: 100%   region 8    liveness: 100%   region 9    liveness: 100%   
+region 10   liveness: 100%   region 11   liveness: 100%   region 12   liveness: 100%   
+region 13   liveness: 100%   region 14   liveness: 100%   region 15   liveness: 100%   
+region 16   liveness: 100%   region 17   liveness: 100%   region 18   liveness: 100%   
+region 19   liveness: 100%   region 20   liveness: 100%   region 21   liveness: 100%   
+region 22   liveness: 100%   region 23   liveness: 100%   region 24   liveness: 100%   
+region 25   liveness: 100%   region 26   liveness: 100%   region 27   liveness: 100%   
+region 28   liveness: 100%   region 29   liveness: 100%   region 30   liveness: 100%   
+region 31   liveness: 100%   region 32   liveness: 100%   region 33   liveness: 100%   
+region 34   liveness: 100%   region 35   liveness: 100%   region 36   liveness: 100%   
+region 37   liveness: 100%   region 38   liveness: 100%   region 39   liveness: 100%   
+region 40   liveness: 100%   region 41   liveness: 100%   region 42   liveness: 100%   
+region 43   liveness: 100%   region 44   liveness: 100%   region 45   liveness: 100%   
+region 46   liveness: 100%   region 47   liveness: 100%   region 48   liveness: 100%   
+region 49   liveness: 100%   region 50   liveness: 100%   region 51   liveness: 100%   
+region 52   liveness: 100%   region 53   liveness: 100%   region 54   liveness: 100%   
+region 55   liveness: 100%   region 56   liveness: 100%   region 57   liveness: 100%   
+region 58   liveness: 100%   region 59   liveness: 100%   region 60   liveness: 100%   
+region 61   liveness: 50 %   [0.249s][info][gc,start    ] GC(4) Pause Young (Concurrent Start) (G1 Evacuation Pause)
+[0.249s][info][gc,task     ] GC(4) Using 4 workers of 13 for evacuation
+[0.255s][info][gc,phases   ] GC(4)   Pre Evacuate Collection Set: 0.1ms
+[0.255s][info][gc,phases   ] GC(4)   Merge Heap Roots: 0.2ms
+[0.255s][info][gc,phases   ] GC(4)   Evacuate Collection Set: 4.2ms
+[0.255s][info][gc,phases   ] GC(4)   Post Evacuate Collection Set: 1.1ms
+[0.255s][info][gc,phases   ] GC(4)   Other: 0.2ms
+[0.255s][info][gc,heap     ] GC(4) Eden regions: 10->0(37)
+[0.255s][info][gc,heap     ] GC(4) Survivor regions: 3->2(2)
+[0.255s][info][gc,heap     ] GC(4) Old regions: 61->73
+[0.255s][info][gc,heap     ] GC(4) Archive regions: 0->0
+[0.255s][info][gc,heap     ] GC(4) Humongous regions: 10->10
+[0.255s][info][gc,metaspace] GC(4) Metaspace: 8290K(8512K)->8290K(8512K) NonClass: 7526K(7680K)->7526K(7680K) Class: 763K(832K)->763K(832K)
+[0.255s][info][gc          ] GC(4) Pause Young (Concurrent Start) (G1 Evacuation Pause) 83M->84M(372M) 5.755ms
+[0.255s][info][gc,cpu      ] GC(4) User=0.01s Sys=0.01s Real=0.00s
+[0.255s][info][gc          ] GC(5) Concurrent Mark Cycle
+[0.255s][info][gc,marking  ] GC(5) Concurrent Clear Claimed Marks
+[0.255s][info][gc,marking  ] GC(5) Concurrent Clear Claimed Marks 0.017ms
+[0.255s][info][gc,marking  ] GC(5) Concurrent Scan Root Regions
+[0.257s][info][gc,marking  ] GC(5) Concurrent Scan Root Regions 1.543ms
+[0.257s][info][gc,marking  ] GC(5) Concurrent Mark
+[0.257s][info][gc,marking  ] GC(5) Concurrent Mark From Roots
+[0.257s][info][gc,task     ] GC(5) Using 3 workers of 3 for marking
+Operations: 70000
+[0.263s][info][gc,marking  ] GC(5) Concurrent Mark From Roots 5.992ms
+[0.263s][info][gc,marking  ] GC(5) Concurrent Preclean
+[0.263s][info][gc,marking  ] GC(5) Concurrent Preclean 0.048ms
+[0.263s][info][gc,start    ] GC(5) Pause Remark
+[0.264s][info][gc          ] GC(5) Pause Remark 94M->94M(317M) 1.026ms
+[0.264s][info][gc,cpu      ] GC(5) User=0.00s Sys=0.00s Real=0.00s
+[0.264s][info][gc,marking  ] GC(5) Concurrent Mark 7.440ms
+[0.264s][info][gc,marking  ] GC(5) Concurrent Rebuild Remembered Sets
+Live objects in old region: 58439
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %   
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %   
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %   
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %   
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %   
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %   
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %   
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %   
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %   
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 0  %   
+region 31   liveness: 99 %   region 32   liveness: 98 %   region 33   liveness: 98 %   
+region 34   liveness: 99 %   region 35   liveness: 98 %   region 36   liveness: 98 %   
+region 37   liveness: 98 %   region 38   liveness: 99 %   region 39   liveness: 98 %   
+region 40   liveness: 99 %   region 41   liveness: 99 %   region 42   liveness: 66 %   
+region 43   liveness: 99 %   region 44   liveness: 11 %   region 45   liveness: 50 %   
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %   
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %   
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %   
+region 55   liveness: 99 %   region 56   liveness: 99 %   region 57   liveness: 84 %   
+region 58   liveness: 99 %   region 59   liveness: 62 %   region 60   liveness: 87 %   
+region 61   liveness: 52 %   region 62   liveness: 100%   region 63   liveness: 100%   
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%   
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%   
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 100%   
+region 73   liveness: 50 %   [0.270s][info][gc,marking  ] GC(5) Concurrent Rebuild Remembered Sets 5.706ms
+[0.270s][info][gc,start    ] GC(5) Pause Cleanup
+[0.271s][info][gc          ] GC(5) Pause Cleanup 97M->97M(317M) 0.156ms
+[0.271s][info][gc,cpu      ] GC(5) User=0.00s Sys=0.00s Real=0.00s
+[0.271s][info][gc,marking  ] GC(5) Concurrent Cleanup for Next Mark
+[0.272s][info][gc,marking  ] GC(5) Concurrent Cleanup for Next Mark 1.744ms
+[0.273s][info][gc          ] GC(5) Concurrent Mark Cycle 17.488ms
+Operations: 80000
+Live objects in old region: 58163
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %   
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %   
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %   
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %   
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %   
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %   
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %   
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %   
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %   
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 0  %   
+region 31   liveness: 99 %   region 32   liveness: 98 %   region 33   liveness: 98 %   
+region 34   liveness: 99 %   region 35   liveness: 98 %   region 36   liveness: 98 %   
+region 37   liveness: 98 %   region 38   liveness: 99 %   region 39   liveness: 98 %   
+region 40   liveness: 99 %   region 41   liveness: 99 %   region 42   liveness: 66 %   
+region 43   liveness: 99 %   region 44   liveness: 11 %   region 45   liveness: 50 %   
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %   
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %   
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %   
+region 55   liveness: 99 %   region 56   liveness: 99 %   region 57   liveness: 84 %   
+region 58   liveness: 99 %   region 59   liveness: 62 %   region 60   liveness: 87 %   
+region 61   liveness: 52 %   region 62   liveness: 100%   region 63   liveness: 100%   
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%   
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%   
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 100%   
+region 73   liveness: 50 %   Operations: 90000
+Live objects in old region: 57899
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %   
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %   
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %   
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %   
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %   
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %   
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %   
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %   
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %   
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 0  %   
+region 31   liveness: 99 %   region 32   liveness: 98 %   region 33   liveness: 98 %   
+region 34   liveness: 99 %   region 35   liveness: 98 %   region 36   liveness: 98 %   
+region 37   liveness: 98 %   region 38   liveness: 99 %   region 39   liveness: 98 %   
+region 40   liveness: 99 %   region 41   liveness: 99 %   region 42   liveness: 66 %   
+region 43   liveness: 99 %   region 44   liveness: 11 %   region 45   liveness: 50 %   
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %   
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %   
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %   
+region 55   liveness: 99 %   region 56   liveness: 99 %   region 57   liveness: 84 %   
+region 58   liveness: 99 %   region 59   liveness: 62 %   region 60   liveness: 87 %   
+region 61   liveness: 52 %   region 62   liveness: 100%   region 63   liveness: 100%   
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%   
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%   
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 100%   
+region 73   liveness: 50 %   [0.293s][info][gc,start    ] GC(6) Pause Young (Prepare Mixed) (G1 Evacuation Pause)
+[0.294s][info][gc,task     ] GC(6) Using 7 workers of 13 for evacuation
+[0.308s][info][gc,phases   ] GC(6)   Pre Evacuate Collection Set: 0.1ms
+[0.308s][info][gc,phases   ] GC(6)   Merge Heap Roots: 0.3ms
+[0.308s][info][gc,phases   ] GC(6)   Evacuate Collection Set: 12.9ms
+[0.308s][info][gc,phases   ] GC(6)   Post Evacuate Collection Set: 0.7ms
+[0.308s][info][gc,phases   ] GC(6)   Other: 0.8ms
+[0.308s][info][gc,heap     ] GC(6) Eden regions: 37->0(10)
+[0.308s][info][gc,heap     ] GC(6) Survivor regions: 2->5(5)
+[0.308s][info][gc,heap     ] GC(6) Old regions: 73->108
+[0.308s][info][gc,heap     ] GC(6) Archive regions: 0->0
+[0.308s][info][gc,heap     ] GC(6) Humongous regions: 10->10
+[0.308s][info][gc,metaspace] GC(6) Metaspace: 8290K(8512K)->8290K(8512K) NonClass: 7526K(7680K)->7526K(7680K) Class: 763K(832K)->763K(832K)
+[0.308s][info][gc          ] GC(6) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 121M->122M(317M) 14.893ms
+[0.308s][info][gc,cpu      ] GC(6) User=0.01s Sys=0.08s Real=0.02s
+Operations: 100000
+Live objects in old region: 88325
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %   
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %   
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %   
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %   
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %   
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %   
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %   
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %   
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %   
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 0  %   
+region 31   liveness: 99 %   region 32   liveness: 98 %   region 33   liveness: 98 %   
+region 34   liveness: 99 %   region 35   liveness: 98 %   region 36   liveness: 98 %   
+region 37   liveness: 98 %   region 38   liveness: 99 %   region 39   liveness: 98 %   
+region 40   liveness: 99 %   region 41   liveness: 99 %   region 42   liveness: 66 %   
+region 43   liveness: 99 %   region 44   liveness: 11 %   region 45   liveness: 50 %   
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %   
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %   
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %   
+region 55   liveness: 99 %   region 56   liveness: 99 %   region 57   liveness: 84 %   
+region 58   liveness: 99 %   region 59   liveness: 62 %   region 60   liveness: 87 %   
+region 61   liveness: 52 %   region 62   liveness: 100%   region 63   liveness: 100%   
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%   
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%   
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 100%   
+region 73   liveness: 50 %   region 74   liveness: 100%   region 75   liveness: 100%   
+region 76   liveness: 100%   region 77   liveness: 100%   region 78   liveness: 100%   
+region 79   liveness: 100%   region 80   liveness: 100%   region 81   liveness: 100%   
+region 82   liveness: 100%   region 83   liveness: 100%   region 84   liveness: 100%   
+region 85   liveness: 100%   region 86   liveness: 100%   region 87   liveness: 100%   
+region 88   liveness: 100%   region 89   liveness: 100%   region 90   liveness: 100%   
+region 91   liveness: 100%   region 92   liveness: 100%   region 93   liveness: 100%   
+region 94   liveness: 100%   region 95   liveness: 100%   region 96   liveness: 100%   
+region 97   liveness: 100%   region 98   liveness: 100%   region 99   liveness: 100%   
+region 100  liveness: 100%   region 101  liveness: 100%   region 102  liveness: 100%   
+region 103  liveness: 100%   region 104  liveness: 100%   region 105  liveness: 100%   
+region 106  liveness: 100%   region 107  liveness: 100%   region 108  liveness: 67 %   
+[0.316s][info][gc,start    ] GC(7) Pause Young (Mixed) (G1 Evacuation Pause)
+[0.316s][info][gc,task     ] GC(7) Using 7 workers of 13 for evacuation
+[0.323s][info][gc,phases   ] GC(7)   Pre Evacuate Collection Set: 0.4ms
+[0.323s][info][gc,phases   ] GC(7)   Merge Heap Roots: 0.2ms
+[0.323s][info][gc,phases   ] GC(7)   Evacuate Collection Set: 5.2ms
+[0.323s][info][gc,phases   ] GC(7)   Post Evacuate Collection Set: 0.8ms
+[0.323s][info][gc,phases   ] GC(7)   Other: 0.2ms
+[0.323s][info][gc,heap     ] GC(7) Eden regions: 10->0(45)
+[0.323s][info][gc,heap     ] GC(7) Survivor regions: 5->2(2)
+[0.323s][info][gc,heap     ] GC(7) Old regions: 108->122
+[0.323s][info][gc,heap     ] GC(7) Archive regions: 0->0
+[0.323s][info][gc,heap     ] GC(7) Humongous regions: 12->12
+[0.323s][info][gc,metaspace] GC(7) Metaspace: 8290K(8512K)->8290K(8512K) NonClass: 7526K(7680K)->7526K(7680K) Class: 763K(832K)->763K(832K)
+[0.323s][info][gc          ] GC(7) Pause Young (Mixed) (G1 Evacuation Pause) 134M->135M(317M) 6.838ms
+[0.323s][info][gc,cpu      ] GC(7) User=0.03s Sys=0.00s Real=0.01s
+Operations: 110000
+Live objects in old region: 99834
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %   
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %   
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %   
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %   
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %   
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %   
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %   
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %   
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %   
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 99 %   
+region 31   liveness: 98 %   region 32   liveness: 98 %   region 33   liveness: 99 %   
+region 34   liveness: 98 %   region 35   liveness: 98 %   region 36   liveness: 98 %   
+region 37   liveness: 99 %   region 38   liveness: 98 %   region 39   liveness: 99 %   
+region 40   liveness: 99 %   region 41   liveness: 66 %   region 42   liveness: 99 %   
+region 43   liveness: 11 %   region 44   liveness: 50 %   region 45   liveness: 99 %   
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %   
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %   
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %   
+region 55   liveness: 99 %   region 56   liveness: 84 %   region 57   liveness: 99 %   
+region 58   liveness: 62 %   region 59   liveness: 87 %   region 60   liveness: 52 %   
+region 61   liveness: 100%   region 62   liveness: 100%   region 63   liveness: 100%   
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%   
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%   
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 50 %   
+region 73   liveness: 100%   region 74   liveness: 100%   region 75   liveness: 100%   
+region 76   liveness: 100%   region 77   liveness: 100%   region 78   liveness: 100%   
+region 79   liveness: 100%   region 80   liveness: 100%   region 81   liveness: 100%   
+region 82   liveness: 100%   region 83   liveness: 100%   region 84   liveness: 100%   
+region 85   liveness: 100%   region 86   liveness: 100%   region 87   liveness: 100%   
+region 88   liveness: 100%   region 89   liveness: 100%   region 90   liveness: 100%   
+region 91   liveness: 100%   region 92   liveness: 100%   region 93   liveness: 100%   
+region 94   liveness: 100%   region 95   liveness: 100%   region 96   liveness: 100%   
+region 97   liveness: 100%   region 98   liveness: 100%   region 99   liveness: 100%   
+region 100  liveness: 100%   region 101  liveness: 100%   region 102  liveness: 100%   
+region 103  liveness: 100%   region 104  liveness: 100%   region 105  liveness: 100%   
+region 106  liveness: 100%   region 107  liveness: 100%   region 108  liveness: 100%   
+region 109  liveness: 100%   region 110  liveness: 100%   region 111  liveness: 100%   
+region 112  liveness: 100%   region 113  liveness: 100%   region 114  liveness: 100%   
+region 115  liveness: 100%   region 116  liveness: 100%   region 117  liveness: 100%   
+region 118  liveness: 100%   region 119  liveness: 100%   region 120  liveness: 100%   
+region 121  liveness: 100%   region 122  liveness: 50 %   Operations: 120000
+Live objects in old region: 99364
+region 1    liveness: 97 %   region 2    liveness: 97 %   region 3    liveness: 97 %   
+region 4    liveness: 90 %   region 5    liveness: 96 %   region 6    liveness: 97 %   
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %   
+region 10   liveness: 96 %   region 11   liveness: 97 %   region 12   liveness: 97 %   
+region 13   liveness: 96 %   region 14   liveness: 86 %   region 15   liveness: 94 %   
+region 16   liveness: 98 %   region 17   liveness: 99 %   region 18   liveness: 98 %   
+region 19   liveness: 98 %   region 20   liveness: 98 %   region 21   liveness: 98 %   
+region 22   liveness: 98 %   region 23   liveness: 98 %   region 24   liveness: 98 %   
+region 25   liveness: 74 %   region 26   liveness: 61 %   region 27   liveness: 98 %   
+region 28   liveness: 98 %   region 29   liveness: 63 %   region 30   liveness: 99 %   
+region 31   liveness: 98 %   region 32   liveness: 98 %   region 33   liveness: 99 %   
+region 34   liveness: 98 %   region 35   liveness: 98 %   region 36   liveness: 98 %   
+region 37   liveness: 99 %   region 38   liveness: 98 %   region 39   liveness: 99 %   
+region 40   liveness: 99 %   region 41   liveness: 66 %   region 42   liveness: 99 %   
+region 43   liveness: 11 %   region 44   liveness: 50 %   region 45   liveness: 99 %   
+region 46   liveness: 99 %   region 47   liveness: 99 %   region 48   liveness: 99 %   
+region 49   liveness: 99 %   region 50   liveness: 99 %   region 51   liveness: 99 %   
+region 52   liveness: 99 %   region 53   liveness: 99 %   region 54   liveness: 99 %   
+region 55   liveness: 99 %   region 56   liveness: 84 %   region 57   liveness: 99 %   
+region 58   liveness: 62 %   region 59   liveness: 87 %   region 60   liveness: 52 %   
+region 61   liveness: 100%   region 62   liveness: 100%   region 63   liveness: 100%   
+region 64   liveness: 100%   region 65   liveness: 100%   region 66   liveness: 100%   
+region 67   liveness: 100%   region 68   liveness: 100%   region 69   liveness: 100%   
+region 70   liveness: 100%   region 71   liveness: 100%   region 72   liveness: 50 %   
+region 73   liveness: 100%   region 74   liveness: 100%   region 75   liveness: 100%   
+region 76   liveness: 100%   region 77   liveness: 100%   region 78   liveness: 100%   
+region 79   liveness: 100%   region 80   liveness: 100%   region 81   liveness: 100%   
+region 82   liveness: 100%   region 83   liveness: 100%   region 84   liveness: 100%   
+region 85   liveness: 100%   region 86   liveness: 100%   region 87   liveness: 100%   
+region 88   liveness: 100%   region 89   liveness: 100%   region 90   liveness: 100%   
+region 91   liveness: 100%   region 92   liveness: 100%   region 93   liveness: 100%   
+region 94   liveness: 100%   region 95   liveness: 100%   region 96   liveness: 100%   
+region 97   liveness: 100%   region 98   liveness: 100%   region 99   liveness: 100%   
+region 100  liveness: 100%   region 101  liveness: 100%   region 102  liveness: 100%   
+region 103  liveness: 100%   region 104  liveness: 100%   region 105  liveness: 100%   
+region 106  liveness: 100%   region 107  liveness: 100%   region 108  liveness: 100%   
+region 109  liveness: 100%   region 110  liveness: 100%   region 111  liveness: 100%   
+region 112  liveness: 100%   region 113  liveness: 100%   region 114  liveness: 100%   
+region 115  liveness: 100%   region 116  liveness: 100%   region 117  liveness: 100%   
+region 118  liveness: 100%   region 119  liveness: 100%   region 120  liveness: 100%   
+
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+n 1263 liveness: 100%   
+region 1264 liveness: 36 %   region 1265 liveness: 97 %   region 1266 liveness: 100%   
+region 1267 liveness: 100%   region 1268 liveness: 100%   region 1269 liveness: 95 %   
+region 1270 liveness: 69 %   region 1271 liveness: 100%   region 1272 liveness: 65 %   
+region 1273 liveness: 97 %   region 1274 liveness: 100%   region 1275 liveness: 95 %   
+region 1276 liveness: 100%   region 1277 liveness: 100%   region 1278 liveness: 100%   
+region 1279 liveness: 100%   region 1280 liveness: 96 %   region 1281 liveness: 100%   
+region 1282 liveness: 17 %   region 1283 liveness: 100%   region 1284 liveness: 100%   
+region 1285 liveness: 100%   region 1286 liveness: 95 %   region 1287 liveness: 89 %   
+region 1288 liveness: 96 %   region 1289 liveness: 100%   region 1290 liveness: 100%   
+region 1291 liveness: 100%   region 1292 liveness: 100%   region 1293 liveness: 100%   
+region 1294 liveness: 100%   region 1295 liveness: 100%   region 1296 liveness: 100%   
+region 1297 liveness: 41 %   region 1298 liveness: 100%   region 1299 liveness: 100%   
+region 1300 liveness: 100%   region 1301 liveness: 100%   region 1302 liveness: 100%   
+region 1303 liveness: 46 %   region 1304 liveness: 100%   region 1305 liveness: 100%   
+region 1306 liveness: 100%   region 1307 liveness: 100%   region 1308 liveness: 100%   
+region 1309 liveness: 100%   region 1310 liveness: 100%   region 1311 liveness: 100%   
+region 1312 liveness: 100%   region 1313 liveness: 100%   region 1314 liveness: 100%   
+region 1315 liveness: 100%   region 1316 liveness: 100%   region 1317 liveness: 100%   
+region 1318 liveness: 100%   region 1319 liveness: 100%   region 1320 liveness: 100%   
+region 1321 liveness: 100%   region 1322 liveness: 100%   region 1323 liveness: 100%   
+region 1324 liveness: 100%   region 1325 liveness: 100%   region 1326 liveness: 100%   
+region 1327 liveness: 100%   region 1328 liveness: 100%   region 1329 liveness: 100%   
+region 1330 liveness: 100%   region 1331 liveness: 100%   region 1332 liveness: 100%   
+region 1333 liveness: 100%   region 1334 liveness: 100%   region 1335 liveness: 100%   
+region 1336 liveness: 100%   region 1337 liveness: 100%   region 1338 liveness: 100%   
+region 1339 liveness: 100%   region 1340 liveness: 100%   region 1341 liveness: 100%   
+region 1342 liveness: 100%   region 1343 liveness: 100%   region 1344 liveness: 100%   
+region 1345 liveness: 100%   region 1346 liveness: 100%   region 1347 liveness: 100%   
+region 1348 liveness: 100%   region 1349 liveness: 100%   region 1350 liveness: 100%   
+region 1351 liveness: 100%   region 1352 liveness: 100%   region 1353 liveness: 100%   
+region 1354 liveness: 100%   region 1355 liveness: 100%   region 1356 liveness: 100%   
+region 1357 liveness: 100%   region 1358 liveness: 100%   region 1359 liveness: 100%   
+region 1360 liveness: 100%   region 1361 liveness: 100%   region 1362 liveness: 100%   
+region 1363 liveness: 100%   region 1364 liveness: 100%   region 1365 liveness: 100%   
+region 1366 liveness: 100%   region 1367 liveness: 100%   region 1368 liveness: 100%   
+region 1369 liveness: 100%   region 1370 liveness: 100%   region 1371 liveness: 100%   
+region 1372 liveness: 100%   region 1373 liveness: 100%   region 1374 liveness: 100%   
+region 1375 liveness: 100%   region 1376 liveness: 100%   region 1377 liveness: 100%   
+region 1378 liveness: 100%   region 1379 liveness: 100%   region 1380 liveness: 100%   
+region 1381 liveness: 100%   region 1382 liveness: 100%   region 1383 liveness: 100%   
+region 1384 liveness: 100%   region 1385 liveness: 100%   region 1386 liveness: 100%   
+region 1387 liveness: 100%   region 1388 liveness: 100%   region 1389 liveness: 100%   
+region 1390 liveness: 100%   region 1391 liveness: 100%   region 1392 liveness: 100%   
+region 1393 liveness: 100%   region 1394 liveness: 100%   region 1395 liveness: 100%   
+region 1396 liveness: 100%   region 1397 liveness: 100%   region 1398 liveness: 100%   
+region 1399 liveness: 100%   region 1400 liveness: 100%   region 1401 liveness: 100%   
+region 1402 liveness: 100%   region 1403 liveness: 100%   region 1404 liveness: 100%   
+region 1405 liveness: 100%   region 1406 liveness: 100%   region 1407 liveness: 100%   
+region 1408 liveness: 100%   region 1409 liveness: 100%   region 1410 liveness: 100%   
+region 1411 liveness: 100%   region 1412 liveness: 100%   region 1413 liveness: 100%   
+region 1414 liveness: 100%   region 1415 liveness: 100%   region 1416 liveness: 100%   
+region 1417 liveness: 100%   region 1418 liveness: 100%   region 1419 liveness: 100%   
+region 1420 liveness: 100%   region 1421 liveness: 100%   region 1422 liveness: 100%   
+region 1423 liveness: 100%   region 1424 liveness: 100%   region 1425 liveness: 100%   
+region 1426 liveness: 100%   region 1427 liveness: 100%   region 1428 liveness: 100%   
+region 1429 liveness: 100%   region 1430 liveness: 100%   region 1431 liveness: 100%   
+region 1432 liveness: 100%   region 1433 liveness: 100%   region 1434 liveness: 100%   
+region 1435 liveness: 100%   region 1436 liveness: 100%   region 1437 liveness: 100%   
+region 1438 liveness: 100%   region 1439 liveness: 100%   region 1440 liveness: 100%   
+region 1441 liveness: 100%   region 1442 liveness: 100%   region 1443 liveness: 100%   
+region 1444 liveness: 100%   region 1445 liveness: 100%   region 1446 liveness: 92 %   
+region 1447 liveness: 93 %   region 1448 liveness: 93 %   region 1449 liveness: 93 %   
+region 1450 liveness: 94 %   region 1451 liveness: 94 %   region 1452 liveness: 92 %   
+region 1453 liveness: 92 %   region 1454 liveness: 94 %   region 1455 liveness: 94 %   
+region 1456 liveness: 93 %   region 1457 liveness: 93 %   region 1458 liveness: 92 %   
+region 1459 liveness: 93 %   region 1460 liveness: 92 %   region 1461 liveness: 94 %   
+region 1462 liveness: 95 %   region 1463 liveness: 93 %   region 1464 liveness: 92 %   
+region 1465 liveness: 93 %   region 1466 liveness: 94 %   region 1467 liveness: 93 %   
+region 1468 liveness: 95 %   region 1469 liveness: 97 %   region 1470 liveness: 96 %   
+region 1471 liveness: 95 %   region 1472 liveness: 95 %   region 1473 liveness: 93 %   
+region 1474 liveness: 95 %   region 1475 liveness: 96 %   region 1476 liveness: 96 %   
+region 1477 liveness: 95 %   region 1478 liveness: 96 %   region 1479 liveness: 96 %   
+region 1480 liveness: 95 %   region 1481 liveness: 95 %   region 1482 liveness: 96 %   
+region 1483 liveness: 94 %   region 1484 liveness: 95 %   region 1485 liveness: 95 %   
+region 1486 liveness: 95 %   region 1487 liveness: 95 %   region 1488 liveness: 96 %   
+region 1489 liveness: 95 %   region 1490 liveness: 95 %   region 1491 liveness: 96 %   
+region 1492 liveness: 95 %   region 1493 liveness: 95 %   region 1494 liveness: 96 %   
+region 1495 liveness: 96 %   region 1496 liveness: 95 %   region 1497 liveness: 95 %   
+region 1498 liveness: 95 %   region 1499 liveness: 95 %   region 1500 liveness: 95 %   
+region 1501 liveness: 96 %   region 1502 liveness: 95 %   region 1503 liveness: 96 %   
+region 1504 liveness: 95 %   region 1505 liveness: 96 %   region 1506 liveness: 95 %   
+region 1507 liveness: 96 %   region 1508 liveness: 95 %   region 1509 liveness: 95 %   
+region 1510 liveness: 95 %   region 1511 liveness: 95 %   region 1512 liveness: 96 %   
+region 1513 liveness: 94 %   region 1514 liveness: 94 %   region 1515 liveness: 97 %   
+region 1516 liveness: 95 %   region 1517 liveness: 95 %   region 1518 liveness: 95 %   
+region 1519 liveness: 95 %   region 1520 liveness: 96 %   region 1521 liveness: 94 %   
+region 1522 liveness: 95 %   region 1523 liveness: 95 %   region 1524 liveness: 96 %   
+region 1525 liveness: 94 %   region 1526 liveness: 95 %   region 1527 liveness: 95 %   
+region 1528 liveness: 96 %   region 1529 liveness: 94 %   region 1530 liveness: 96 %   
+region 1531 liveness: 95 %   region 1532 liveness: 95 %   region 1533 liveness: 96 %   
+region 1534 liveness: 95 %   region 1535 liveness: 95 %   region 1536 liveness: 95 %   
+region 1537 liveness: 95 %   region 1538 liveness: 94 %   region 1539 liveness: 96 %   
+region 1540 liveness: 96 %   region 1541 liveness: 96 %   region 1542 liveness: 95 %   
+region 1543 liveness: 96 %   region 1544 liveness: 95 %   region 1545 liveness: 95 %   
+region 1546 liveness: 95 %   region 1547 liveness: 96 %   region 1548 liveness: 94 %   
+region 1549 liveness: 95 %   region 1550 liveness: 96 %   region 1551 liveness: 96 %   
+region 1552 liveness: 96 %   region 1553 liveness: 96 %   region 1554 liveness: 96 %   
+region 1555 liveness: 96 %   region 1556 liveness: 96 %   region 1557 liveness: 95 %   
+region 1558 liveness: 96 %   region 1559 liveness: 94 %   region 1560 liveness: 95 %   
+region 1561 liveness: 95 %   region 1562 liveness: 95 %   region 1563 liveness: 94 %   
+region 1564 liveness: 95 %   region 1565 liveness: 96 %   region 1566 liveness: 96 %   
+region 1567 liveness: 95 %   region 1568 liveness: 96 %   region 1569 liveness: 95 %   
+region 1570 liveness: 96 %   region 1571 liveness: 95 %   region 1572 liveness: 95 %   
+region 1573 liveness: 94 %   region 1574 liveness: 97 %   region 1575 liveness: 95 %   
+region 1576 liveness: 96 %   region 1577 liveness: 95 %   region 1578 liveness: 95 %   
+region 1579 liveness: 96 %   region 1580 liveness: 95 %   region 1581 liveness: 95 %   
+region 1582 liveness: 95 %   region 1583 liveness: 95 %   region 1584 liveness: 93 %   
+region 1585 liveness: 93 %   region 1586 liveness: 94 %   region 1587 liveness: 95 %   
+region 1588 liveness: 96 %   region 1589 liveness: 96 %   [13.643s][info][gc,start       ] GC(45) Pause Young (Mixed) (G1 Evacuation Pause)
+[13.643s][info][gc,task        ] GC(45) Using 13 workers of 13 for evacuation
+[13.676s][info][gc,phases      ] GC(45)   Pre Evacuate Collection Set: 0.4ms
+[13.676s][info][gc,phases      ] GC(45)   Merge Heap Roots: 0.8ms
+[13.676s][info][gc,phases      ] GC(45)   Evacuate Collection Set: 30.6ms
+[13.676s][info][gc,phases      ] GC(45)   Post Evacuate Collection Set: 1.4ms
+[13.676s][info][gc,phases      ] GC(45)   Other: 0.1ms
+[13.676s][info][gc,heap        ] GC(45) Eden regions: 84->0(84)
+[13.676s][info][gc,heap        ] GC(45) Survivor regions: 13->13(13)
+[13.676s][info][gc,heap        ] GC(45) Old regions: 1589->1673
+[13.676s][info][gc,heap        ] GC(45) Archive regions: 0->0
+[13.676s][info][gc,heap        ] GC(45) Humongous regions: 18->18
+[13.676s][info][gc,metaspace   ] GC(45) Metaspace: 8319K(8512K)->8319K(8512K) NonClass: 7556K(7680K)->7556K(7680K) Class: 762K(832K)->762K(832K)
+[13.676s][info][gc             ] GC(45) Pause Young (Mixed) (G1 Evacuation Pause) 1697M->1698M(1956M) 33.524ms
+[13.676s][info][gc,cpu         ] GC(45) User=0.40s Sys=0.00s Real=0.03s
+Operations: 2200000
+Live objects in old region: 1375368
+region 1    liveness: 95 %   region 2    liveness: 97 %   region 3    liveness: 95 %   
+region 4    liveness: 96 %   region 5    liveness: 96 %   region 6    liveness: 96 %   
+region 7    liveness: 96 %   region 8    liveness: 96 %   region 9    liveness: 96 %   
+region 10   liveness: 96 %   region 11   liveness: 95 %   region 12   liveness: 96 %   
+region 13   liveness: 95 %   region 14   liveness: 97 %   region 15   liveness: 97 %   
+region 16   liveness: 95 %   region 17   liveness: 95 %   region 18   liveness: 96 %   
+region 19   liveness: 95 %   region 20   liveness: 95 %   region 21   liveness: 96 %   
+region 22   liveness: 95 %   region 23   liveness: 95 %   region 24   liveness: 95 %   
+region 25   liveness: 97 %   region 26   liveness: 95 %   region 27   liveness: 95 %   
+region 28   liveness: 96 %   region 29   liveness: 95 %   region 30   liveness: 97 %   
+region 31   liveness: 95 %   region 32   liveness: 96 %   region 33   liveness: 94 %   
+region 34   liveness: 95 %   region 35   liveness: 94 %   region 36   liveness: 95 %   
+region 37   liveness: 95 %   region 38   liveness: 95 %   region 39   liveness: 94 %   
+region 40   liveness: 94 %   region 41   liveness: 94 %   region 42   liveness: 94 %   
+region 43   liveness: 94 %   region 44   liveness: 96 %   region 45   liveness: 95 %   
+region 46   liveness: 94 %   region 47   liveness: 96 %   region 48   liveness: 95 %   
+region 49   liveness: 96 %   region 50   liveness: 95 %   region 51   liveness: 96 %   
+region 52   liveness: 96 %   region 53   liveness: 95 %   region 54   liveness: 95 %   
+region 55   liveness: 95 %   region 56   liveness: 95 %   region 57   liveness: 96 %   
+region 58   liveness: 95 %   region 59   liveness: 95 %   region 60   liveness: 96 %   
+region 61   liveness: 95 %   region 62   liveness: 95 %   region 63   liveness: 95 %   
+region 64   liveness: 96 %   region 65   liveness: 96 %   region 66   liveness: 96 %   
+region 67   liveness: 95 %   region 68   liveness: 95 %   region 69   liveness: 96 %   
+region 70   liveness: 95 %   region 71   liveness: 94 %   region 72   liveness: 95 %   
+region 73   liveness: 94 %   region 74   liveness: 95 %   region 75   liveness: 95 %   
+region 76   liveness: 95 %   region 77   liveness: 96 %   region 78   liveness: 96 %   
+region 79   liveness: 96 %   region 80   liveness: 95 %   region 81   liveness: 96 %   
+region 82   liveness: 95 %   region 83   liveness: 96 %   region 84   liveness: 98 %   
+region 85   liveness: 96 %   region 86   liveness: 94 %   region 87   liveness: 96 %   
+region 88   liveness: 95 %   region 89   liveness: 96 %   region 90   liveness: 96 %   
+region 91   liveness: 97 %   region 92   liveness: 96 %   region 93   liveness: 96 %   
+region 94   liveness: 95 %   region 95   liveness: 95 %   region 96   liveness: 95 %   
+region 97   liveness: 96 %   region 98   liveness: 96 %   region 99   liveness: 95 %   
+region 100  liveness: 95 %   region 101  liveness: 96 %   region 102  liveness: 95 %   
+region 103  liveness: 95 %   region 104  liveness: 97 %   region 105  liveness: 95 %   
+region 106  liveness: 96 %   region 107  liveness: 97 %   region 108  liveness: 95 %   
+region 109  liveness: 95 %   region 110  liveness: 96 %   region 111  liveness: 94 %   
+region 112  liveness: 95 %   region 113  liveness: 97 %   region 114  liveness: 96 %   
+region 115  liveness: 95 %   region 116  liveness: 96 %   region 117  liveness: 95 %   
+region 118  liveness: 95 %   region 119  liveness: 98 %   region 120  liveness: 95 %   
+region 121  liveness: 95 %   region 122  liveness: 97 %   region 123  liveness: 96 %   
+region 124  liveness: 97 %   region 125  liveness: 95 %   region 126  liveness: 95 %   
+region 127  liveness: 96 %   region 128  liveness: 96 %   region 129  liveness: 97 %   
+region 130  liveness: 95 %   region 131  liveness: 95 %   region 132  liveness: 95 %   
+region 133  liveness: 95 %   region 134  liveness: 95 %   region 135  liveness: 95 %   
+region 136  liveness: 97 %   region 137  liveness: 96 %   region 138  liveness: 95 %   
+region 139  liveness: 95 %   region 140  liveness: 95 %   region 141  liveness: 96 %   
+region 142  liveness: 96 %   region 143  liveness: 97 %   region 144  liveness: 96 %   
+region 145  liveness: 96 %   region 146  liveness: 95 %   region 147  liveness: 95 %   
+region 148  liveness: 95 %   region 149  liveness: 96 %   region 150  liveness: 95 %   
+region 151  liveness: 95 %   region 152  liveness: 95 %   region 153  liveness: 95 %   
+region 154  liveness: 96 %   region 155  liveness: 94 %   region 156  liveness: 95 %   
+region 157  liveness: 96 %   region 158  liveness: 96 %   region 159  liveness: 94 %   
+region 160  liveness: 96 %   region 161  liveness: 95 %   region 162  liveness: 96 %   
+region 163  liveness: 95 %   region 164  liveness: 94 %   region 165  liveness: 96 %   
+region 166  liveness: 95 %   region 167  liveness: 96 %   region 168  liveness: 96 %   
+region 169  liveness: 96 %   region 170  liveness: 95 %   region 171  liveness: 95 %   
+region 172  liveness: 96 %   region 173  liveness: 95 %   region 174  liveness: 96 %   
+region 175  liveness: 96 %   region 176  liveness: 95 %   region 177  liveness: 96 %   
+region 178  liveness: 95 %   region 179  liveness: 95 %   region 180  liveness: 94 %   
+region 181  liveness: 96 %   region 182  liveness: 95 %   region 183  liveness: 96 %   
+region 184  liveness: 95 %   region 185  liveness: 95 %   region 186  liveness: 95 %   
+region 187  liveness: 95 %   region 188  liveness: 96 %   region 189  liveness: 96 %   
+region 190  liveness: 96 %   region 191  liveness: 94 %   region 192  liveness: 96 %   
+region 193  liveness: 95 %   region 194  liveness: 96 %   region 195  liveness: 95 %   
+region 196  liveness: 96 %   region 197  liveness: 95 %   region 198  liveness: 96 %   
+region 199  liveness: 96 %   region 200  liveness: 95 %   region 201  liveness: 96 %   
+region 202  liveness: 95 %   region 203  liveness: 95 %   region 204  liveness: 95 %   
+region 205  liveness: 95 %   region 206  liveness: 96 %   region 207  liveness: 95 %   
+region 208  liveness: 95 %   region 209  liveness: 95 %   region 210  liveness: 95 %   
+region 211  liveness: 94 %   region 212  liveness: 95 %   region 213  liveness: 96 %   
+region 214  liveness: 96 %   region 215  liveness: 95 %   region 216  liveness: 96 %   
+region 217  liveness: 95 %   region 218  liveness: 96 %   region 219  liveness: 95 %   
+region 220  liveness: 95 %   region 221  liveness: 95 %   region 222  liveness: 96 %   
+region 223  liveness: 95 %   region 224  liveness: 95 %   region 225  liveness: 95 %   
+region 226  liveness: 95 %   region 227  liveness: 96 %   region 228  liveness: 96 %   
+region 229  liveness: 95 %   region 230  liveness: 95 %   region 231  liveness: 94 %   
+region 232  liveness: 97 %   region 233  liveness: 96 %   region 234  liveness: 96 %   
+region 235  liveness: 96 %   region 236  liveness: 95 %   region 237  liveness: 95 %   
+region 238  liveness: 97 %   region 239  liveness: 96 %   region 240  liveness: 95 %   
+region 241  liveness: 96 %   region 242  liveness: 95 %   region 243  liveness: 95 %   
+region 244  liveness: 96 %   region 245  liveness: 95 %   region 246  liveness: 95 %   
+region 247  liveness: 96 %   region 248  liveness: 95 %   region 249  liveness: 95 %   
+region 250  liveness: 94 %   region 251  liveness: 96 %   region 252  liveness: 95 %   
+region 253  liveness: 93 %   region 254  liveness: 96 %   region 255  liveness: 95 %   
+region 256  liveness: 96 %   region 257  liveness: 95 %   region 258  liveness: 95 %   
+region 259  liveness: 96 %   region 260  liveness: 96 %   region 261  liveness: 96 %   
+region 262  liveness: 95 %   region 263  liveness: 96 %   region 264  liveness: 96 %   
+region 265  liveness: 96 %   region 266  liveness: 96 %   region 267  liveness: 95 %   
+region 268  liveness: 94 %   region 269  liveness: 96 %   region 270  liveness: 96 %   
+region 271  liveness: 96 %   region 272  liveness: 95 %   region 273  liveness: 95 %   
+region 274  liveness: 98 %   region 275  liveness: 96 %   region 276  liveness: 95 %   
+region 277  liveness: 95 %   region 278  liveness: 96 %   region 279  liveness: 96 %   
+region 280  liveness: 97 %   region 281  liveness: 96 %   region 282  liveness: 97 %   
+region 283  liveness: 95 %   region 284  liveness: 97 %   region 285  liveness: 95 %   
+region 286  liveness: 95 %   region 287  liveness: 95 %   region 288  liveness: 95 %   
+region 289  liveness: 99 %   region 290  liveness: 96 %   region 291  liveness: 95 %   
+region 292  liveness: 96 %   region 293  liveness: 98 %   region 294  liveness: 95 %   
+region 295  liveness: 95 %   region 296  liveness: 95 %   region 297  liveness: 95 %   
+region 298  liveness: 96 %   region 299  liveness: 96 %   region 300  liveness: 96 %   
+region 301  liveness: 95 %   region 302  liveness: 95 %   region 303  liveness: 96 %   
+region 304  liveness: 95 %   region 305  liveness: 94 %   region 306  liveness: 95 %   
+region 307  liveness: 95 %   region 308  liveness: 96 %   region 309  liveness: 94 %   
+region 310  liveness: 96 %   region 311  liveness: 95 %   region 312  liveness: 95 %   
+region 313  liveness: 95 %   region 314  liveness: 95 %   region 315  liveness: 95 %   
+region 316  liveness: 95 %   region 317  liveness: 95 %   region 318  liveness: 96 %   
+region 319  liveness: 95 %   region 320  liveness: 96 %   region 321  liveness: 94 %   
+region 322  liveness: 97 %   region 323  liveness: 94 %   region 324  liveness: 95 %   
+region 325  liveness: 95 %   region 326  liveness: 96 %   region 327  liveness: 96 %   
+region 328  liveness: 96 %   region 329  liveness: 95 %   region 330  liveness: 95 %   
+region 331  liveness: 94 %   region 332  liveness: 94 %   region 333  liveness: 95 %   
+region 334  liveness: 95 %   region 335  liveness: 97 %   region 336  liveness: 95 %   
+region 337  liveness: 95 %   region 338  liveness: 95 %   region 339  liveness: 95 %   
+region 340  liveness: 97 %   region 341  liveness: 95 %   region 342  liveness: 97 %   
+region 343  liveness: 96 %   region 344  liveness: 95 %   region 345  liveness: 95 %   
+region 346  liveness: 96 %   region 347  liveness: 95 %   region 348  liveness: 95 %   
+region 349  liveness: 96 %   region 350  liveness: 97 %   region 351  liveness: 95 %   
+region 352  liveness: 96 %   region 353  liveness: 95 %   region 354  liveness: 96 %   
+region 355  liveness: 96 %   region 356  liveness: 96 %   region 357  liveness: 95 %   
+region 358  liveness: 96 %   region 359  liveness: 96 %   region 360  liveness: 95 %   
+region 361  liveness: 95 %   region 362  liveness: 95 %   region 363  liveness: 99 %   
+region 364  liveness: 95 %   region 365  liveness: 94 %   region 366  liveness: 96 %   
+region 367  liveness: 96 %   region 368  liveness: 95 %   region 369  liveness: 95 %   
+region 370  liveness: 95 %   region 371  liveness: 97 %   region 372  liveness: 96 %   
+region 373  liveness: 96 %   region 374  liveness: 95 %   region 375  liveness: 94 %   
+region 376  liveness: 95 %   region 377  liveness: 95 %   region 378  liveness: 96 %   
+region 379  liveness: 94 %   region 380  liveness: 97 %   region 381  liveness: 95 %   
+region 382  liveness: 96 %   region 383  liveness: 95 %   region 384  liveness: 97 %   
+region 385  liveness: 95 %   region 386  liveness: 96 %   region 387  liveness: 95 %   
+region 388  liveness: 96 %   region 389  liveness: 96 %   region 390  liveness: 96 %   
+region 391  liveness: 96 %   region 392  liveness: 97 %   region 393  liveness: 96 %   
+region 394  liveness: 95 %   region 395  liveness: 95 %   region 396  liveness: 94 %   
+region 397  liveness: 96 %   region 398  liveness: 95 %   region 399  liveness: 96 %   
+region 400  liveness: 96 %   region 401  liveness: 96 %   region 402  liveness: 96 %   
+region 403  liveness: 96 %   region 404  liveness: 96 %   region 405  liveness: 95 %   
+region 406  liveness: 94 %   region 407  liveness: 95 %   region 408  liveness: 95 %   
+region 409  liveness: 95 %   region 410  liveness: 96 %   region 411  liveness: 94 %   
+region 412  liveness: 94 %   region 413  liveness: 96 %   region 414  liveness: 95 %   
+region 415  liveness: 96 %   region 416  liveness: 95 %   region 417  liveness: 97 %   
+region 418  liveness: 96 %   region 419  liveness: 96 %   region 420  liveness: 95 %   
+region 421  liveness: 95 %   region 422  liveness: 95 %   region 423  liveness: 96 %   
+region 424  liveness: 94 %   region 425  liveness: 96 %   region 426  liveness: 93 %   
+region 427  liveness: 96 %   region 428  liveness: 95 %   region 429  liveness: 95 %   
+region 430  liveness: 96 %   region 431  liveness: 95 %   region 432  liveness: 96 %   
+region 433  liveness: 96 %   region 434  liveness: 95 %   region 435  liveness: 95 %   
+region 436  liveness: 95 %   region 437  liveness: 95 %   region 438  liveness: 95 %   
+region 439  liveness: 96 %   region 440  liveness: 95 %   region 441  liveness: 94 %   
+region 442  liveness: 96 %   region 443  liveness: 95 %   region 444  liveness: 94 %   
+region 445  liveness: 94 %   region 446  liveness: 96 %   region 447  liveness: 95 %   
+region 448  liveness: 95 %   region 449  liveness: 95 %   region 450  liveness: 94 %   
+region 451  liveness: 94 %   region 452  liveness: 95 %   region 453  liveness: 96 %   
+region 454  liveness: 95 %   region 455  liveness: 96 %   region 456  liveness: 94 %   
+region 457  liveness: 96 %   region 458  liveness: 95 %   region 459  liveness: 97 %   
+region 460  liveness: 97 %   region 461  liveness: 96 %   region 462  liveness: 96 %   
+region 463  liveness: 95 %   region 464  liveness: 96 %   region 465  liveness: 96 %   
+region 466  liveness: 95 %   region 467  liveness: 97 %   region 468  liveness: 98 %   
+region 469  liveness: 96 %   region 470  liveness: 97 %   region 471  liveness: 95 %   
+region 472  liveness: 95 %   region 473  liveness: 95 %   region 474  liveness: 96 %   
+region 475  liveness: 98 %   region 476  liveness: 95 %   region 477  liveness: 97 %   
+region 478  liveness: 96 %   region 479  liveness: 96 %   region 480  liveness: 96 %   
+region 481  liveness: 96 %   region 482  liveness: 96 %   region 483  liveness: 95 %   
+region 484  liveness: 96 %   region 485  liveness: 97 %   region 486  liveness: 96 %   
+region 487  liveness: 95 %   region 488  liveness: 95 %   region 489  liveness: 96 %   
+region 490  liveness: 95 %   region 491  liveness: 96 %   region 492  liveness: 95 %   
+region 493  liveness: 96 %   region 494  liveness: 94 %   region 495  liveness: 95 %   
+region 496  liveness: 94 %   region 497  liveness: 95 %   region 498  liveness: 97 %   
+region 499  liveness: 94 %   region 500  liveness: 95 %   region 501  liveness: 96 %   
+region 502  liveness: 95 %   region 503  liveness: 97 %   region 504  liveness: 97 %   
+region 505  liveness: 95 %   region 506  liveness: 95 %   region 507  liveness: 96 %   
+region 508  liveness: 95 %   region 509  liveness: 96 %   region 510  liveness: 94 %   
+region 511  liveness: 95 %   region 512  liveness: 97 %   region 513  liveness: 96 %   
+region 514  liveness: 96 %   region 515  liveness: 95 %   region 516  liveness: 96 %   
+region 517  liveness: 95 %   region 518  liveness: 95 %   region 519  liveness: 97 %   
+region 520  liveness: 96 %   region 521  liveness: 96 %   region 522  liveness: 90 %   
+region 523  liveness: 95 %   region 524  liveness: 96 %   region 525  liveness: 96 %   
+region 526  liveness: 95 %   region 527  liveness: 96 %   region 528  liveness: 95 %   
+region 529  liveness: 95 %   region 530  liveness: 96 %   region 531  liveness: 95 %   
+region 532  liveness: 96 %   region 533  liveness: 95 %   region 534  liveness: 96 %   
+region 535  liveness: 96 %   region 536  liveness: 95 %   region 537  liveness: 95 %   
+region 538  liveness: 95 %   region 539  liveness: 96 %   region 540  liveness: 97 %   
+region 541  liveness: 96 %   region 542  liveness: 96 %   region 543  liveness: 96 %   
+region 544  liveness: 96 %   region 545  liveness: 96 %   region 546  liveness: 96 %   
+region 547  liveness: 97 %   region 548  liveness: 96 %   region 549  liveness: 96 %   
+region 550  liveness: 96 %   region 551  liveness: 91 %   region 552  liveness: 98 %   
+region 553  liveness: 94 %   region 554  liveness: 95 %   region 555  liveness: 95 %   
+region 556  liveness: 96 %   region 557  liveness: 96 %   region 558  liveness: 96 %   
+region 559  liveness: 98 %   region 560  liveness: 97 %   region 561  liveness: 98 %   
+region 562  liveness: 96 %   region 563  liveness: 97 %   region 564  liveness: 97 %   
+region 565  liveness: 98 %   region 566  liveness: 95 %   region 567  liveness: 96 %   
+region 568  liveness: 96 %   region 569  liveness: 98 %   region 570  liveness: 96 %   
+region 571  liveness: 96 %   region 572  liveness: 97 %   region 573  liveness: 96 %   
+region 574  liveness: 95 %   region 575  liveness: 95 %   region 576  liveness: 97 %   
+region 577  liveness: 96 %   region 578  liveness: 95 %   region 579  liveness: 96 %   
+region 580  liveness: 97 %   region 581  liveness: 95 %   region 582  liveness: 96 %   
+region 583  liveness: 94 %   region 584  liveness: 96 %   region 585  liveness: 96 %   
+region 586  liveness: 96 %   region 587  liveness: 95 %   region 588  liveness: 95 %   
+region 589  liveness: 94 %   region 590  liveness: 95 %   region 591  liveness: 94 %   
+region 592  liveness: 94 %   region 593  liveness: 94 %   region 594  liveness: 95 %   
+region 595  liveness: 95 %   region 596  liveness: 96 %   region 597  liveness: 97 %   
+region 598  liveness: 97 %   region 599  liveness: 96 %   region 600  liveness: 95 %   
+region 601  liveness: 96 %   region 602  liveness: 95 %   region 603  liveness: 95 %   
+region 604  liveness: 96 %   region 605  liveness: 95 %   region 606  liveness: 96 %   
+region 607  liveness: 95 %   region 608  liveness: 95 %   region 609  liveness: 95 %   
+region 610  liveness: 96 %   region 611  liveness: 95 %   region 612  liveness: 95 %   
+region 613  liveness: 95 %   region 614  liveness: 96 %   region 615  liveness: 95 %   
+region 616  liveness: 96 %   region 617  liveness: 95 %   region 618  liveness: 91 %   
+region 619  liveness: 93 %   region 620  liveness: 92 %   region 621  liveness: 92 %   
+region 622  liveness: 92 %   region 623  liveness: 92 %   region 624  liveness: 95 %   
+region 625  liveness: 93 %   region 626  liveness: 95 %   region 627  liveness: 93 %   
+region 628  liveness: 96 %   region 629  liveness: 96 %   region 630  liveness: 92 %   
+region 631  liveness: 93 %   region 632  liveness: 90 %   region 633  liveness: 93 %   
+region 634  liveness: 94 %   region 635  liveness: 96 %   region 636  liveness: 93 %   
+region 637  liveness: 93 %   region 638  liveness: 93 %   region 639  liveness: 96 %   
+region 640  liveness: 94 %   region 641  liveness: 95 %   region 642  liveness: 96 %   
+region 643  liveness: 96 %   region 644  liveness: 96 %   region 645  liveness: 95 %   
+region 646  liveness: 97 %   region 647  liveness: 96 %   region 648  liveness: 95 %   
+region 649  liveness: 96 %   region 650  liveness: 96 %   region 651  liveness: 96 %   
+region 652  liveness: 92 %   region 653  liveness: 92 %   region 654  liveness: 93 %   
+region 655  liveness: 92 %   region 656  liveness: 95 %   region 657  liveness: 96 %   
+region 658  liveness: 93 %   region 659  liveness: 91 %   region 660  liveness: 94 %   
+region 661  liveness: 93 %   region 662  liveness: 91 %   region 663  liveness: 94 %   
+region 664  liveness: 96 %   region 665  liveness: 95 %   region 666  liveness: 94 %   
+region 667  liveness: 92 %   region 668  liveness: 92 %   region 669  liveness: 92 %   
+region 670  liveness: 95 %   region 671  liveness: 95 %   region 672  liveness: 96 %   
+region 673  liveness: 93 %   region 674  liveness: 94 %   region 675  liveness: 96 %   
+region 676  liveness: 91 %   region 677  liveness: 95 %   region 678  liveness: 96 %   
+region 679  liveness: 95 %   region 680  liveness: 95 %   region 681  liveness: 94 %   
+region 682  liveness: 91 %   region 683  liveness: 92 %   region 684  liveness: 93 %   
+region 685  liveness: 92 %   region 686  liveness: 96 %   region 687  liveness: 96 %   
+region 688  liveness: 93 %   region 689  liveness: 93 %   region 690  liveness: 96 %   
+region 691  liveness: 95 %   region 692  liveness: 91 %   region 693  liveness: 93 %   
+region 694  liveness: 96 %   region 695  liveness: 93 %   region 696  liveness: 92 %   
+region 697  liveness: 92 %   region 698  liveness: 96 %   region 699  liveness: 93 %   
+region 700  liveness: 92 %   region 701  liveness: 92 %   region 702  liveness: 92 %   
+region 703  liveness: 96 %   region 704  liveness: 92 %   region 705  liveness: 92 %   
+region 706  liveness: 97 %   region 707  liveness: 96 %   region 708  liveness: 96 %   
+region 709  liveness: 96 %   region 710  liveness: 95 %   region 711  liveness: 95 %   
+region 712  liveness: 95 %   region 713  liveness: 95 %   region 714  liveness: 95 %   
+region 715  liveness: 97 %   region 716  liveness: 96 %   region 717  liveness: 95 %   
+region 718  liveness: 95 %   region 719  liveness: 95 %   region 720  liveness: 94 %   
+region 721  liveness: 93 %   region 722  liveness: 96 %   region 723  liveness: 97 %   
+region 724  liveness: 96 %   region 725  liveness: 97 %   region 726  liveness: 95 %   
+region 727  liveness: 97 %   region 728  liveness: 95 %   region 729  liveness: 95 %   
+region 730  liveness: 96 %   region 731  liveness: 95 %   region 732  liveness: 96 %   
+region 733  liveness: 95 %   region 734  liveness: 96 %   region 735  liveness: 95 %   
+region 736  liveness: 95 %   region 737  liveness: 96 %   region 738  liveness: 96 %   
+region 739  liveness: 94 %   region 740  liveness: 95 %   region 741  liveness: 93 %   
+region 742  liveness: 95 %   region 743  liveness: 96 %   region 744  liveness: 94 %   
+region 745  liveness: 97 %   region 746  liveness: 95 %   region 747  liveness: 95 %   
+region 748  liveness: 96 %   region 749  liveness: 96 %   region 750  liveness: 95 %   
+region 751  liveness: 95 %   region 752  liveness: 95 %   region 753  liveness: 94 %   
+region 754  liveness: 96 %   region 755  liveness: 96 %   region 756  liveness: 98 %   
+region 757  liveness: 97 %   region 758  liveness: 96 %   region 759  liveness: 96 %   
+region 760  liveness: 96 %   region 761  liveness: 94 %   region 762  liveness: 96 %   
+region 763  liveness: 95 %   region 764  liveness: 96 %   region 765  liveness: 95 %   
+region 766  liveness: 95 %   region 767  liveness: 94 %   region 768  liveness: 96 %   
+region 769  liveness: 95 %   region 770  liveness: 97 %   region 771  liveness: 95 %   
+region 772  liveness: 95 %   region 773  liveness: 94 %   region 774  liveness: 96 %   
+region 775  liveness: 94 %   region 776  liveness: 95 %   region 777  liveness: 96 %   
+region 778  liveness: 96 %   region 779  liveness: 96 %   region 780  liveness: 96 %   
+region 781  liveness: 96 %   region 782  liveness: 96 %   region 783  liveness: 95 %   
+region 784  liveness: 95 %   region 785  liveness: 95 %   region 786  liveness: 95 %   
+region 787  liveness: 95 %   region 788  liveness: 95 %   region 789  liveness: 96 %   
+region 790  liveness: 96 %   region 791  liveness: 95 %   region 792  liveness: 96 %   
+region 793  liveness: 95 %   region 794  liveness: 95 %   region 795  liveness: 96 %   
+region 796  liveness: 96 %   region 797  liveness: 96 %   region 798  liveness: 96 %   
+region 799  liveness: 95 %   region 800  liveness: 94 %   region 801  liveness: 95 %   
+region 802  liveness: 95 %   region 803  liveness: 96 %   region 804  liveness: 95 %   
+region 805  liveness: 95 %   region 806  liveness: 91 %   region 807  liveness: 95 %   
+region 808  liveness: 95 %   region 809  liveness: 95 %   region 810  liveness: 96 %   
+region 811  liveness: 95 %   region 812  liveness: 95 %   region 813  liveness: 96 %   
+region 814  liveness: 96 %   region 815  liveness: 96 %   region 816  liveness: 95 %   
+region 817  liveness: 96 %   region 818  liveness: 96 %   region 819  liveness: 95 %   
+region 820  liveness: 95 %   region 821  liveness: 95 %   region 822  liveness: 96 %   
+region 823  liveness: 94 %   region 824  liveness: 96 %   region 825  liveness: 95 %   
+region 826  liveness: 95 %   region 827  liveness: 96 %   region 828  liveness: 95 %   
+region 829  liveness: 96 %   region 830  liveness: 96 %   region 831  liveness: 96 %   
+region 832  liveness: 95 %   region 833  liveness: 95 %   region 834  liveness: 94 %   
+region 835  liveness: 95 %   region 836  liveness: 95 %   region 837  liveness: 95 %   
+region 838  liveness: 95 %   region 839  liveness: 96 %   region 840  liveness: 95 %   
+region 841  liveness: 95 %   region 842  liveness: 96 %   region 843  liveness: 96 %   
+region 844  liveness: 96 %   region 845  liveness: 95 %   region 846  liveness: 96 %   
+region 847  liveness: 96 %   region 848  liveness: 94 %   region 849  liveness: 96 %   
+region 850  liveness: 96 %   region 851  liveness: 95 %   region 852  liveness: 97 %   
+region 853  liveness: 95 %   region 854  liveness: 95 %   region 855  liveness: 95 %   
+region 856  liveness: 96 %   region 857  liveness: 95 %   region 858  liveness: 98 %   
+region 859  liveness: 96 %   region 860  liveness: 95 %   region 861  liveness: 95 %   
+region 862  liveness: 96 %   region 863  liveness: 96 %   region 864  liveness: 96 %   
+region 865  liveness: 94 %   region 866  liveness: 96 %   region 867  liveness: 95 %   
+region 868  liveness: 97 %   region 869  liveness: 96 %   region 870  liveness: 96 %   
+region 871  liveness: 96 %   region 872  liveness: 95 %   region 873  liveness: 95 %   
+region 874  liveness: 95 %   region 875  liveness: 96 %   region 876  liveness: 96 %   
+region 877  liveness: 95 %   region 878  liveness: 95 %   region 879  liveness: 94 %   
+region 880  liveness: 95 %   region 881  liveness: 96 %   region 882  liveness: 95 %   
+region 883  liveness: 99 %   region 884  liveness: 96 %   region 885  liveness: 96 %   
+region 886  liveness: 96 %   region 887  liveness: 96 %   region 888  liveness: 97 %   
+region 889  liveness: 96 %   region 890  liveness: 97 %   region 891  liveness: 96 %   
+region 892  liveness: 96 %   region 893  liveness: 96 %   region 894  liveness: 95 %   
+region 895  liveness: 95 %   region 896  liveness: 95 %   region 897  liveness: 95 %   
+region 898  liveness: 95 %   region 899  liveness: 97 %   region 900  liveness: 95 %   
+region 901  liveness: 95 %   region 902  liveness: 96 %   region 903  liveness: 95 %   
+region 904  liveness: 96 %   region 905  liveness: 96 %   region 906  liveness: 96 %   
+region 907  liveness: 95 %   region 908  liveness: 95 %   region 909  liveness: 96 %   
+region 910  liveness: 96 %   region 911  liveness: 96 %   region 912  liveness: 97 %   
+region 913  liveness: 96 %   region 914  liveness: 95 %   region 915  liveness: 95 %   
+region 916  liveness: 96 %   region 917  liveness: 95 %   region 918  liveness: 96 %   
+region 919  liveness: 96 %   region 920  liveness: 96 %   region 921  liveness: 96 %   
+region 922  liveness: 95 %   region 923  liveness: 96 %   region 924  liveness: 95 %   
+region 925  liveness: 96 %   region 926  liveness: 95 %   region 927  liveness: 94 %   
+region 928  liveness: 95 %   region 929  liveness: 95 %   region 930  liveness: 96 %   
+region 931  liveness: 94 %   region 932  liveness: 95 %   region 933  liveness: 95 %   
+region 934  liveness: 96 %   region 935  liveness: 96 %   region 936  liveness: 97 %   
+region 937  liveness: 96 %   region 938  liveness: 95 %   region 939  liveness: 96 %   
+region 940  liveness: 95 %   region 941  liveness: 95 %   region 942  liveness: 97 %   
+region 943  liveness: 97 %   region 944  liveness: 95 %   region 945  liveness: 95 %   
+region 946  liveness: 96 %   region 947  liveness: 96 %   region 948  liveness: 96 %   
+region 949  liveness: 96 %   region 950  liveness: 95 %   region 951  liveness: 95 %   
+region 952  liveness: 95 %   region 953  liveness: 96 %   region 954  liveness: 95 %   
+region 955  liveness: 96 %   region 956  liveness: 94 %   region 957  liveness: 96 %   
+region 958  liveness: 95 %   region 959  liveness: 96 %   region 960  liveness: 96 %   
+region 961  liveness: 96 %   region 962  liveness: 95 %   region 963  liveness: 95 %   
+region 964  liveness: 96 %   region 965  liveness: 96 %   region 966  liveness: 95 %   
+region 967  liveness: 95 %   region 968  liveness: 94 %   region 969  liveness: 96 %   
+region 970  liveness: 96 %   region 971  liveness: 96 %   region 972  liveness: 95 %   
+region 973  liveness: 95 %   region 974  liveness: 95 %   region 975  liveness: 95 %   
+region 976  liveness: 95 %   region 977  liveness: 95 %   region 978  liveness: 95 %   
+region 979  liveness: 96 %   region 980  liveness: 96 %   region 981  liveness: 95 %   
+region 982  liveness: 95 %   region 983  liveness: 95 %   region 984  liveness: 95 %   
+region 985  liveness: 96 %   region 986  liveness: 96 %   region 987  liveness: 96 %   
+region 988  liveness: 96 %   region 989  liveness: 95 %   region 990  liveness: 95 %   
+region 991  liveness: 94 %   region 992  liveness: 95 %   region 993  liveness: 96 %   
+region 994  liveness: 95 %   region 995  liveness: 96 %   region 996  liveness: 96 %   
+region 997  liveness: 96 %   region 998  liveness: 97 %   region 999  liveness: 94 %   
+region 1000 liveness: 95 %   region 1001 liveness: 96 %   region 1002 liveness: 95 %   
+region 1003 liveness: 96 %   region 1004 liveness: 96 %   region 1005 liveness: 95 %   
+region 1006 liveness: 95 %   region 1007 liveness: 95 %   region 1008 liveness: 96 %   
+region 1009 liveness: 96 %   region 1010 liveness: 95 %   region 1011 liveness: 96 %   
+region 1012 liveness: 94 %   region 1013 liveness: 94 %   region 1014 liveness: 95 %   
+region 1015 liveness: 95 %   region 1016 liveness: 95 %   region 1017 liveness: 95 %   
+region 1018 liveness: 95 %   region 1019 liveness: 95 %   region 1020 liveness: 95 %   
+region 1021 liveness: 96 %   region 1022 liveness: 97 %   region 1023 liveness: 95 %   
+region 1024 liveness: 95 %   region 1025 liveness: 95 %   region 1026 liveness: 96 %   
+region 1027 liveness: 95 %   region 1028 liveness: 96 %   region 1029 liveness: 96 %   
+region 1030 liveness: 96 %   region 1031 liveness: 95 %   region 1032 liveness: 95 %   
+region 1033 liveness: 96 %   region 1034 liveness: 93 %   region 1035 liveness: 95 %   
+region 1036 liveness: 94 %   region 1037 liveness: 93 %   region 1038 liveness: 94 %   
+region 1039 liveness: 96 %   region 1040 liveness: 95 %   region 1041 liveness: 96 %   
+region 1042 liveness: 95 %   region 1043 liveness: 96 %   region 1044 liveness: 96 %   
+region 1045 liveness: 95 %   region 1046 liveness: 95 %   region 1047 liveness: 95 %   
+region 1048 liveness: 96 %   region 1049 liveness: 96 %   region 1050 liveness: 97 %   
+region 1051 liveness: 95 %   region 1052 liveness: 95 %   region 1053 liveness: 94 %   
+region 1054 liveness: 96 %   region 1055 liveness: 95 %   region 1056 liveness: 96 %   
+region 1057 liveness: 95 %   region 1058 liveness: 96 %   region 1059 liveness: 96 %   
+region 1060 liveness: 96 %   region 1061 liveness: 94 %   region 1062 liveness: 96 %   
+region 1063 liveness: 95 %   region 1064 liveness: 94 %   region 1065 liveness: 96 %   
+region 1066 liveness: 96 %   region 1067 liveness: 96 %   region 1068 liveness: 95 %   
+region 1069 liveness: 95 %   region 1070 liveness: 96 %   region 1071 liveness: 95 %   
+region 1072 liveness: 95 %   region 1073 liveness: 96 %   region 1074 liveness: 96 %   
+region 1075 liveness: 95 %   region 1076 liveness: 95 %   region 1077 liveness: 96 %   
+region 1078 liveness: 95 %   region 1079 liveness: 95 %   region 1080 liveness: 96 %   
+region 1081 liveness: 95 %   region 1082 liveness: 96 %   region 1083 liveness: 96 %   
+region 1084 liveness: 96 %   region 1085 liveness: 95 %   region 1086 liveness: 97 %   
+region 1087 liveness: 95 %   region 1088 liveness: 95 %   region 1089 liveness: 96 %   
+region 1090 liveness: 97 %   region 1091 liveness: 94 %   region 1092 liveness: 96 %   
+region 1093 liveness: 95 %   region 1094 liveness: 94 %   region 1095 liveness: 95 %   
+region 1096 liveness: 96 %   region 1097 liveness: 95 %   region 1098 liveness: 95 %   
+region 1099 liveness: 96 %   region 1100 liveness: 96 %   region 1101 liveness: 96 %   
+region 1102 liveness: 96 %   region 1103 liveness: 95 %   region 1104 liveness: 96 %   
+region 1105 liveness: 96 %   region 1106 liveness: 95 %   region 1107 liveness: 95 %   
+region 1108 liveness: 96 %   region 1109 liveness: 97 %   region 1110 liveness: 96 %   
+region 1111 liveness: 95 %   region 1112 liveness: 95 %   region 1113 liveness: 96 %   
+region 1114 liveness: 95 %   region 1115 liveness: 95 %   region 1116 liveness: 96 %   
+region 1117 liveness: 95 %   region 1118 liveness: 96 %   region 1119 liveness: 95 %   
+region 1120 liveness: 95 %   region 1121 liveness: 95 %   region 1122 liveness: 95 %   
+region 1123 liveness: 95 %   region 1124 liveness: 95 %   region 1125 liveness: 96 %   
+region 1126 liveness: 96 %   region 1127 liveness: 96 %   region 1128 liveness: 95 %   
+region 1129 liveness: 96 %   region 1130 liveness: 96 %   region 1131 liveness: 96 %   
+region 1132 liveness: 96 %   region 1133 liveness: 96 %   region 1134 liveness: 95 %   
+region 1135 liveness: 96 %   region 1136 liveness: 94 %   region 1137 liveness: 95 %   
+region 1138 liveness: 95 %   region 1139 liveness: 94 %   region 1140 liveness: 95 %   
+region 1141 liveness: 95 %   region 1142 liveness: 95 %   region 1143 liveness: 96 %   
+region 1144 liveness: 96 %   region 1145 liveness: 95 %   region 1146 liveness: 94 %   
+region 1147 liveness: 94 %   region 1148 liveness: 95 %   region 1149 liveness: 95 %   
+region 1150 liveness: 96 %   region 1151 liveness: 97 %   region 1152 liveness: 95 %   
+region 1153 liveness: 96 %   region 1154 liveness: 95 %   region 1155 liveness: 96 %   
+region 1156 liveness: 96 %   region 1157 liveness: 95 %   region 1158 liveness: 96 %   
+region 1159 liveness: 96 %   region 1160 liveness: 95 %   region 1161 liveness: 96 %   
+region 1162 liveness: 96 %   region 1163 liveness: 95 %   region 1164 liveness: 95 %   
+region 1165 liveness: 95 %   region 1166 liveness: 95 %   region 1167 liveness: 96 %   
+region 1168 liveness: 96 %   region 1169 liveness: 95 %   region 1170 liveness: 96 %   
+region 1171 liveness: 95 %   region 1172 liveness: 95 %   region 1173 liveness: 97 %   
+region 1174 liveness: 96 %   region 1175 liveness: 95 %   region 1176 liveness: 95 %   
+region 1177 liveness: 96 %   region 1178 liveness: 95 %   region 1179 liveness: 97 %   
+region 1180 liveness: 96 %   region 1181 liveness: 95 %   region 1182 liveness: 96 %   
+region 1183 liveness: 95 %   region 1184 liveness: 95 %   region 1185 liveness: 96 %   
+region 1186 liveness: 96 %   region 1187 liveness: 96 %   region 1188 liveness: 96 %   
+region 1189 liveness: 96 %   region 1190 liveness: 96 %   region 1191 liveness: 95 %   
+region 1192 liveness: 95 %   region 1193 liveness: 95 %   region 1194 liveness: 95 %   
+region 1195 liveness: 96 %   region 1196 liveness: 95 %   region 1197 liveness: 96 %   
+region 1198 liveness: 95 %   region 1199 liveness: 98 %   region 1200 liveness: 95 %   
+region 1201 liveness: 96 %   region 1202 liveness: 95 %   region 1203 liveness: 94 %   
+region 1204 liveness: 97 %   region 1205 liveness: 96 %   region 1206 liveness: 95 %   
+region 1207 liveness: 95 %   region 1208 liveness: 96 %   region 1209 liveness: 94 %   
+region 1210 liveness: 96 %   region 1211 liveness: 96 %   region 1212 liveness: 97 %   
+region 1213 liveness: 96 %   region 1214 liveness: 96 %   region 1215 liveness: 96 %   
+region 1216 liveness: 95 %   region 1217 liveness: 96 %   region 1218 liveness: 96 %   
+region 1219 liveness: 96 %   region 1220 liveness: 96 %   region 1221 liveness: 94 %   
+region 1222 liveness: 96 %   region 1223 liveness: 94 %   region 1224 liveness: 95 %   
+region 1225 liveness: 97 %   region 1226 liveness: 96 %   region 1227 liveness: 94 %   
+region 1228 liveness: 95 %   region 1229 liveness: 96 %   region 1230 liveness: 25 %   
+region 1231 liveness: 97 %   region 1232 liveness: 96 %   region 1233 liveness: 95 %   
+region 1234 liveness: 97 %   region 1235 liveness: 96 %   region 1236 liveness: 95 %   
+region 1237 liveness: 96 %   region 1238 liveness: 95 %   region 1239 liveness: 93 %   
+region 1240 liveness: 95 %   region 1241 liveness: 96 %   region 1242 liveness: 95 %   
+region 1243 liveness: 100%   region 1244 liveness: 96 %   region 1245 liveness: 95 %   
+region 1246 liveness: 95 %   region 1247 liveness: 96 %   region 1248 liveness: 97 %   
+region 1249 liveness: 100%   region 1250 liveness: 29 %   region 1251 liveness: 96 %   
+region 1252 liveness: 96 %   region 1253 liveness: 100%   region 1254 liveness: 83 %   
+region 1255 liveness: 65 %   region 1256 liveness: 41 %   region 1257 liveness: 96 %   
+region 1258 liveness: 94 %   region 1259 liveness: 95 %   region 1260 liveness: 98 %   
+region 1261 liveness: 95 %   region 1262 liveness: 100%   region 1263 liveness: 100%   
+region 1264 liveness: 36 %   region 1265 liveness: 97 %   region 1266 liveness: 100%   
+region 1267 liveness: 100%   region 1268 liveness: 100%   region 1269 liveness: 95 %   
+region 1270 liveness: 69 %   region 1271 liveness: 100%   region 1272 liveness: 65 %   
+region 1273 liveness: 97 %   region 1274 liveness: 100%   region 1275 liveness: 95 %   
+region 1276 liveness: 100%   region 1277 liveness: 100%   region 1278 liveness: 100%   
+region 1279 liveness: 100%   region 1280 liveness: 96 %   region 1281 liveness: 100%   
+region 1282 liveness: 100%   region 1283 liveness: 100%   region 1284 liveness: 100%   
+region 1285 liveness: 95 %   region 1286 liveness: 89 %   region 1287 liveness: 96 %   
+region 1288 liveness: 100%   region 1289 liveness: 100%   region 1290 liveness: 100%   
+region 1291 liveness: 100%   region 1292 liveness: 100%   region 1293 liveness: 100%   
+region 1294 liveness: 100%   region 1295 liveness: 100%   region 1296 liveness: 41 %   
+region 1297 liveness: 100%   region 1298 liveness: 100%   region 1299 liveness: 100%   
+region 1300 liveness: 100%   region 1301 liveness: 100%   region 1302 liveness: 46 %   
+region 1303 liveness: 100%   region 1304 liveness: 100%   region 1305 liveness: 100%   
+region 1306 liveness: 100%   region 1307 liveness: 100%   region 1308 liveness: 100%   
+region 1309 liveness: 100%   region 1310 liveness: 100%   region 1311 liveness: 100%   
+region 1312 liveness: 100%   region 1313 liveness: 100%   region 1314 liveness: 100%   
+region 1315 liveness: 100%   region 1316 liveness: 100%   region 1317 liveness: 100%   
+region 1318 liveness: 100%   region 1319 liveness: 100%   region 1320 liveness: 100%   
+region 1321 liveness: 100%   region 1322 liveness: 100%   region 1323 liveness: 100%   
+region 1324 liveness: 100%   region 1325 liveness: 100%   region 1326 liveness: 100%   
+region 1327 liveness: 100%   region 1328 liveness: 100%   region 1329 liveness: 100%   
+region 1330 liveness: 100%   region 1331 liveness: 100%   region 1332 liveness: 100%   
+region 1333 liveness: 100%   region 1334 liveness: 100%   region 1335 liveness: 100%   
+region 1336 liveness: 100%   region 1337 liveness: 100%   region 1338 liveness: 100%   
+region 1339 liveness: 100%   region 1340 liveness: 100%   region 1341 liveness: 100%   
+region 1342 liveness: 100%   region 1343 liveness: 100%   region 1344 liveness: 100%   
+region 1345 liveness: 100%   region 1346 liveness: 100%   region 1347 liveness: 100%   
+region 1348 liveness: 100%   region 1349 liveness: 100%   region 1350 liveness: 100%   
+region 1351 liveness: 100%   region 1352 liveness: 100%   region 1353 liveness: 100%   
+region 1354 liveness: 100%   region 1355 liveness: 100%   region 1356 liveness: 100%   
+region 1357 liveness: 100%   region 1358 liveness: 100%   region 1359 liveness: 100%   
+region 1360 liveness: 100%   region 1361 liveness: 100%   region 1362 liveness: 100%   
+region 1363 liveness: 100%   region 1364 liveness: 100%   region 1365 liveness: 100%   
+region 1366 liveness: 100%   region 1367 liveness: 100%   region 1368 liveness: 100%   
+region 1369 liveness: 100%   region 1370 liveness: 100%   region 1371 liveness: 100%   
+region 1372 liveness: 100%   region 1373 liveness: 100%   region 1374 liveness: 100%   
+region 1375 liveness: 100%   region 1376 liveness: 100%   region 1377 liveness: 100%   
+region 1378 liveness: 100%   region 1379 liveness: 100%   region 1380 liveness: 100%   
+region 1381 liveness: 100%   region 1382 liveness: 100%   region 1383 liveness: 100%   
+region 1384 liveness: 100%   region 1385 liveness: 100%   region 1386 liveness: 100%   
+region 1387 liveness: 100%   region 1388 liveness: 100%   region 1389 liveness: 100%   
+region 1390 liveness: 100%   region 1391 liveness: 100%   region 1392 liveness: 100%   
+region 1393 liveness: 100%   region 1394 liveness: 100%   region 1395 liveness: 100%   
+region 1396 liveness: 100%   region 1397 liveness: 100%   region 1398 liveness: 100%   
+region 1399 liveness: 100%   region 1400 liveness: 100%   region 1401 liveness: 100%   
+region 1402 liveness: 100%   region 1403 liveness: 100%   region 1404 liveness: 100%   
+region 1405 liveness: 100%   region 1406 liveness: 100%   region 1407 liveness: 100%   
+region 1408 liveness: 100%   region 1409 liveness: 100%   region 1410 liveness: 100%   
+region 1411 liveness: 100%   region 1412 liveness: 100%   region 1413 liveness: 100%   
+region 1414 liveness: 100%   region 1415 liveness: 100%   region 1416 liveness: 100%   
+region 1417 liveness: 100%   region 1418 liveness: 100%   region 1419 liveness: 100%   
+region 1420 liveness: 100%   region 1421 liveness: 100%   region 1422 liveness: 100%   
+region 1423 liveness: 100%   region 1424 liveness: 100%   region 1425 liveness: 100%   
+region 1426 liveness: 100%   region 1427 liveness: 100%   region 1428 liveness: 100%   
+region 1429 liveness: 100%   region 1430 liveness: 100%   region 1431 liveness: 100%   
+region 1432 liveness: 100%   region 1433 liveness: 100%   region 1434 liveness: 100%   
+region 1435 liveness: 100%   region 1436 liveness: 100%   region 1437 liveness: 100%   
+region 1438 liveness: 100%   region 1439 liveness: 100%   region 1440 liveness: 100%   
+region 1441 liveness: 100%   region 1442 liveness: 100%   region 1443 liveness: 100%   
+region 1444 liveness: 100%   region 1445 liveness: 100%   region 1446 liveness: 100%   
+region 1447 liveness: 100%   region 1448 liveness: 100%   region 1449 liveness: 100%   
+region 1450 liveness: 100%   region 1451 liveness: 100%   region 1452 liveness: 100%   
+region 1453 liveness: 100%   region 1454 liveness: 100%   region 1455 liveness: 100%   
+region 1456 liveness: 100%   region 1457 liveness: 100%   region 1458 liveness: 100%   
+region 1459 liveness: 100%   region 1460 liveness: 100%   region 1461 liveness: 100%   
+region 1462 liveness: 100%   region 1463 liveness: 100%   region 1464 liveness: 100%   
+region 1465 liveness: 100%   region 1466 liveness: 100%   region 1467 liveness: 100%   
+region 1468 liveness: 100%   region 1469 liveness: 100%   region 1470 liveness: 100%   
+region 1471 liveness: 100%   region 1472 liveness: 100%   region 1473 liveness: 100%   
+region 1474 liveness: 100%   region 1475 liveness: 100%   region 1476 liveness: 100%   
+region 1477 liveness: 100%   region 1478 liveness: 100%   region 1479 liveness: 100%   
+region 1480 liveness: 100%   region 1481 liveness: 100%   region 1482 liveness: 100%   
+region 1483 liveness: 100%   region 1484 liveness: 100%   region 1485 liveness: 100%   
+region 1486 liveness: 100%   region 1487 liveness: 100%   region 1488 liveness: 100%   
+region 1489 liveness: 100%   region 1490 liveness: 100%   region 1491 liveness: 100%   
+region 1492 liveness: 100%   region 1493 liveness: 100%   region 1494 liveness: 100%   
+region 1495 liveness: 100%   region 1496 liveness: 100%   region 1497 liveness: 100%   
+region 1498 liveness: 100%   region 1499 liveness: 100%   region 1500 liveness: 100%   
+region 1501 liveness: 100%   region 1502 liveness: 100%   region 1503 liveness: 100%   
+region 1504 liveness: 100%   region 1505 liveness: 100%   region 1506 liveness: 100%   
+region 1507 liveness: 100%   region 1508 liveness: 100%   region 1509 liveness: 100%   
+region 1510 liveness: 100%   region 1511 liveness: 100%   region 1512 liveness: 100%   
+region 1513 liveness: 100%   region 1514 liveness: 100%   region 1515 liveness: 100%   
+region 1516 liveness: 100%   region 1517 liveness: 100%   region 1518 liveness: 100%   
+region 1519 liveness: 100%   region 1520 liveness: 100%   region 1521 liveness: 100%   
+region 1522 liveness: 100%   region 1523 liveness: 100%   region 1524 liveness: 100%   
+region 1525 liveness: 100%   region 1526 liveness: 100%   region 1527 liveness: 100%   
+region 1528 liveness: 100%   region 1529 liveness: 100%   region 1530 liveness: 92 %   
+region 1531 liveness: 93 %   region 1532 liveness: 93 %   region 1533 liveness: 93 %   
+region 1534 liveness: 94 %   region 1535 liveness: 94 %   region 1536 liveness: 92 %   
+region 1537 liveness: 92 %   region 1538 liveness: 94 %   region 1539 liveness: 94 %   
+region 1540 liveness: 93 %   region 1541 liveness: 93 %   region 1542 liveness: 92 %   
+region 1543 liveness: 93 %   region 1544 liveness: 92 %   region 1545 liveness: 94 %   
+region 1546 liveness: 95 %   region 1547 liveness: 93 %   region 1548 liveness: 92 %   
+region 1549 liveness: 93 %   region 1550 liveness: 94 %   region 1551 liveness: 93 %   
+region 1552 liveness: 95 %   region 1553 liveness: 97 %   region 1554 liveness: 96 %   
+region 1555 liveness: 95 %   region 1556 liveness: 95 %   region 1557 liveness: 93 %   
+region 1558 liveness: 95 %   region 1559 liveness: 96 %   region 1560 liveness: 96 %   
+region 1561 liveness: 95 %   region 1562 liveness: 96 %   region 1563 liveness: 96 %   
+region 1564 liveness: 95 %   region 1565 liveness: 95 %   region 1566 liveness: 96 %   
+region 1567 liveness: 94 %   region 1568 liveness: 95 %   region 1569 liveness: 95 %   
+region 1570 liveness: 95 %   region 1571 liveness: 95 %   region 1572 liveness: 96 %   
+region 1573 liveness: 95 %   region 1574 liveness: 95 %   region 1575 liveness: 96 %   
+region 1576 liveness: 95 %   region 1577 liveness: 95 %   region 1578 liveness: 96 %   
+region 1579 liveness: 96 %   region 1580 liveness: 95 %   region 1581 liveness: 95 %   
+region 1582 liveness: 95 %   region 1583 liveness: 95 %   region 1584 liveness: 95 %   
+region 1585 liveness: 96 %   region 1586 liveness: 95 %   region 1587 liveness: 96 %   
+region 1588 liveness: 95 %   region 1589 liveness: 96 %   region 1590 liveness: 95 %   
+region 1591 liveness: 96 %   region 1592 liveness: 95 %   region 1593 liveness: 95 %   
+region 1594 liveness: 95 %   region 1595 liveness: 95 %   region 1596 liveness: 96 %   
+region 1597 liveness: 94 %   region 1598 liveness: 94 %   region 1599 liveness: 97 %   
+region 1600 liveness: 95 %   region 1601 liveness: 95 %   region 1602 liveness: 95 %   
+region 1603 liveness: 95 %   region 1604 liveness: 96 %   region 1605 liveness: 94 %   
+region 1606 liveness: 95 %   region 1607 liveness: 95 %   region 1608 liveness: 96 %   
+region 1609 liveness: 94 %   region 1610 liveness: 95 %   region 1611 liveness: 95 %   
+region 1612 liveness: 96 %   region 1613 liveness: 94 %   region 1614 liveness: 96 %   
+region 1615 liveness: 95 %   region 1616 liveness: 95 %   region 1617 liveness: 96 %   
+region 1618 liveness: 95 %   region 1619 liveness: 95 %   region 1620 liveness: 95 %   
+region 1621 liveness: 95 %   region 1622 liveness: 94 %   region 1623 liveness: 96 %   
+region 1624 liveness: 96 %   region 1625 liveness: 96 %   region 1626 liveness: 95 %   
+region 1627 liveness: 96 %   region 1628 liveness: 95 %   region 1629 liveness: 95 %   
+region 1630 liveness: 95 %   region 1631 liveness: 96 %   region 1632 liveness: 94 %   
+region 1633 liveness: 95 %   region 1634 liveness: 96 %   region 1635 liveness: 96 %   
+region 1636 liveness: 96 %   region 1637 liveness: 96 %   region 1638 liveness: 96 %   
+region 1639 liveness: 96 %   region 1640 liveness: 96 %   region 1641 liveness: 95 %   
+region 1642 liveness: 96 %   region 1643 liveness: 94 %   region 1644 liveness: 95 %   
+region 1645 liveness: 95 %   region 1646 liveness: 95 %   region 1647 liveness: 94 %   
+region 1648 liveness: 95 %   region 1649 liveness: 96 %   region 1650 liveness: 96 %   
+region 1651 liveness: 95 %   region 1652 liveness: 96 %   region 1653 liveness: 95 %   
+region 1654 liveness: 96 %   region 1655 liveness: 95 %   region 1656 liveness: 95 %   
+region 1657 liveness: 94 %   region 1658 liveness: 97 %   region 1659 liveness: 95 %   
+region 1660 liveness: 96 %   region 1661 liveness: 95 %   region 1662 liveness: 95 %   
+region 1663 liveness: 96 %   region 1664 liveness: 95 %   region 1665 liveness: 95 %   
+region 1666 liveness: 95 %   region 1667 liveness: 95 %   region 1668 liveness: 93 %   
+region 1669 liveness: 93 %   region 1670 liveness: 94 %   region 1671 liveness: 95 %   
+region 1672 liveness: 96 %   region 1673 liveness: 96 %   Final check:
+Live objects in old region: 1373372
+[13.827s][info][gc,heap,exit   ] Heap
+[13.827s][info][gc,heap,exit   ]  garbage-first heap   total 2002944K, used 1747058K [0x0000000085c00000, 0x0000000100000000)
+[13.827s][info][gc,heap,exit   ]   region size 1024K, 21 young (21504K), 13 survivors (13312K)
+[13.827s][info][gc,heap,exit   ]  Metaspace       used 8348K, committed 8512K, reserved 1114112K
+[13.827s][info][gc,heap,exit   ]   class space    used 767K, committed 832K, reserved 1048576K
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/2201)*----------
+cd /home/webliu/TencentKona-17/JTwork/scratch && \\
+DISPLAY=:0 \\
+HOME=/home/webliu \\
+JTREG_HOME=/home/webliu/jtreg/build/images/jtreg \\
+LANG=C.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+WAYLAND_DISPLAY=wayland-0 \\
+XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \\
+CLASSPATH=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/JTwork/classes/test/lib:/home/webliu/TencentKona-17/test/lib:/home/webliu/jtreg/build/images/jtreg/lib/javatest.jar:/home/webliu/jtreg/build/images/jtreg/lib/jtreg.jar \\
+    /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk/bin/java \\
+        -Dtest.vm.opts=-Djavatest.maxOutputSize=500000 \\
+        -Dtest.tool.vm.opts=-J-Djavatest.maxOutputSize=500000 \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts= \\
+        -Dtest.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dcompile.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dtest.timeout.factor=1.0 \\
+        -Dtest.root=/home/webliu/TencentKona-17/test/hotspot/jtreg \\
+        -Dtest.name=gc/LRUCacheTest.java \\
+        -Dtest.file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/LRUCacheTest.java \\
+        -Dtest.src=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc \\
+        -Dtest.src.path=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/test/lib \\
+        -Dtest.classes=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d \\
+        -Dtest.class.path=/home/webliu/TencentKona-17/JTwork/classes/gc/LRUCacheTest.d:/home/webliu/TencentKona-17/JTwork/classes/test/lib \\
+        -Dtest.modules='java.base/jdk.internal.misc java.management' \\
+        --add-modules java.base,java.management \\
+        --add-exports java.base/jdk.internal.misc=ALL-UNNAMED \\
+        -Djavatest.maxOutputSize=500000 \\
+        -Xbootclasspath/a:. \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+WhiteBoxAPI \\
+        -XX:+UseG1GC \\
+        -Xlog:gc* \\
+        -Xlog:gc:g1gc.log \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/webliu/TencentKona-17/JTwork/gc/LRUCacheTest.d/main.1.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful
