@@ -15,6 +15,8 @@
 
 测试用例：经典的 LRUCache 测试。考虑到让更多的对象从 Young 区晋升到老区， Cache 总大小设置为了堆内存的 70%。考虑到大多数情况下，新创建的对象会被分配在堆内存中(除非 JVM 可以判断该对象仅在当前方法内使用，会进行栈上分配)。为了触发频繁的 GC 事件且观测出现堆内存溢出时 GC 的行为，创建对象的总大小设置为了堆内存的 1.1 倍。测试过程中随机向 Cache 中添加键值对，每个键值对占用 1KB 大小，重复若干次。测试用例源代码见仓库测试用例文件夹。
 
+新增的 Whitebox api：为了统计老区每个 Region 的存活率，我新增了一个 Whitebox api `g1GetOldRegionAddress();`，用于统计老区的存活率。首先在 Whitebox.java 中声明这一 native 方法，之后在 Whitebox.cpp 中注册并实现这一方法。在 WB_G1GetOldRegionAddress 中，我定义了一个 HeapRegionClosure 的子类 OldRegionPrinter()，并重写了 do_heap_region 方法用来遍历所有的 Region。对每个 Old Region，我用((hr->used() - hr->garbage_bytes()) \* 100) / hr->capacity()的方式计算其存活率。
+
 ## G1GC 运行与老区存活对象之间的关系
 
 G1GC 除了通过并行线程进行 Young GC 之外，还会在老区空间不足时并发地启动 Concurrent Mark 进程，之后进行 Mixed GC。
