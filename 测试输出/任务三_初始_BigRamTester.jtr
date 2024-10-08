@@ -1,0 +1,670 @@
+#Test Results (version 2)
+#Thu Sep 26 16:04:03 CST 2024
+#-----testdescription-----
+$file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/BigRamTester.java
+$root=/home/webliu/TencentKona-17/test/hotspot/jtreg
+keywords=bug1234567 othervm driver
+library=/test/lib
+modules=java.base/java.util java.base/java.text java.base/java.util.concurrent
+run=USER_SPECIFIED build jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:. -XX\:+UnlockDiagnosticVMOptions -XX\:+WhiteBoxAPI -XX\:+UseG1GC -Xlog\:gc* -Xlog\:gc\:g1gc.log -Xms4g -Xmx4g  BigRamTester\n
+source=BigRamTester.java
+title=BigRamTester
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/BigRamTester.java
+elapsed=12429 0\:00\:12.429
+end=Thu Sep 26 16\:04\:03 CST 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=qaq.
+javatestOS=Linux 5.15.153.1-microsoft-standard-WSL2 (amd64)
+javatestVersion=6.0-ea+b24-2024-08-23-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.5 dev 0
+modules=java.base/java.util java.base/java.text java.base/java.util.concurrent
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build build driver build compile main
+start=Thu Sep 26 16\:03\:51 CST 2024
+test=gc/BigRamTester.java
+testJDK=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk
+testJDK_OS=[name\:Linux,arch\:amd64,version\:5.15.153.1-microsoft-standard-WSL2,family\:linux,simple_arch\:x64,simple_version\:5.15,processors\:16,maxMemory\:8198127616,maxSwap\:2147483648]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=5.15.153.1-microsoft-standard-WSL2
+totalTime=12432
+user.name=webliu
+work=/home/webliu/TencentKona-17/JTwork/gc
+
+#section:script_messages
+----------messages:(7/467)----------
+JDK under test: /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk
+openjdk version "17.0.11-internal" 2024-04-16
+OpenJDK Runtime Environment (build 17.0.11-internal+0-adhoc.webliu.TencentKona-17)
+OpenJDK 64-Bit Server VM (build 17.0.11-internal+0-adhoc.webliu.TencentKona-17, mixed mode)
+Library /test/lib; kind: packages
+   source directory: /home/webliu/TencentKona-17/test/lib
+   class directory: /home/webliu/TencentKona-17/JTwork/classes/test/lib
+
+#section:build
+----------messages:(5/218)----------
+command: build jdk.test.whitebox.WhiteBox
+reason: User specified action: run build jdk.test.whitebox.WhiteBox 
+started: Thu Sep 26 16:03:51 CST 2024
+finished: Thu Sep 26 16:03:51 CST 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:build
+----------messages:(5/201)----------
+command: build jdk.test.lib.helpers.ClassFileInstaller
+reason: Named class compiled on demand
+started: Thu Sep 26 16:03:51 CST 2024
+finished: Thu Sep 26 16:03:51 CST 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/521)----------
+command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
+started: Thu Sep 26 16:03:51 CST 2024
+Mode: othervm
+Additional options from @modules: --add-modules java.base --add-exports java.base/java.util=ALL-UNNAMED --add-exports java.base/java.text=ALL-UNNAMED --add-exports java.base/java.util.concurrent=ALL-UNNAMED
+finished: Thu Sep 26 16:03:51 CST 2024
+elapsed time (seconds): 0.126
+----------configuration:(6/233)----------
+Boot Layer
+  add modules: java.base                      
+  add exports: java.base/java.text            ALL-UNNAMED
+               java.base/java.util            ALL-UNNAMED
+               java.base/java.util.concurrent ALL-UNNAMED
+
+----------System.out:(0/0)----------
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(30/2076)*----------
+cd /home/webliu/TencentKona-17/JTwork/scratch && \\
+DISPLAY=:0 \\
+HOME=/home/webliu \\
+JTREG_HOME=/home/webliu/jtreg/build/images/jtreg \\
+LANG=C.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+WAYLAND_DISPLAY=wayland-0 \\
+XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \\
+CLASSPATH=/home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/JTwork/classes/test/lib:/home/webliu/TencentKona-17/test/lib:/home/webliu/jtreg/build/images/jtreg/lib/javatest.jar:/home/webliu/jtreg/build/images/jtreg/lib/jtreg.jar \\
+    /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk/bin/java \\
+        -Dtest.vm.opts= \\
+        -Dtest.tool.vm.opts= \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts= \\
+        -Dtest.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dcompile.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dtest.timeout.factor=1.0 \\
+        -Dtest.root=/home/webliu/TencentKona-17/test/hotspot/jtreg \\
+        -Dtest.name=gc/BigRamTester.java \\
+        -Dtest.file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/BigRamTester.java \\
+        -Dtest.src=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc \\
+        -Dtest.src.path=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/test/lib \\
+        -Dtest.classes=/home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d \\
+        -Dtest.class.path=/home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d:/home/webliu/TencentKona-17/JTwork/classes/test/lib \\
+        -Dtest.modules='java.base/java.util java.base/java.text java.base/java.util.concurrent' \\
+        --add-modules java.base \\
+        --add-exports java.base/java.util=ALL-UNNAMED \\
+        --add-exports java.base/java.text=ALL-UNNAMED \\
+        --add-exports java.base/java.util.concurrent=ALL-UNNAMED \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/webliu/TencentKona-17/JTwork/gc/BigRamTester.d/driver.0.jta jdk.test.whitebox.WhiteBox
+result: Passed. Execution successful
+
+#section:build
+----------messages:(7/214)----------
+command: build BigRamTester
+reason: Named class compiled on demand
+started: Thu Sep 26 16:03:51 CST 2024
+Test directory:
+  compile: BigRamTester
+finished: Thu Sep 26 16:03:52 CST 2024
+elapsed time (seconds): 0.799
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/463)----------
+command: compile /home/webliu/TencentKona-17/test/hotspot/jtreg/gc/BigRamTester.java
+reason: .class file out of date or does not exist
+started: Thu Sep 26 16:03:51 CST 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/java.util=ALL-UNNAMED --add-exports java.base/java.text=ALL-UNNAMED --add-exports java.base/java.util.concurrent=ALL-UNNAMED
+Mode: othervm
+finished: Thu Sep 26 16:03:52 CST 2024
+elapsed time (seconds): 0.797
+----------configuration:(11/582)----------
+javac compilation environment
+  add modules: java.base                      
+  add exports: java.base/java.text            ALL-UNNAMED
+               java.base/java.util            ALL-UNNAMED
+               java.base/java.util.concurrent ALL-UNNAMED
+  source path: /home/webliu/TencentKona-17/test/hotspot/jtreg/gc 
+               /home/webliu/TencentKona-17/test/lib 
+  class path:  /home/webliu/TencentKona-17/test/hotspot/jtreg/gc 
+               /home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d 
+               /home/webliu/TencentKona-17/JTwork/classes/test/lib 
+
+----------rerun:(25/1502)*----------
+cd /home/webliu/TencentKona-17/JTwork/scratch && \\
+DISPLAY=:0 \\
+HOME=/home/webliu \\
+JTREG_HOME=/home/webliu/jtreg/build/images/jtreg \\
+LANG=C.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+WAYLAND_DISPLAY=wayland-0 \\
+XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \\
+    /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk/bin/javac \\
+        -J-Dtest.vm.opts= \\
+        -J-Dtest.tool.vm.opts= \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts= \\
+        -J-Dtest.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -J-Dcompile.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -J-Dtest.timeout.factor=1.0 \\
+        -J-Dtest.root=/home/webliu/TencentKona-17/test/hotspot/jtreg \\
+        -J-Dtest.name=gc/BigRamTester.java \\
+        -J-Dtest.file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/BigRamTester.java \\
+        -J-Dtest.src=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc \\
+        -J-Dtest.src.path=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/test/lib \\
+        -J-Dtest.classes=/home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d \\
+        -J-Dtest.class.path=/home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d:/home/webliu/TencentKona-17/JTwork/classes/test/lib \\
+        -J-Dtest.modules='java.base/java.util java.base/java.text java.base/java.util.concurrent' \\
+        @/home/webliu/TencentKona-17/JTwork/gc/BigRamTester.d/compile.1.jta
+----------System.out:(0/0)----------
+----------System.err:(0/0)----------
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/685)----------
+command: main -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -XX:+UseG1GC -Xlog:gc* -Xlog:gc:g1gc.log -Xms4g -Xmx4g BigRamTester
+reason: User specified action: run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -XX:+UseG1GC -Xlog:gc* -Xlog:gc:g1gc.log -Xms4g -Xmx4g BigRamTester 
+started: Thu Sep 26 16:03:52 CST 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-exports java.base/java.util=ALL-UNNAMED --add-exports java.base/java.text=ALL-UNNAMED --add-exports java.base/java.util.concurrent=ALL-UNNAMED
+finished: Thu Sep 26 16:04:03 CST 2024
+elapsed time (seconds): 11.358
+----------configuration:(6/233)----------
+Boot Layer
+  add modules: java.base                      
+  add exports: java.base/java.text            ALL-UNNAMED
+               java.base/java.util            ALL-UNNAMED
+               java.base/java.util.concurrent ALL-UNNAMED
+
+----------System.out:(426/31148)----------
+[0.002s][info][gc] Using G1
+[0.009s][info][gc,init] Version: 17.0.11-internal+0-adhoc.webliu.TencentKona-17 (release)
+[0.009s][info][gc,init] CPUs: 16 total, 16 available
+[0.009s][info][gc,init] Memory: 7818M
+[0.009s][info][gc,init] Large Page Support: Disabled
+[0.009s][info][gc,init] NUMA Support: Disabled
+[0.009s][info][gc,init] Compressed Oops: Enabled (Zero based)
+[0.009s][info][gc,init] Heap Region Size: 2M
+[0.009s][info][gc,init] Heap Min Capacity: 4G
+[0.009s][info][gc,init] Heap Initial Capacity: 4G
+[0.009s][info][gc,init] Heap Max Capacity: 4G
+[0.009s][info][gc,init] Pre-touch: Disabled
+[0.009s][info][gc,init] Parallel Workers: 13
+[0.009s][info][gc,init] Concurrent Workers: 3
+[0.009s][info][gc,init] Concurrent Refinement Workers: 13
+[0.009s][info][gc,init] Periodic GC: Disabled
+[0.009s][info][gc,metaspace] CDS archive(s) not mapped
+[0.009s][info][gc,metaspace] Compressed class space mapped at: 0x0000000800000000-0x0000000840000000, reserved size: 1073741824
+[0.009s][info][gc,metaspace] Narrow klass base: 0x0000000800000000, Narrow klass shift: 0, Narrow klass range: 0x40000000
+Creating storage map of size = 3748610
+[0.258s][info][gc,start    ] GC(0) Pause Young (Normal) (G1 Evacuation Pause)
+[0.261s][info][gc,task     ] GC(0) Using 13 workers of 13 for evacuation
+[0.460s][info][gc,phases   ] GC(0)   Pre Evacuate Collection Set: 0.3ms
+[0.460s][info][gc,phases   ] GC(0)   Merge Heap Roots: 0.2ms
+[0.460s][info][gc,phases   ] GC(0)   Evacuate Collection Set: 197.5ms
+[0.460s][info][gc,phases   ] GC(0)   Post Evacuate Collection Set: 0.7ms
+[0.460s][info][gc,phases   ] GC(0)   Other: 2.8ms
+[0.460s][info][gc,heap     ] GC(0) Eden regions: 102->0(89)
+[0.460s][info][gc,heap     ] GC(0) Survivor regions: 0->13(13)
+[0.460s][info][gc,heap     ] GC(0) Old regions: 0->86
+[0.460s][info][gc,heap     ] GC(0) Archive regions: 0->0
+[0.460s][info][gc,heap     ] GC(0) Humongous regions: 9->9
+[0.460s][info][gc,metaspace] GC(0) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[0.460s][info][gc          ] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 222M->214M(4096M) 201.497ms
+[0.460s][info][gc,cpu      ] GC(0) User=0.39s Sys=2.16s Real=0.20s
+[0.520s][info][gc,start    ] GC(1) Pause Young (Normal) (G1 Evacuation Pause)
+[0.520s][info][gc,task     ] GC(1) Using 13 workers of 13 for evacuation
+[0.596s][info][gc,phases   ] GC(1)   Pre Evacuate Collection Set: 0.3ms
+[0.596s][info][gc,phases   ] GC(1)   Merge Heap Roots: 0.2ms
+[0.596s][info][gc,phases   ] GC(1)   Evacuate Collection Set: 74.9ms
+[0.596s][info][gc,phases   ] GC(1)   Post Evacuate Collection Set: 0.5ms
+[0.596s][info][gc,phases   ] GC(1)   Other: 0.2ms
+[0.596s][info][gc,heap     ] GC(1) Eden regions: 89->0(89)
+[0.596s][info][gc,heap     ] GC(1) Survivor regions: 13->13(13)
+[0.596s][info][gc,heap     ] GC(1) Old regions: 86->178
+[0.596s][info][gc,heap     ] GC(1) Archive regions: 0->0
+[0.596s][info][gc,heap     ] GC(1) Humongous regions: 9->9
+[0.596s][info][gc,metaspace] GC(1) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[0.596s][info][gc          ] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 392M->399M(4096M) 76.051ms
+[0.596s][info][gc,cpu      ] GC(1) User=0.75s Sys=0.21s Real=0.08s
+[0.656s][info][gc,start    ] GC(2) Pause Young (Normal) (G1 Evacuation Pause)
+[0.656s][info][gc,task     ] GC(2) Using 13 workers of 13 for evacuation
+[0.732s][info][gc,phases   ] GC(2)   Pre Evacuate Collection Set: 0.4ms
+[0.732s][info][gc,phases   ] GC(2)   Merge Heap Roots: 0.2ms
+[0.732s][info][gc,phases   ] GC(2)   Evacuate Collection Set: 74.9ms
+[0.732s][info][gc,phases   ] GC(2)   Post Evacuate Collection Set: 0.6ms
+[0.732s][info][gc,phases   ] GC(2)   Other: 0.1ms
+[0.732s][info][gc,heap     ] GC(2) Eden regions: 89->0(89)
+[0.732s][info][gc,heap     ] GC(2) Survivor regions: 13->13(13)
+[0.732s][info][gc,heap     ] GC(2) Old regions: 178->271
+[0.732s][info][gc,heap     ] GC(2) Archive regions: 0->0
+[0.732s][info][gc,heap     ] GC(2) Humongous regions: 9->9
+[0.732s][info][gc,metaspace] GC(2) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[0.732s][info][gc          ] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 577M->585M(4096M) 76.197ms
+[0.732s][info][gc,cpu      ] GC(2) User=0.83s Sys=0.14s Real=0.07s
+[0.793s][info][gc,start    ] GC(3) Pause Young (Normal) (G1 Evacuation Pause)
+[0.793s][info][gc,task     ] GC(3) Using 13 workers of 13 for evacuation
+[0.871s][info][gc,phases   ] GC(3)   Pre Evacuate Collection Set: 0.4ms
+[0.871s][info][gc,phases   ] GC(3)   Merge Heap Roots: 0.2ms
+[0.871s][info][gc,phases   ] GC(3)   Evacuate Collection Set: 76.9ms
+[0.871s][info][gc,phases   ] GC(3)   Post Evacuate Collection Set: 0.4ms
+[0.871s][info][gc,phases   ] GC(3)   Other: 0.1ms
+[0.871s][info][gc,heap     ] GC(3) Eden regions: 89->0(89)
+[0.871s][info][gc,heap     ] GC(3) Survivor regions: 13->13(13)
+[0.871s][info][gc,heap     ] GC(3) Old regions: 271->363
+[0.871s][info][gc,heap     ] GC(3) Archive regions: 0->0
+[0.871s][info][gc,heap     ] GC(3) Humongous regions: 9->9
+[0.871s][info][gc,metaspace] GC(3) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[0.871s][info][gc          ] GC(3) Pause Young (Normal) (G1 Evacuation Pause) 763M->770M(4096M) 78.069ms
+[0.871s][info][gc,cpu      ] GC(3) User=0.77s Sys=0.22s Real=0.08s
+[0.933s][info][gc,start    ] GC(4) Pause Young (Normal) (G1 Evacuation Pause)
+[0.933s][info][gc,task     ] GC(4) Using 13 workers of 13 for evacuation
+[1.005s][info][gc,phases   ] GC(4)   Pre Evacuate Collection Set: 0.3ms
+[1.005s][info][gc,phases   ] GC(4)   Merge Heap Roots: 0.2ms
+[1.005s][info][gc,phases   ] GC(4)   Evacuate Collection Set: 71.5ms
+[1.005s][info][gc,phases   ] GC(4)   Post Evacuate Collection Set: 0.4ms
+[1.005s][info][gc,phases   ] GC(4)   Other: 0.1ms
+[1.005s][info][gc,heap     ] GC(4) Eden regions: 89->0(89)
+[1.005s][info][gc,heap     ] GC(4) Survivor regions: 13->13(13)
+[1.005s][info][gc,heap     ] GC(4) Old regions: 363->457
+[1.005s][info][gc,heap     ] GC(4) Archive regions: 0->0
+[1.005s][info][gc,heap     ] GC(4) Humongous regions: 9->9
+[1.005s][info][gc,metaspace] GC(4) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[1.005s][info][gc          ] GC(4) Pause Young (Normal) (G1 Evacuation Pause) 948M->957M(4096M) 72.550ms
+[1.005s][info][gc,cpu      ] GC(4) User=0.85s Sys=0.08s Real=0.08s
+[1.064s][info][gc,start    ] GC(5) Pause Young (Normal) (G1 Evacuation Pause)
+[1.064s][info][gc,task     ] GC(5) Using 13 workers of 13 for evacuation
+[1.142s][info][gc,phases   ] GC(5)   Pre Evacuate Collection Set: 0.3ms
+[1.142s][info][gc,phases   ] GC(5)   Merge Heap Roots: 0.3ms
+[1.142s][info][gc,phases   ] GC(5)   Evacuate Collection Set: 76.5ms
+[1.142s][info][gc,phases   ] GC(5)   Post Evacuate Collection Set: 0.5ms
+[1.142s][info][gc,phases   ] GC(5)   Other: 0.1ms
+[1.142s][info][gc,heap     ] GC(5) Eden regions: 89->0(89)
+[1.142s][info][gc,heap     ] GC(5) Survivor regions: 13->13(13)
+[1.142s][info][gc,heap     ] GC(5) Old regions: 457->549
+[1.142s][info][gc,heap     ] GC(5) Archive regions: 0->0
+[1.142s][info][gc,heap     ] GC(5) Humongous regions: 9->9
+[1.142s][info][gc,metaspace] GC(5) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[1.142s][info][gc          ] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 1135M->1141M(4096M) 77.799ms
+[1.142s][info][gc,cpu      ] GC(5) User=0.68s Sys=0.32s Real=0.07s
+[1.201s][info][gc,start    ] GC(6) Pause Young (Normal) (G1 Evacuation Pause)
+[1.201s][info][gc,task     ] GC(6) Using 13 workers of 13 for evacuation
+[1.280s][info][gc,phases   ] GC(6)   Pre Evacuate Collection Set: 0.3ms
+[1.280s][info][gc,phases   ] GC(6)   Merge Heap Roots: 0.2ms
+[1.280s][info][gc,phases   ] GC(6)   Evacuate Collection Set: 78.3ms
+[1.280s][info][gc,phases   ] GC(6)   Post Evacuate Collection Set: 0.5ms
+[1.280s][info][gc,phases   ] GC(6)   Other: 0.1ms
+[1.280s][info][gc,heap     ] GC(6) Eden regions: 89->0(89)
+[1.280s][info][gc,heap     ] GC(6) Survivor regions: 13->13(13)
+[1.280s][info][gc,heap     ] GC(6) Old regions: 549->642
+[1.280s][info][gc,heap     ] GC(6) Archive regions: 0->0
+[1.280s][info][gc,heap     ] GC(6) Humongous regions: 9->9
+[1.280s][info][gc,metaspace] GC(6) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[1.280s][info][gc          ] GC(6) Pause Young (Normal) (G1 Evacuation Pause) 1319M->1328M(4096M) 79.587ms
+[1.280s][info][gc,cpu      ] GC(6) User=0.85s Sys=0.17s Real=0.08s
+[1.340s][info][gc,start    ] GC(7) Pause Young (Normal) (G1 Evacuation Pause)
+[1.340s][info][gc,task     ] GC(7) Using 13 workers of 13 for evacuation
+[1.415s][info][gc,phases   ] GC(7)   Pre Evacuate Collection Set: 0.3ms
+[1.415s][info][gc,phases   ] GC(7)   Merge Heap Roots: 0.2ms
+[1.415s][info][gc,phases   ] GC(7)   Evacuate Collection Set: 73.5ms
+[1.415s][info][gc,phases   ] GC(7)   Post Evacuate Collection Set: 0.6ms
+[1.415s][info][gc,phases   ] GC(7)   Other: 0.1ms
+[1.415s][info][gc,heap     ] GC(7) Eden regions: 89->0(89)
+[1.415s][info][gc,heap     ] GC(7) Survivor regions: 13->13(13)
+[1.415s][info][gc,heap     ] GC(7) Old regions: 642->735
+[1.415s][info][gc,heap     ] GC(7) Archive regions: 0->0
+[1.415s][info][gc,heap     ] GC(7) Humongous regions: 9->9
+[1.415s][info][gc,metaspace] GC(7) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[1.415s][info][gc          ] GC(7) Pause Young (Normal) (G1 Evacuation Pause) 1506M->1514M(4096M) 74.764ms
+[1.415s][info][gc,cpu      ] GC(7) User=0.81s Sys=0.14s Real=0.08s
+[1.474s][info][gc,start    ] GC(8) Pause Young (Normal) (G1 Evacuation Pause)
+[1.474s][info][gc,task     ] GC(8) Using 13 workers of 13 for evacuation
+[1.552s][info][gc,phases   ] GC(8)   Pre Evacuate Collection Set: 0.3ms
+[1.552s][info][gc,phases   ] GC(8)   Merge Heap Roots: 0.2ms
+[1.552s][info][gc,phases   ] GC(8)   Evacuate Collection Set: 76.7ms
+[1.552s][info][gc,phases   ] GC(8)   Post Evacuate Collection Set: 0.7ms
+[1.552s][info][gc,phases   ] GC(8)   Other: 0.1ms
+[1.552s][info][gc,heap     ] GC(8) Eden regions: 89->0(89)
+[1.552s][info][gc,heap     ] GC(8) Survivor regions: 13->13(13)
+[1.552s][info][gc,heap     ] GC(8) Old regions: 735->828
+[1.552s][info][gc,heap     ] GC(8) Archive regions: 0->0
+[1.552s][info][gc,heap     ] GC(8) Humongous regions: 9->9
+[1.552s][info][gc,metaspace] GC(8) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[1.552s][info][gc          ] GC(8) Pause Young (Normal) (G1 Evacuation Pause) 1692M->1699M(4096M) 78.181ms
+[1.552s][info][gc,cpu      ] GC(8) User=0.77s Sys=0.22s Real=0.07s
+[1.611s][info][gc,start    ] GC(9) Pause Young (Normal) (G1 Evacuation Pause)
+[1.611s][info][gc,task     ] GC(9) Using 13 workers of 13 for evacuation
+[1.688s][info][gc,phases   ] GC(9)   Pre Evacuate Collection Set: 0.4ms
+[1.688s][info][gc,phases   ] GC(9)   Merge Heap Roots: 0.3ms
+[1.688s][info][gc,phases   ] GC(9)   Evacuate Collection Set: 74.9ms
+[1.688s][info][gc,phases   ] GC(9)   Post Evacuate Collection Set: 0.7ms
+[1.688s][info][gc,phases   ] GC(9)   Other: 0.1ms
+[1.688s][info][gc,heap     ] GC(9) Eden regions: 89->0(89)
+[1.688s][info][gc,heap     ] GC(9) Survivor regions: 13->13(13)
+[1.688s][info][gc,heap     ] GC(9) Old regions: 828->921
+[1.688s][info][gc,heap     ] GC(9) Archive regions: 0->0
+[1.688s][info][gc,heap     ] GC(9) Humongous regions: 9->9
+[1.688s][info][gc,metaspace] GC(9) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[1.688s][info][gc          ] GC(9) Pause Young (Normal) (G1 Evacuation Pause) 1877M->1886M(4096M) 76.464ms
+[1.688s][info][gc,cpu      ] GC(9) User=0.80s Sys=0.17s Real=0.08s
+[1.747s][info][gc,start    ] GC(10) Pause Young (Concurrent Start) (G1 Evacuation Pause)
+[1.747s][info][gc,task     ] GC(10) Using 13 workers of 13 for evacuation
+[1.821s][info][gc,phases   ] GC(10)   Pre Evacuate Collection Set: 0.3ms
+[1.821s][info][gc,phases   ] GC(10)   Merge Heap Roots: 0.2ms
+[1.821s][info][gc,phases   ] GC(10)   Evacuate Collection Set: 72.5ms
+[1.821s][info][gc,phases   ] GC(10)   Post Evacuate Collection Set: 0.5ms
+[1.821s][info][gc,phases   ] GC(10)   Other: 0.2ms
+[1.821s][info][gc,heap     ] GC(10) Eden regions: 89->0(89)
+[1.821s][info][gc,heap     ] GC(10) Survivor regions: 13->13(13)
+[1.821s][info][gc,heap     ] GC(10) Old regions: 921->1015
+[1.821s][info][gc,heap     ] GC(10) Archive regions: 0->0
+[1.821s][info][gc,heap     ] GC(10) Humongous regions: 9->9
+[1.821s][info][gc,metaspace] GC(10) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[1.821s][info][gc          ] GC(10) Pause Young (Concurrent Start) (G1 Evacuation Pause) 2064M->2073M(4096M) 73.812ms
+[1.821s][info][gc,cpu      ] GC(10) User=0.71s Sys=0.23s Real=0.07s
+[1.821s][info][gc          ] GC(11) Concurrent Mark Cycle
+[1.821s][info][gc,marking  ] GC(11) Concurrent Clear Claimed Marks
+[1.821s][info][gc,marking  ] GC(11) Concurrent Clear Claimed Marks 0.021ms
+[1.821s][info][gc,marking  ] GC(11) Concurrent Scan Root Regions
+[1.844s][info][gc,marking  ] GC(11) Concurrent Scan Root Regions 22.726ms
+[1.844s][info][gc,marking  ] GC(11) Concurrent Mark
+[1.844s][info][gc,marking  ] GC(11) Concurrent Mark From Roots
+[1.844s][info][gc,task     ] GC(11) Using 3 workers of 3 for marking
+[1.996s][info][gc,start    ] GC(12) Pause Young (Normal) (G1 Evacuation Pause)
+[1.996s][info][gc,task     ] GC(12) Using 13 workers of 13 for evacuation
+[2.070s][info][gc,phases   ] GC(12)   Pre Evacuate Collection Set: 0.3ms
+[2.070s][info][gc,phases   ] GC(12)   Merge Heap Roots: 0.3ms
+[2.070s][info][gc,phases   ] GC(12)   Evacuate Collection Set: 72.0ms
+[2.070s][info][gc,phases   ] GC(12)   Post Evacuate Collection Set: 0.6ms
+[2.070s][info][gc,phases   ] GC(12)   Other: 0.1ms
+[2.070s][info][gc,heap     ] GC(12) Eden regions: 89->0(89)
+[2.070s][info][gc,heap     ] GC(12) Survivor regions: 13->13(13)
+[2.070s][info][gc,heap     ] GC(12) Old regions: 1015->1107
+[2.070s][info][gc,heap     ] GC(12) Archive regions: 0->0
+[2.070s][info][gc,heap     ] GC(12) Humongous regions: 26->26
+[2.070s][info][gc,metaspace] GC(12) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[2.070s][info][gc          ] GC(12) Pause Young (Normal) (G1 Evacuation Pause) 2285M->2292M(4096M) 73.386ms
+[2.070s][info][gc,cpu      ] GC(12) User=0.81s Sys=0.12s Real=0.07s
+[2.147s][info][gc,start    ] GC(13) Pause Young (Normal) (G1 Evacuation Pause)
+[2.147s][info][gc,task     ] GC(13) Using 13 workers of 13 for evacuation
+[2.220s][info][gc,phases   ] GC(13)   Pre Evacuate Collection Set: 0.3ms
+[2.220s][info][gc,phases   ] GC(13)   Merge Heap Roots: 0.2ms
+[2.220s][info][gc,phases   ] GC(13)   Evacuate Collection Set: 72.5ms
+[2.220s][info][gc,phases   ] GC(13)   Post Evacuate Collection Set: 0.6ms
+[2.220s][info][gc,phases   ] GC(13)   Other: 0.2ms
+[2.220s][info][gc,heap     ] GC(13) Eden regions: 89->0(89)
+[2.220s][info][gc,heap     ] GC(13) Survivor regions: 13->13(13)
+[2.220s][info][gc,heap     ] GC(13) Old regions: 1107->1201
+[2.220s][info][gc,heap     ] GC(13) Archive regions: 0->0
+[2.220s][info][gc,heap     ] GC(13) Humongous regions: 26->26
+[2.220s][info][gc,metaspace] GC(13) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[2.220s][info][gc          ] GC(13) Pause Young (Normal) (G1 Evacuation Pause) 2470M->2479M(4096M) 73.812ms
+[2.221s][info][gc,cpu      ] GC(13) User=0.81s Sys=0.13s Real=0.07s
+[2.303s][info][gc,start    ] GC(14) Pause Young (Normal) (G1 Evacuation Pause)
+[2.303s][info][gc,task     ] GC(14) Using 13 workers of 13 for evacuation
+[2.378s][info][gc,phases   ] GC(14)   Pre Evacuate Collection Set: 0.4ms
+[2.378s][info][gc,phases   ] GC(14)   Merge Heap Roots: 0.3ms
+[2.378s][info][gc,phases   ] GC(14)   Evacuate Collection Set: 74.2ms
+[2.378s][info][gc,phases   ] GC(14)   Post Evacuate Collection Set: 0.6ms
+[2.378s][info][gc,phases   ] GC(14)   Other: 0.1ms
+[2.378s][info][gc,heap     ] GC(14) Eden regions: 89->0(159)
+[2.378s][info][gc,heap     ] GC(14) Survivor regions: 13->13(13)
+[2.378s][info][gc,heap     ] GC(14) Old regions: 1201->1293
+[2.378s][info][gc,heap     ] GC(14) Archive regions: 0->0
+[2.378s][info][gc,heap     ] GC(14) Humongous regions: 26->26
+[2.378s][info][gc,metaspace] GC(14) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[2.378s][info][gc          ] GC(14) Pause Young (Normal) (G1 Evacuation Pause) 2657M->2663M(4096M) 75.647ms
+[2.378s][info][gc,cpu      ] GC(14) User=0.82s Sys=0.14s Real=0.08s
+[2.566s][info][gc,start    ] GC(15) Pause Young (Normal) (G1 Evacuation Pause)
+[2.566s][info][gc,task     ] GC(15) Using 13 workers of 13 for evacuation
+[2.720s][info][gc,phases   ] GC(15)   Pre Evacuate Collection Set: 0.4ms
+[2.720s][info][gc,phases   ] GC(15)   Merge Heap Roots: 0.2ms
+[2.720s][info][gc,phases   ] GC(15)   Evacuate Collection Set: 152.9ms
+[2.720s][info][gc,phases   ] GC(15)   Post Evacuate Collection Set: 0.6ms
+[2.720s][info][gc,phases   ] GC(15)   Other: 0.2ms
+[2.720s][info][gc,heap     ] GC(15) Eden regions: 159->0(108)
+[2.720s][info][gc,heap     ] GC(15) Survivor regions: 13->22(22)
+[2.720s][info][gc,heap     ] GC(15) Old regions: 1293->1447
+[2.720s][info][gc,heap     ] GC(15) Archive regions: 0->0
+[2.720s][info][gc,heap     ] GC(15) Humongous regions: 26->26
+[2.720s][info][gc,metaspace] GC(15) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[2.720s][info][gc          ] GC(15) Pause Young (Normal) (G1 Evacuation Pause) 2981M->2990M(4096M) 154.391ms
+[2.720s][info][gc,cpu      ] GC(15) User=1.58s Sys=0.41s Real=0.15s
+[2.834s][info][gc,start    ] GC(16) Pause Young (Normal) (G1 Evacuation Pause)
+[2.834s][info][gc,task     ] GC(16) Using 13 workers of 13 for evacuation
+[2.935s][info][gc,phases   ] GC(16)   Pre Evacuate Collection Set: 0.3ms
+[2.935s][info][gc,phases   ] GC(16)   Merge Heap Roots: 0.2ms
+[2.935s][info][gc,phases   ] GC(16)   Evacuate Collection Set: 100.0ms
+[2.935s][info][gc,phases   ] GC(16)   Post Evacuate Collection Set: 0.7ms
+[2.935s][info][gc,phases   ] GC(16)   Other: 0.2ms
+[2.935s][info][gc,heap     ] GC(16) Eden regions: 108->0(85)
+[2.935s][info][gc,heap     ] GC(16) Survivor regions: 22->17(17)
+[2.935s][info][gc,heap     ] GC(16) Old regions: 1447->1563
+[2.935s][info][gc,heap     ] GC(16) Archive regions: 0->0
+[2.935s][info][gc,heap     ] GC(16) Humongous regions: 26->26
+[2.935s][info][gc,metaspace] GC(16) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[2.935s][info][gc          ] GC(16) Pause Young (Normal) (G1 Evacuation Pause) 3206M->3212M(4096M) 101.478ms
+[2.935s][info][gc,cpu      ] GC(16) User=0.95s Sys=0.34s Real=0.10s
+[3.034s][info][gc,start    ] GC(17) Pause Young (Normal) (G1 Evacuation Pause)
+[3.034s][info][gc,task     ] GC(17) Using 13 workers of 13 for evacuation
+[3.115s][info][gc,phases   ] GC(17)   Pre Evacuate Collection Set: 0.3ms
+[3.116s][info][gc,phases   ] GC(17)   Merge Heap Roots: 0.2ms
+[3.116s][info][gc,phases   ] GC(17)   Evacuate Collection Set: 80.4ms
+[3.116s][info][gc,phases   ] GC(17)   Post Evacuate Collection Set: 0.5ms
+[3.116s][info][gc,phases   ] GC(17)   Other: 0.1ms
+[3.116s][info][gc,heap     ] GC(17) Eden regions: 85->0(89)
+[3.116s][info][gc,heap     ] GC(17) Survivor regions: 17->13(13)
+[3.116s][info][gc,heap     ] GC(17) Old regions: 1563->1657
+[3.116s][info][gc,heap     ] GC(17) Archive regions: 0->0
+[3.116s][info][gc,heap     ] GC(17) Humongous regions: 26->26
+[3.116s][info][gc,metaspace] GC(17) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[3.116s][info][gc          ] GC(17) Pause Young (Normal) (G1 Evacuation Pause) 3382M->3392M(4096M) 81.576ms
+[3.116s][info][gc,cpu      ] GC(17) User=0.81s Sys=0.23s Real=0.08s
+[3.199s][info][gc,start    ] GC(18) Pause Young (Normal) (G1 Evacuation Pause)
+[3.199s][info][gc,task     ] GC(18) Using 13 workers of 13 for evacuation
+[3.279s][info][gc,phases   ] GC(18)   Pre Evacuate Collection Set: 0.3ms
+[3.279s][info][gc,phases   ] GC(18)   Merge Heap Roots: 0.2ms
+[3.279s][info][gc,phases   ] GC(18)   Evacuate Collection Set: 78.8ms
+[3.279s][info][gc,phases   ] GC(18)   Post Evacuate Collection Set: 0.5ms
+[3.279s][info][gc,phases   ] GC(18)   Other: 0.1ms
+[3.279s][info][gc,heap     ] GC(18) Eden regions: 89->0(89)
+[3.279s][info][gc,heap     ] GC(18) Survivor regions: 13->13(13)
+[3.279s][info][gc,heap     ] GC(18) Old regions: 1657->1751
+[3.279s][info][gc,heap     ] GC(18) Archive regions: 0->0
+[3.279s][info][gc,heap     ] GC(18) Humongous regions: 26->26
+[3.279s][info][gc,metaspace] GC(18) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[3.279s][info][gc          ] GC(18) Pause Young (Normal) (G1 Evacuation Pause) 3570M->3580M(4096M) 79.995ms
+[3.279s][info][gc,cpu      ] GC(18) User=0.83s Sys=0.20s Real=0.08s
+Garbage collecting...
+[3.281s][info][gc,task     ] GC(19) Using 13 workers of 13 for full compaction
+[3.281s][info][gc,start    ] GC(19) Pause Full (System.gc())
+[3.292s][info][gc,phases,start] GC(19) Phase 1: Mark live objects
+[3.997s][info][gc,phases      ] GC(19) Phase 1: Mark live objects 705.277ms
+[3.997s][info][gc,phases,start] GC(19) Phase 2: Prepare for compaction
+[4.013s][info][gc,phases      ] GC(19) Phase 2: Prepare for compaction 16.095ms
+[4.013s][info][gc,phases,start] GC(19) Phase 3: Adjust pointers
+[4.250s][info][gc,phases      ] GC(19) Phase 3: Adjust pointers 237.116ms
+[4.250s][info][gc,phases,start] GC(19) Phase 4: Compact heap
+[4.268s][info][gc,phases      ] GC(19) Phase 4: Compact heap 17.394ms
+[4.284s][info][gc,heap        ] GC(19) Eden regions: 3->0(102)
+[4.284s][info][gc,heap        ] GC(19) Survivor regions: 13->0(13)
+[4.284s][info][gc,heap        ] GC(19) Old regions: 1751->1704
+[4.284s][info][gc,heap        ] GC(19) Archive regions: 0->0
+[4.284s][info][gc,heap        ] GC(19) Humongous regions: 26->17
+[4.284s][info][gc,metaspace   ] GC(19) Metaspace: 7978K(8192K)->7978K(8192K) NonClass: 7277K(7424K)->7277K(7424K) Class: 701K(768K)->701K(768K)
+[4.284s][info][gc             ] GC(19) Pause Full (System.gc()) 3584M->3428M(4096M) 1002.752ms
+[4.284s][info][gc,cpu         ] GC(19) User=12.69s Sys=0.18s Real=1.01s
+[4.285s][info][gc,marking     ] GC(11) Concurrent Mark From Roots 2440.440ms
+[4.285s][info][gc,marking     ] GC(11) Concurrent Mark Abort
+[4.285s][info][gc             ] GC(11) Concurrent Mark Cycle 2463.354ms
+Finished; memory remaining: 700412552 bytes
+Garbage collecting...
+[4.349s][info][gc,task        ] GC(20) Using 13 workers of 13 for full compaction
+[4.349s][info][gc,start       ] GC(20) Pause Full (System.gc())
+[4.349s][info][gc,phases,start] GC(20) Phase 1: Mark live objects
+[5.262s][info][gc,phases      ] GC(20) Phase 1: Mark live objects 912.586ms
+[5.262s][info][gc,phases,start] GC(20) Phase 2: Prepare for compaction
+[5.269s][info][gc,phases      ] GC(20) Phase 2: Prepare for compaction 7.583ms
+[5.269s][info][gc,phases,start] GC(20) Phase 3: Adjust pointers
+[5.504s][info][gc,phases      ] GC(20) Phase 3: Adjust pointers 234.245ms
+[5.504s][info][gc,phases,start] GC(20) Phase 4: Compact heap
+[5.506s][info][gc,phases      ] GC(20) Phase 4: Compact heap 2.176ms
+[5.512s][info][gc,heap        ] GC(20) Eden regions: 78->0(102)
+[5.512s][info][gc,heap        ] GC(20) Survivor regions: 0->0(13)
+[5.512s][info][gc,heap        ] GC(20) Old regions: 1704->1780
+[5.512s][info][gc,heap        ] GC(20) Archive regions: 0->0
+[5.512s][info][gc,heap        ] GC(20) Humongous regions: 17->17
+[5.512s][info][gc,metaspace   ] GC(20) Metaspace: 8027K(8192K)->8027K(8192K) NonClass: 7316K(7424K)->7316K(7424K) Class: 710K(768K)->710K(768K)
+[5.512s][info][gc             ] GC(20) Pause Full (System.gc()) 3584M->3582M(4096M) 1162.969ms
+[5.512s][info][gc,cpu         ] GC(20) User=13.44s Sys=0.00s Real=1.16s
+Finished; memory remaining: 538611712 bytes
+Garbage collecting...
+[5.513s][info][gc,task        ] GC(21) Using 13 workers of 13 for full compaction
+[5.513s][info][gc,start       ] GC(21) Pause Full (System.gc())
+[5.514s][info][gc,phases,start] GC(21) Phase 1: Mark live objects
+[6.327s][info][gc,phases      ] GC(21) Phase 1: Mark live objects 813.487ms
+[6.327s][info][gc,phases,start] GC(21) Phase 2: Prepare for compaction
+[6.329s][info][gc,phases      ] GC(21) Phase 2: Prepare for compaction 2.032ms
+[6.329s][info][gc,phases,start] GC(21) Phase 3: Adjust pointers
+[6.512s][info][gc,phases      ] GC(21) Phase 3: Adjust pointers 182.613ms
+[6.512s][info][gc,phases,start] GC(21) Phase 4: Compact heap
+[6.513s][info][gc,phases      ] GC(21) Phase 4: Compact heap 1.156ms
+[6.518s][info][gc,heap        ] GC(21) Eden regions: 1->0(102)
+[6.518s][info][gc,heap        ] GC(21) Survivor regions: 0->0(13)
+[6.518s][info][gc,heap        ] GC(21) Old regions: 1780->1780
+[6.518s][info][gc,heap        ] GC(21) Archive regions: 0->0
+[6.518s][info][gc,heap        ] GC(21) Humongous regions: 17->17
+[6.518s][info][gc,metaspace   ] GC(21) Metaspace: 8027K(8192K)->8027K(8192K) NonClass: 7316K(7424K)->7316K(7424K) Class: 710K(768K)->710K(768K)
+[6.518s][info][gc             ] GC(21) Pause Full (System.gc()) 3584M->3583M(4096M) 1004.676ms
+[6.518s][info][gc,cpu         ] GC(21) User=12.87s Sys=0.02s Real=1.00s
+Finished; memory remaining: 537562880 bytes
+2024-09-26 16:03:58 - Created 5564194 keys, using 3573MB; that's 673 bytes per record; free memory = 511MB; reserved memory = 536870912 bytes; uptime = 6 seconds
+DONE!
+2024-09-26 16:03:59 - Hit rate = 0.9000520267367261; total hits = 1112377; total misses = 123526; total reads = 1235903; free memory = 368MB; max time taken = 37.632375999999994ms; uptime = 7 seconds
+[7.907s][info][gc,start       ] GC(22) Pause Young (Concurrent Start) (G1 Evacuation Pause)
+[7.907s][info][gc,task        ] GC(22) Using 13 workers of 13 for evacuation
+[7.981s][info][gc,phases      ] GC(22)   Pre Evacuate Collection Set: 0.4ms
+[7.981s][info][gc,phases      ] GC(22)   Merge Heap Roots: 1.4ms
+[7.981s][info][gc,phases      ] GC(22)   Evacuate Collection Set: 70.5ms
+[7.981s][info][gc,phases      ] GC(22)   Post Evacuate Collection Set: 1.4ms
+[7.981s][info][gc,phases      ] GC(22)   Other: 0.2ms
+[7.981s][info][gc,heap        ] GC(22) Eden regions: 102->0(89)
+[7.981s][info][gc,heap        ] GC(22) Survivor regions: 0->13(13)
+[7.981s][info][gc,heap        ] GC(22) Old regions: 1780->1827
+[7.981s][info][gc,heap        ] GC(22) Archive regions: 0->0
+[7.981s][info][gc,heap        ] GC(22) Humongous regions: 17->17
+[7.981s][info][gc,metaspace   ] GC(22) Metaspace: 8445K(8704K)->8445K(8704K) NonClass: 7677K(7808K)->7677K(7808K) Class: 767K(896K)->767K(896K)
+[7.981s][info][gc             ] GC(22) Pause Young (Concurrent Start) (G1 Evacuation Pause) 3787M->3702M(4096M) 73.950ms
+[7.981s][info][gc,cpu         ] GC(22) User=0.90s Sys=0.04s Real=0.07s
+[7.981s][info][gc             ] GC(23) Concurrent Mark Cycle
+[7.981s][info][gc,marking     ] GC(23) Concurrent Clear Claimed Marks
+[7.981s][info][gc,marking     ] GC(23) Concurrent Clear Claimed Marks 0.073ms
+[7.981s][info][gc,marking     ] GC(23) Concurrent Scan Root Regions
+[8.018s][info][gc,marking     ] GC(23) Concurrent Scan Root Regions 36.480ms
+[8.018s][info][gc,marking     ] GC(23) Concurrent Mark
+[8.018s][info][gc,marking     ] GC(23) Concurrent Mark From Roots
+[8.018s][info][gc,task        ] GC(23) Using 3 workers of 3 for marking
+2024-09-26 16:04:00 - Hit rate = 0.8993656354862268; total hits = 942090; total misses = 105415; total reads = 1047505; free memory = 350MB; max time taken = 74.342923ms; uptime = 8 seconds
+2024-09-26 16:04:01 - Hit rate = 0.9006767536149414; total hits = 886365; total misses = 97745; total reads = 984110; free memory = 272MB; max time taken = 74.342923ms; uptime = 9 seconds
+[10.136s][info][gc,marking     ] GC(23) Concurrent Mark From Roots 2118.133ms
+[10.136s][info][gc,marking     ] GC(23) Concurrent Preclean
+[10.136s][info][gc,marking     ] GC(23) Concurrent Preclean 0.086ms
+[10.137s][info][gc,start       ] GC(23) Pause Remark
+[10.138s][info][gc             ] GC(23) Pause Remark 3868M->3868M(4096M) 1.865ms
+[10.139s][info][gc,cpu         ] GC(23) User=0.00s Sys=0.00s Real=0.00s
+[10.139s][info][gc,marking     ] GC(23) Concurrent Mark 2120.734ms
+[10.139s][info][gc,marking     ] GC(23) Concurrent Rebuild Remembered Sets
+[10.280s][info][gc,start       ] GC(24) Pause Young (Normal) (G1 Evacuation Pause)
+[10.280s][info][gc,task        ] GC(24) Using 13 workers of 13 for evacuation
+[10.393s][info][gc,phases      ] GC(24)   Pre Evacuate Collection Set: 0.3ms
+[10.393s][info][gc,phases      ] GC(24)   Merge Heap Roots: 1.9ms
+[10.393s][info][gc,phases      ] GC(24)   Evacuate Collection Set: 109.9ms
+[10.393s][info][gc,phases      ] GC(24)   Post Evacuate Collection Set: 1.2ms
+[10.393s][info][gc,phases      ] GC(24)   Other: 0.1ms
+[10.393s][info][gc,heap        ] GC(24) Eden regions: 89->0(89)
+[10.393s][info][gc,heap        ] GC(24) Survivor regions: 13->13(13)
+[10.393s][info][gc,heap        ] GC(24) Old regions: 1827->1901
+[10.393s][info][gc,heap        ] GC(24) Archive regions: 0->0
+[10.393s][info][gc,heap        ] GC(24) Humongous regions: 17->17
+[10.393s][info][gc,metaspace   ] GC(24) Metaspace: 8445K(8704K)->8445K(8704K) NonClass: 7677K(7808K)->7677K(7808K) Class: 767K(896K)->767K(896K)
+[10.393s][info][gc             ] GC(24) Pause Young (Normal) (G1 Evacuation Pause) 3880M->3851M(4096M) 113.420ms
+[10.393s][info][gc,cpu         ] GC(24) User=1.36s Sys=0.09s Real=0.12s
+2024-09-26 16:04:02 - Hit rate = 0.900517532207877; total hits = 783706; total misses = 86578; total reads = 870284; free memory = 233MB; max time taken = 114.059387ms; uptime = 10 seconds
+[11.141s][info][gc,marking     ] GC(23) Concurrent Rebuild Remembered Sets 1001.880ms
+[11.141s][info][gc,start       ] GC(23) Pause Cleanup
+[11.141s][info][gc             ] GC(23) Pause Cleanup 3913M->3913M(4096M) 0.474ms
+[11.142s][info][gc,cpu         ] GC(23) User=0.01s Sys=0.00s Real=0.00s
+[11.142s][info][gc,marking     ] GC(23) Concurrent Cleanup for Next Mark
+[11.147s][info][gc,marking     ] GC(23) Concurrent Cleanup for Next Mark 5.061ms
+[11.147s][info][gc             ] GC(23) Concurrent Mark Cycle 3165.446ms
+3092130048254
+[11.324s][info][gc,heap,exit   ] Heap
+[11.324s][info][gc,heap,exit   ]  garbage-first heap   total 4194304K, used 4026167K [0x0000000700000000, 0x0000000800000000)
+[11.324s][info][gc,heap,exit   ]   region size 2048K, 54 young (110592K), 13 survivors (26624K)
+[11.324s][info][gc,heap,exit   ]  Metaspace       used 8468K, committed 8704K, reserved 1114112K
+[11.324s][info][gc,heap,exit   ]   class space    used 770K, committed 896K, reserved 1048576K
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/2258)*----------
+cd /home/webliu/TencentKona-17/JTwork/scratch && \\
+DISPLAY=:0 \\
+HOME=/home/webliu \\
+JTREG_HOME=/home/webliu/jtreg/build/images/jtreg \\
+LANG=C.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+WAYLAND_DISPLAY=wayland-0 \\
+XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \\
+CLASSPATH=/home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d:/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/JTwork/classes/test/lib:/home/webliu/TencentKona-17/test/lib:/home/webliu/jtreg/build/images/jtreg/lib/javatest.jar:/home/webliu/jtreg/build/images/jtreg/lib/jtreg.jar \\
+    /home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk/bin/java \\
+        -Dtest.vm.opts= \\
+        -Dtest.tool.vm.opts= \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts= \\
+        -Dtest.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dcompile.jdk=/home/webliu/TencentKona-17/build/linux-x86_64-server-release/jdk \\
+        -Dtest.timeout.factor=1.0 \\
+        -Dtest.root=/home/webliu/TencentKona-17/test/hotspot/jtreg \\
+        -Dtest.name=gc/BigRamTester.java \\
+        -Dtest.file=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc/BigRamTester.java \\
+        -Dtest.src=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc \\
+        -Dtest.src.path=/home/webliu/TencentKona-17/test/hotspot/jtreg/gc:/home/webliu/TencentKona-17/test/lib \\
+        -Dtest.classes=/home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d \\
+        -Dtest.class.path=/home/webliu/TencentKona-17/JTwork/classes/gc/BigRamTester.d:/home/webliu/TencentKona-17/JTwork/classes/test/lib \\
+        -Dtest.modules='java.base/java.util java.base/java.text java.base/java.util.concurrent' \\
+        --add-modules java.base \\
+        --add-exports java.base/java.util=ALL-UNNAMED \\
+        --add-exports java.base/java.text=ALL-UNNAMED \\
+        --add-exports java.base/java.util.concurrent=ALL-UNNAMED \\
+        -Xbootclasspath/a:. \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+WhiteBoxAPI \\
+        -XX:+UseG1GC \\
+        -Xlog:gc* \\
+        -Xlog:gc:g1gc.log \\
+        -Xms4g \\
+        -Xmx4g \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/webliu/TencentKona-17/JTwork/gc/BigRamTester.d/main.2.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful
