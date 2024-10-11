@@ -1,0 +1,164 @@
+diff --git a/src/hotspot/share/gc/g1/g1Policy.cpp b/src/hotspot/share/gc/g1/g1Policy.cpp
+index f41181060c5..3e27fbd9d1b 100644
+--- a/src/hotspot/share/gc/g1/g1Policy.cpp
++++ b/src/hotspot/share/gc/g1/g1Policy.cpp
+@@ -49,14 +49,16 @@
+ #include "utilities/debug.hpp"
+ #include "utilities/growableArray.hpp"
+ #include "utilities/pair.hpp"
++#include <functional>
+ 
+ G1Policy::G1Policy(STWGCTimer* gc_timer) :
+   _predictor(G1ConfidencePercent / 100.0),
+-  _analytics(new G1Analytics(&_predictor)),
+-  _remset_tracker(),
+-  _mmu_tracker(new G1MMUTracker(GCPauseIntervalMillis / 1000.0, MaxGCPauseMillis / 1000.0)),
++  _analytics(new G1Analytics(&_predictor)),_remset_tracker(),
++  _mmu_tracker(new G1MMUTracker(GCPauseIntervalMillis / 1000.0,
++  MaxGCPauseMillis / 1000.0)),
+   _old_gen_alloc_tracker(),
+   _ihop_control(create_ihop_control(&_old_gen_alloc_tracker, &_predictor)),
++  mixedgccontrol(G1MixedGCCountTarget,G1OldCSetRegionThresholdPercent,&_old_gen_alloc_tracker, &_predictor),
+   _policy_counters(new GCPolicyCounters("GarbageFirst", 1, 2)),
+   _full_collection_start_sec(0.0),
+   _young_list_target_length(0),
+@@ -665,7 +667,6 @@ void G1Policy::record_collection_pause_end(double pause_time_ms, bool concurrent
+   }
+ 
+   record_pause(this_pause, start_time_sec, end_time_sec);
+-
+   if (G1GCPauseTypeHelper::is_last_young_pause(this_pause)) {
+     assert(!G1GCPauseTypeHelper::is_concurrent_start_pause(this_pause),
+            "The young GC before mixed is not allowed to be concurrent start GC");
+@@ -784,8 +785,8 @@ void G1Policy::record_collection_pause_end(double pause_time_ms, bool concurrent
+   update_rs_length_prediction();
+   update_survival_estimates_for_next_collection();
+ 
+-  // Do not update dynamic IHOP due to G1 periodic collection as it is highly likely
+-  // that in this case we are not running in a "normal" operating mode.
++  // Do not update dynamic IHOP due to G1 periodic collection as it is highly
++  // likely that in this case we are not running in a "normal" operating mode.
+   if (_g1h->gc_cause() != GCCause::_g1_periodic_collection) {
+     // IHOP control wants to know the expected young gen length if it were not
+     // restrained by the heap reserve. Using the actual length would make the
+@@ -793,19 +794,41 @@ void G1Policy::record_collection_pause_end(double pause_time_ms, bool concurrent
+     // predicted target occupancy.
+     size_t last_unrestrained_young_length = update_young_list_max_and_target_length();
+ 
+-    _old_gen_alloc_tracker.reset_after_gc(_g1h->humongous_regions_count() * HeapRegion::GrainBytes);
+-    update_ihop_prediction(app_time_ms / 1000.0,
++    _old_gen_alloc_tracker.reset_after_gc(_g1h->humongous_regions_count() *
++                                          HeapRegion::GrainBytes);
++    G1ConcurrentStartToMixedTimeTracker temp = _concurrent_start_to_mixed;
++    update_ihop_prediction(
++        app_time_ms / 1000.0,
++        last_unrestrained_young_length * HeapRegion::GrainBytes,
++        G1GCPauseTypeHelper::is_young_only_pause(this_pause));
++    _concurrent_start_to_mixed = temp;
++    
++    class CalculateGarbageBytesClosure : public HeapRegionClosure {
++      public:
++        size_t _total_garbage_bytes;
++        CalculateGarbageBytesClosure() : _total_garbage_bytes(0) {}
++        bool do_heap_region(HeapRegion* hr) override{
++          size_t garbage_bytes = hr->used();
++          _total_garbage_bytes += garbage_bytes;
++          // printf("HeapRegion %p garbage_bytes: %lf used bytes %lf marked bytes %lf marked bytes %lf live bytes %lf region size %lf\n", hr, garbage_bytes, hr->used() * 1.0, hr->next_marked_bytes() * 1.0, hr->marked_bytes() * 1.0, hr->live_bytes() * 1.0, hr->max_region_size() * 1.0);
++          return false;
++        }
++      };
++    CalculateGarbageBytesClosure closure;
++    _collection_set->iterate(&closure);
++    // printf("%s\n",G1GCPauseTypeHelper::is_young_only_pause(this_pause) ? "young" : "old");
++    // printf("calculate garbage bytes %ld!\n", closure._total_garbage_bytes);
++    update_mixedgc_prediction(app_time_ms / 1000.0,
+                            last_unrestrained_young_length * HeapRegion::GrainBytes,
+-                           G1GCPauseTypeHelper::is_young_only_pause(this_pause));
+-
++                           G1GCPauseTypeHelper::is_young_only_pause(this_pause), closure._total_garbage_bytes);
+     _ihop_control->send_trace_event(_g1h->gc_tracer_stw());
+   } else {
+-    // Any garbage collection triggered as periodic collection resets the time-to-mixed
+-    // measurement. Periodic collection typically means that the application is "inactive", i.e.
+-    // the marking threads may have received an uncharacterisic amount of cpu time
+-    // for completing the marking, i.e. are faster than expected.
+-    // This skews the predicted marking length towards smaller values which might cause
+-    // the mark start being too late.
++    // Any garbage collection triggered as periodic collection resets the
++    // time-to-mixed measurement. Periodic collection typically means that the
++    // application is "inactive", i.e. the marking threads may have received an
++    // uncharacterisic amount of cpu time for completing the marking, i.e. are
++    // faster than expected. This skews the predicted marking length towards
++    // smaller values which might cause the mark start being too late.
+     abort_time_to_mixed_tracking();
+   }
+ 
+@@ -883,6 +906,32 @@ void G1Policy::update_ihop_prediction(double mutator_time_s,
+   }
+ }
+ 
++
++void G1Policy::update_mixedgc_prediction(double mutator_time_s,
++                                         size_t young_gen_size,
++                                         bool this_gc_was_young_only, size_t garbage_bytes) {
++  double const min_valid_time = 1e-6;
++
++  double marking_to_mixed_time = -1.0;
++  if (!this_gc_was_young_only && _concurrent_start_to_mixed.has_result()) {
++    marking_to_mixed_time = _concurrent_start_to_mixed.last_marking_time();
++    assert(marking_to_mixed_time > 0.0,
++           "Concurrent start to mixed time must be larger than zero but is %.3f",
++           marking_to_mixed_time);
++    if (marking_to_mixed_time > min_valid_time) {
++      mixedgccontrol.update_marking_length(marking_to_mixed_time);
++    }
++  }
++  // As an approximation for the young gc promotion rates during marking we use
++  // all of them. In many applications there are only a few if any young gcs during
++  // marking, which makes any prediction useless. This increases the accuracy of the
++  // prediction.
++  if (this_gc_was_young_only && mutator_time_s > min_valid_time) {
++    mixedgccontrol.update_allocation_info(mutator_time_s, young_gen_size);
++  }
++  
++  mixedgccontrol.update_garbage_info(mutator_time_s, garbage_bytes);
++}
+ void G1Policy::report_ihop_statistics() {
+   _ihop_control->print();
+ }
+@@ -1251,7 +1300,7 @@ size_t G1Policy::allowed_waste_in_collection_set() const {
+   return G1HeapWastePercent * _g1h->capacity() / 100;
+ }
+ 
+-uint G1Policy::calc_min_old_cset_length(G1CollectionSetCandidates* candidates) const {
++uint G1Policy::calc_min_old_cset_length(G1CollectionSetCandidates* candidates) {
+   // The min old CSet region bound is based on the maximum desired
+   // number of mixed GCs after a cycle. I.e., even if some old regions
+   // look expensive, we should add them to the CSet anyway to make
+@@ -1263,7 +1312,7 @@ uint G1Policy::calc_min_old_cset_length(G1CollectionSetCandidates* candidates) c
+   // that the result is the same during all mixed GCs that follow a cycle.
+ 
+   const size_t region_num = candidates->num_regions();
+-  const size_t gc_num = (size_t) MAX2(G1MixedGCCountTarget, (uintx) 1);
++  size_t gc_num = (size_t) MAX2(mixedgccontrol.getMixedGCCountTarget(), (uintx) 1);
+   size_t result = region_num / gc_num;
+   // emulate ceiling
+   if (result * gc_num < region_num) {
+@@ -1272,7 +1321,7 @@ uint G1Policy::calc_min_old_cset_length(G1CollectionSetCandidates* candidates) c
+   return (uint) result;
+ }
+ 
+-uint G1Policy::calc_max_old_cset_length() const {
++uint G1Policy::calc_max_old_cset_length() {
+   // The max old CSet region bound is based on the threshold expressed
+   // as a percentage of the heap size. I.e., it should bound the
+   // number of old regions added to the CSet irrespective of how many
+@@ -1280,7 +1329,7 @@ uint G1Policy::calc_max_old_cset_length() const {
+ 
+   const G1CollectedHeap* g1h = G1CollectedHeap::heap();
+   const size_t region_num = g1h->num_regions();
+-  const size_t perc = (size_t) G1OldCSetRegionThresholdPercent;
++  size_t perc = (size_t) mixedgccontrol.getOldCSetRegionThresholdPercent();
+   size_t result = region_num * perc / 100;
+   // emulate ceiling
+   if (100 * result < region_num * perc) {

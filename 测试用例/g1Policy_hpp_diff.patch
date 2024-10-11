@@ -1,0 +1,57 @@
+diff --git a/src/hotspot/share/gc/g1/g1Policy.hpp b/src/hotspot/share/gc/g1/g1Policy.hpp
+index 62afceaa7ef..14d1b4863c3 100644
+--- a/src/hotspot/share/gc/g1/g1Policy.hpp
++++ b/src/hotspot/share/gc/g1/g1Policy.hpp
+@@ -35,6 +35,7 @@
+ #include "gc/g1/g1Predictions.hpp"
+ #include "gc/g1/g1YoungGenSizer.hpp"
+ #include "gc/shared/gcCause.hpp"
++#include "gc/g1/g1MixedGCThresholdControl.hpp"
+ #include "utilities/pair.hpp"
+ 
+ // A G1Policy makes policy decisions that determine the
+@@ -51,6 +52,7 @@ class G1Analytics;
+ class G1SurvivorRegions;
+ class GCPolicyCounters;
+ class STWGCTimer;
++class CalculateGarbageBytesClosure;
+ 
+ class G1Policy: public CHeapObj<mtGC> {
+  private:
+@@ -58,9 +60,11 @@ class G1Policy: public CHeapObj<mtGC> {
+   static G1IHOPControl* create_ihop_control(const G1OldGenAllocationTracker* old_gen_alloc_tracker,
+                                             const G1Predictions* predictor);
+   // Update the IHOP control with necessary statistics.
+-  void update_ihop_prediction(double mutator_time_s,
+-                              size_t young_gen_size,
++  void update_ihop_prediction(double mutator_time_s, size_t young_gen_size,
+                               bool this_gc_was_young_only);
++  void update_mixedgc_prediction(double mutator_time_s,
++                              size_t young_gen_size,
++                              bool this_gc_was_young_only, size_t total_garbage_bytes);
+   void report_ihop_statistics();
+ 
+   G1Predictions _predictor;
+@@ -72,7 +76,7 @@ class G1Policy: public CHeapObj<mtGC> {
+   // two GCs.
+   G1OldGenAllocationTracker _old_gen_alloc_tracker;
+   G1IHOPControl* _ihop_control;
+-
++  G1AdaptiveMixedgcControl mixedgccontrol;
+   GCPolicyCounters* _policy_counters;
+ 
+   double _full_collection_start_sec;
+@@ -251,11 +255,11 @@ public:
+ 
+   // Calculate the minimum number of old regions we'll add to the CSet
+   // during a mixed GC.
+-  uint calc_min_old_cset_length(G1CollectionSetCandidates* candidates) const;
++  uint calc_min_old_cset_length(G1CollectionSetCandidates* candidates);
+ 
+   // Calculate the maximum number of old regions we'll add to the CSet
+   // during a mixed GC.
+-  uint calc_max_old_cset_length() const;
++  uint calc_max_old_cset_length();
+ 
+   // Returns the given amount of reclaimable bytes (that represents
+   // the amount of reclaimable space still to be collected) as a
