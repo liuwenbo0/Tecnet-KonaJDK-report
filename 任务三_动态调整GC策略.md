@@ -58,14 +58,14 @@ g1MixedGCThresholdControlh.cpp 和 g1MixedGCThresholdControl.hpp 则仿照 IHOPC
 
 测试 2 (日志包含 cset 信息)
 
-| 指标                    |  初始   |  修改后  |
-| :---------------------- | :-----: | :------: |
-| FullGC 次数             |    5    |    4     |
-| MixedGC 次数            |   10    |    6     |
-| To-space exhausted 次数 |   17    |    11    |
-| 最小 time remaining 值  | 94.29ms | 149.69ms |
-| 总 GC 次数              |   114   |   104    |
-| 程序运行时间            | 1.662s  |  1.630s  |
+| 指标                    |   初始   | 修改后  |
+| :---------------------- | :------: | :-----: |
+| FullGC 次数             |    5     |    4    |
+| MixedGC 次数            |    10    |    6    |
+| To-space exhausted 次数 |    17    |   11    |
+| 最小 time remaining 值  | 149.69ms | 94.29ms |
+| 总 GC 次数              |   114    |   104   |
+| 程序运行时间            |  1.662s  | 1.630s  |
 
 可以发现，总 GC 次数和程序运行时间基本不变，FullGC 次数、MixedGC 次数和 To-space exhausted 次数均下降，尽管 time remaining 有所减少但仍然是一个相对健康的值。
 
